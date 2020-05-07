@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ibutton-rescue)(type Legacy)(uri ${KIPRJMOD}/ibutton-rescue.lib)(options "")(descr ""))
+)
