@@ -166,8 +166,6 @@ Wire Wire Line
 Wire Wire Line
 	3250 2200 3250 4400
 Wire Wire Line
-	3250 4400 5100 4400
-Wire Wire Line
 	5000 3850 4900 3850
 Wire Wire Line
 	4900 3850 4900 4100
@@ -194,7 +192,6 @@ Wire Wire Line
 	6100 3050 5950 3050
 Wire Wire Line
 	5900 4150 6150 4150
-Connection ~ 5100 4400
 Wire Wire Line
 	6100 1000 7850 1000
 Wire Wire Line
@@ -302,8 +299,6 @@ F 3 "" H 3750 6000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6200 6650 6200 6850
-Wire Wire Line
-	5100 6650 5100 6600
 $Comp
 L ibutton-rescue:ATMEGA8-16AU U1
 U 1 1 59909598
@@ -428,17 +423,6 @@ Connection ~ 6700 4150
 Wire Wire Line
 	6700 4150 6600 4150
 $Comp
-L Device:CP C2
-U 1 1 5991EB55
-P 5100 6450
-F 0 "C2" H 5125 6550 50  0000 L CNN
-F 1 "0.1mF" H 5125 6350 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5138 6300 50  0001 C CNN
-F 3 "" H 5100 6450 50  0001 C CNN
-	1    5100 6450
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:CP C1
 U 1 1 5991F2CC
 P 3850 1000
@@ -501,8 +485,6 @@ Wire Wire Line
 	3250 1750 3250 1900
 Wire Wire Line
 	3250 1750 3700 1750
-Wire Wire Line
-	5100 4400 5500 4400
 Wire Wire Line
 	7850 2800 7850 2950
 Wire Wire Line
@@ -584,8 +566,6 @@ F 3 "~" H 5600 6250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5100 6650 5600 6650
-Wire Wire Line
 	6050 6100 6050 5900
 Connection ~ 6050 5900
 Wire Wire Line
@@ -606,7 +586,6 @@ Wire Wire Line
 	6050 6650 6200 6650
 Wire Wire Line
 	5600 6400 5600 6650
-Connection ~ 5600 6650
 Wire Wire Line
 	5600 6650 6050 6650
 NoConn ~ 6100 5200
@@ -649,9 +628,7 @@ Wire Wire Line
 Wire Wire Line
 	6400 4800 6400 4900
 Wire Wire Line
-	5100 4400 5100 6300
-Wire Wire Line
-	4150 4700 5500 4700
+	4150 4700 4850 4700
 Wire Wire Line
 	6500 4700 6500 4900
 Wire Wire Line
@@ -790,4 +767,14 @@ Wire Wire Line
 	5950 1300 5950 1350
 Wire Wire Line
 	6250 1300 6250 2100
+Wire Wire Line
+	3250 4400 4850 4400
+Wire Wire Line
+	4850 4700 4850 4400
+Connection ~ 4850 4700
+Wire Wire Line
+	4850 4700 5500 4700
+Connection ~ 4850 4400
+Wire Wire Line
+	4850 4400 5500 4400
 $EndSCHEMATC
