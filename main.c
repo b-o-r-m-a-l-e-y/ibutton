@@ -75,10 +75,10 @@ ISR(INT1_vect)
 // Включает заданные светодиоды по маске
 void set_leds(unsigned char leds_mask)
 {
-	if (leds_mask & (1<<0)) set_bit(LED1_PORT, LED1_PIN); else unset_bit(LED1_PORT, LED1_PIN); // top led
-	if (leds_mask & (1<<1)) set_bit(LED2_PORT, LED2_PIN); else unset_bit(LED2_PORT, LED2_PIN); // top-right led
-	if (leds_mask & (1<<2)) set_bit(LED3_PORT, LED3_PIN); else unset_bit(LED3_PORT, LED3_PIN); // bottom-right led
-	if (leds_mask & (1<<3)) set_bit(LED4_PORT, LED4_PIN); else unset_bit(LED4_PORT, LED4_PIN); // bottom led
+	if (leds_mask & (1<<0)) set_bit(PORTB, PIN4); else unset_bit(PORTB, PIN4); // top led
+	if (leds_mask & (1<<1)) set_bit(PORTB, PIN3); else unset_bit(PORTB, PIN3); // top-right led
+	if (leds_mask & (1<<2)) set_bit(PORTB, PIN2); else unset_bit(PORTB, PIN2); // bottom-right led
+	if (leds_mask & (1<<3)) set_bit(PORTB, PIN1); else unset_bit(PORTB, PIN1); // bottom led
 	if (leds_mask & (1<<4)) set_bit(LED5_PORT, LED5_PIN); else unset_bit(LED5_PORT, LED5_PIN); // bottom-left led	
 	if (leds_mask & (1<<5)) set_bit(LED6_PORT, LED6_PIN); else unset_bit(LED6_PORT, LED6_PIN); // top-left led	
 	if (leds_mask & (1<<6)) set_bit(LED7_PORT, LED7_PIN); else unset_bit(LED7_PORT, LED7_PIN); // center led	
@@ -114,6 +114,7 @@ void update_leds_bright(void)
 void show_digit(unsigned char digit)
 {
 	unsigned char mask = 0;
+	/*
 	switch (digit&0x0F)
 	{
 		case 0: mask = 0b00111111; break;
@@ -133,8 +134,11 @@ void show_digit(unsigned char digit)
 		case 0xE: mask = 0b01111001; break;
 		case 0xF: mask = 0b01110001; break;
 		default: mask = 0; break;
+
 	}
 	if (digit >> 4) mask |= (1<<7);
+	*/
+	mask = digit;
 	leds_mask = mask;
 	set_leds(mask);
 }

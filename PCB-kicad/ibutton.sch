@@ -49,12 +49,12 @@ $EndComp
 $Comp
 L power:GND #PWR04
 U 1 1 52DFEEB0
-P 4900 4100
-F 0 "#PWR04" H 4900 4100 30  0001 C CNN
-F 1 "GND" H 4900 4030 30  0001 C CNN
-F 2 "" H 4900 4100 60  0000 C CNN
-F 3 "" H 4900 4100 60  0000 C CNN
-	1    4900 4100
+P 5250 3750
+F 0 "#PWR04" H 5250 3750 30  0001 C CNN
+F 1 "GND" H 5250 3680 30  0001 C CNN
+F 2 "" H 5250 3750 60  0000 C CNN
+F 3 "" H 5250 3750 60  0000 C CNN
+	1    5250 3750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -158,27 +158,13 @@ F 3 "~" H 3600 2300 30  0000 C CNN
 $EndComp
 Connection ~ 6200 6650
 Wire Wire Line
-	5950 2850 7450 2850
-Wire Wire Line
-	5950 2950 7550 2950
-Wire Wire Line
-	5950 3150 6400 3150
-Wire Wire Line
 	3250 2200 3250 4400
-Wire Wire Line
-	5000 3850 4900 3850
-Wire Wire Line
-	4900 3850 4900 4100
 Wire Wire Line
 	3250 1600 3250 1750
 Wire Wire Line
 	2950 1750 3250 1750
 Wire Wire Line
-	3700 1750 3700 1450
-Wire Wire Line
 	3700 800  3850 800 
-Wire Wire Line
-	4900 800  4900 950 
 Connection ~ 3250 1750
 Wire Wire Line
 	3250 1150 3250 1300
@@ -186,10 +172,6 @@ Wire Wire Line
 	2100 1150 2100 1500
 Wire Wire Line
 	6700 3300 6100 3300
-Wire Wire Line
-	6100 3300 6100 3050
-Wire Wire Line
-	6100 3050 5950 3050
 Wire Wire Line
 	5900 4150 6150 4150
 Wire Wire Line
@@ -200,30 +182,13 @@ Wire Wire Line
 	7850 2600 7850 2800
 Wire Wire Line
 	7850 3250 7850 3500
-Wire Wire Line
-	5950 3550 7650 3550
-Wire Wire Line
-	7650 3550 7650 2800
-Wire Wire Line
-	7650 2800 7850 2800
 Connection ~ 7850 2800
 Wire Wire Line
 	5500 4400 5500 4150
 Wire Wire Line
-	4050 1950 3600 1950
-Wire Wire Line
 	3600 1950 3600 2150
 Wire Wire Line
 	3600 2450 3600 3000
-Wire Wire Line
-	2550 3900 3600 3900
-Wire Wire Line
-	6050 3900 6050 3450
-Wire Wire Line
-	6050 3350 5950 3350
-Wire Wire Line
-	5950 3450 6050 3450
-Connection ~ 6050 3450
 $Comp
 L Device:R R6
 U 1 1 52E00128
@@ -263,9 +228,6 @@ Wire Wire Line
 	4050 2150 4050 3400
 Wire Wire Line
 	4050 3400 3600 3400
-Wire Wire Line
-	3700 1450 4050 1450
-Connection ~ 3700 1450
 $Comp
 L power:GND #PWR09
 U 1 1 52E0054A
@@ -300,17 +262,6 @@ $EndComp
 Wire Wire Line
 	6200 6650 6200 6850
 $Comp
-L ibutton-rescue:ATMEGA8-16AU U1
-U 1 1 59909598
-P 4950 2250
-F 0 "U1" H 4200 3450 50  0000 L BNN
-F 1 "ATMEGA8-16AU" H 5450 700 50  0000 L BNN
-F 2 "Package_DIP:DIP-32_W7.62mm" H 4950 2250 50  0001 C CIN
-F 3 "" H 4950 2250 50  0001 C CNN
-	1    4950 2250
-	1    0    0    -1  
-$EndComp
-$Comp
 L ibutton-rescue:SW_Push SW1
 U 1 1 59909D47
 P 6600 3150
@@ -327,9 +278,6 @@ Wire Wire Line
 	6900 3150 6900 3350
 Wire Wire Line
 	5500 4150 5600 4150
-Wire Wire Line
-	5000 800  5000 950 
-Connection ~ 4900 800 
 Wire Wire Line
 	3850 850  3850 800 
 Connection ~ 3850 800 
@@ -387,8 +335,6 @@ F 3 "" H 2450 3100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3900 2800 3900 2700
-Wire Wire Line
-	3900 2700 2550 2700
 Wire Wire Line
 	2050 2700 2050 2900
 Wire Wire Line
@@ -488,17 +434,7 @@ Wire Wire Line
 Wire Wire Line
 	7850 2800 7850 2950
 Wire Wire Line
-	6050 3450 6050 3350
-Wire Wire Line
-	3700 1450 3700 800 
-Wire Wire Line
 	3750 5850 3750 6000
-Wire Wire Line
-	4900 800  5000 800 
-Wire Wire Line
-	3850 800  4900 800 
-Wire Wire Line
-	2550 3200 2950 3200
 Wire Wire Line
 	2550 3200 2550 3900
 Wire Wire Line
@@ -520,10 +456,6 @@ F 3 "http://www.datasheet5.com/pdf-local-2195953" H 6150 6300 50  0001 C CNN
 	1    6500 5500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7450 2850 7450 5100
-Wire Wire Line
-	7550 2950 7550 5200
 Wire Wire Line
 	6500 6100 6500 6650
 Wire Wire Line
@@ -661,8 +593,6 @@ Connection ~ 5500 4700
 Wire Wire Line
 	5500 4700 6500 4700
 Wire Wire Line
-	5950 1250 6100 1250
-Wire Wire Line
 	6100 1250 6100 1000
 $Comp
 L Device:LED D3
@@ -731,34 +661,24 @@ Wire Wire Line
 	6300 1850 6350 1850
 Wire Wire Line
 	6250 2100 6600 2100
-NoConn ~ 5950 3250
+NoConn ~ 5850 3050
 NoConn ~ 4150 5600
-NoConn ~ 4050 1550
-NoConn ~ 4050 1650
-NoConn ~ 4050 1250
-NoConn ~ 5950 2650
-NoConn ~ 5950 2550
-NoConn ~ 5950 2450
-NoConn ~ 5950 2350
-NoConn ~ 5950 2250
-NoConn ~ 5950 2150
-NoConn ~ 5950 2050
-NoConn ~ 5950 1950
-NoConn ~ 5950 1750
+NoConn ~ 4650 1250
+NoConn ~ 5850 2450
+NoConn ~ 5850 2350
+NoConn ~ 5850 2250
+NoConn ~ 5850 2150
+NoConn ~ 5850 2050
+NoConn ~ 5850 1950
+NoConn ~ 5850 1750
 Wire Wire Line
 	6350 1350 6150 1350
 Wire Wire Line
 	6150 1350 6150 1650
 Wire Wire Line
-	6150 1650 5950 1650
-Wire Wire Line
 	6600 1600 6050 1600
 Wire Wire Line
 	6050 1600 6050 1550
-Wire Wire Line
-	6050 1550 5950 1550
-Wire Wire Line
-	6300 1450 5950 1450
 Wire Wire Line
 	6300 1450 6300 1850
 Wire Wire Line
@@ -777,4 +697,93 @@ Wire Wire Line
 Connection ~ 4850 4400
 Wire Wire Line
 	4850 4400 5500 4400
+$Comp
+L MCU_Microchip_ATmega:ATmega8-16PU U3
+U 1 1 5EB77FFF
+P 5250 2350
+F 0 "U3" H 4800 3800 50  0000 C CNN
+F 1 "ATmega8-16PU" H 4800 3700 50  0000 C CNN
+F 2 "Package_DIP:DIP-28_W7.62mm" H 5250 2350 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2486-8-bit-avr-microcontroller-atmega8_l_datasheet.pdf" H 5250 2350 50  0001 C CNN
+	1    5250 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 1250 6100 1250
+Wire Wire Line
+	5850 1350 5950 1350
+Wire Wire Line
+	5850 1450 6300 1450
+Wire Wire Line
+	5850 1550 6050 1550
+Wire Wire Line
+	5850 1650 6150 1650
+Wire Wire Line
+	7450 2650 5850 2650
+Wire Wire Line
+	7450 2650 7450 5100
+Wire Wire Line
+	7550 2750 5850 2750
+Wire Wire Line
+	7550 2750 7550 5200
+Wire Wire Line
+	6100 2850 5850 2850
+Wire Wire Line
+	6100 2850 6100 3300
+Wire Wire Line
+	6400 3150 6400 2950
+Wire Wire Line
+	6400 2950 5850 2950
+Wire Wire Line
+	6050 3150 5850 3150
+Wire Wire Line
+	2550 3900 3600 3900
+Wire Wire Line
+	2550 2700 3900 2700
+Wire Wire Line
+	2550 3200 2950 3200
+Wire Wire Line
+	6050 3150 6050 3250
+Wire Wire Line
+	5850 3250 6050 3250
+Connection ~ 6050 3250
+Wire Wire Line
+	6050 3250 6050 3900
+Wire Wire Line
+	7650 2800 7850 2800
+Wire Wire Line
+	5850 3350 6000 3350
+Wire Wire Line
+	6000 3350 6000 3500
+Wire Wire Line
+	6000 3500 7650 3500
+Wire Wire Line
+	7650 3500 7650 2800
+Wire Wire Line
+	5350 3750 5250 3750
+Connection ~ 5250 3750
+Wire Wire Line
+	4100 1950 4100 1450
+Wire Wire Line
+	4100 1450 4650 1450
+Wire Wire Line
+	3600 1950 4100 1950
+Wire Wire Line
+	4050 2150 4400 2150
+Wire Wire Line
+	4400 2150 4400 1650
+Wire Wire Line
+	4400 1650 4650 1650
+Wire Wire Line
+	3700 800  3700 1750
+Wire Wire Line
+	5250 800  5250 950 
+Wire Wire Line
+	3850 800  5250 800 
+Wire Wire Line
+	5250 800  5350 800 
+Wire Wire Line
+	5350 800  5350 950 
+Connection ~ 5250 800 
+NoConn ~ 4650 1850
 $EndSCHEMATC
