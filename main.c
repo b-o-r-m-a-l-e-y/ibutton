@@ -79,9 +79,9 @@ void set_leds(unsigned char leds_mask)
 	if (leds_mask & (1<<1)) set_bit(PORTB, PIN3); else unset_bit(PORTB, PIN3); // top-right led
 	if (leds_mask & (1<<2)) set_bit(PORTB, PIN2); else unset_bit(PORTB, PIN2); // bottom-right led
 	if (leds_mask & (1<<3)) set_bit(PORTB, PIN1); else unset_bit(PORTB, PIN1); // bottom led
-	if (leds_mask & (1<<4)) set_bit(LED5_PORT, LED5_PIN); else unset_bit(LED5_PORT, LED5_PIN); // bottom-left led	
-	if (leds_mask & (1<<5)) set_bit(LED6_PORT, LED6_PIN); else unset_bit(LED6_PORT, LED6_PIN); // top-left led	
-	if (leds_mask & (1<<6)) set_bit(LED7_PORT, LED7_PIN); else unset_bit(LED7_PORT, LED7_PIN); // center led	
+	//if (leds_mask & (1<<4)) set_bit(LED5_PORT, LED5_PIN); else unset_bit(LED5_PORT, LED5_PIN); // bottom-left led	
+	//if (leds_mask & (1<<5)) set_bit(LED6_PORT, LED6_PIN); else unset_bit(LED6_PORT, LED6_PIN); // top-left led	
+	//if (leds_mask & (1<<6)) set_bit(LED7_PORT, LED7_PIN); else unset_bit(LED7_PORT, LED7_PIN); // center led	
 }
 
 // Ускоряет мигание светодиодами
