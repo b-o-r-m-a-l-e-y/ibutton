@@ -14,14 +14,14 @@
 #include "usb.h"
 
 // Некоторые универсальные ключи
-unsigned char VEZDEHOD_KEY1[] PROGMEM = {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3D};
-unsigned char VEZDEHOD_KEY2[] PROGMEM = {0x01, 0xBE, 0x40, 0x11, 0x5A, 0x36, 0x00, 0xE1};
-unsigned char VEZDEHOD_KEY3[] PROGMEM = {0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x2F};
-unsigned char VEZDEHOD_KEY4[] PROGMEM = {0xFE, 0xFF, 0xFF, 0xFF, 0xFF};
-unsigned char VEZDEHOD_KEY5[] PROGMEM = {0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x9B};
-unsigned char VEZDEHOD_KEY6[] PROGMEM = {0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x1A};
-unsigned char VEZDEHOD_KEY7[] PROGMEM = {0xFF, 0xFF, 0xFF};
-unsigned char VEZDEHOD_KEY8[] PROGMEM = {0xFF, 0x00, 0x00};
+const unsigned char VEZDEHOD_KEY1[] PROGMEM = {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3D};
+const unsigned char VEZDEHOD_KEY2[] PROGMEM = {0x01, 0xBE, 0x40, 0x11, 0x5A, 0x36, 0x00, 0xE1};
+const unsigned char VEZDEHOD_KEY3[] PROGMEM = {0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x2F};
+const unsigned char VEZDEHOD_KEY4[] PROGMEM = {0xFE, 0xFF, 0xFF, 0xFF, 0xFF};
+const unsigned char VEZDEHOD_KEY5[] PROGMEM = {0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x9B};
+const unsigned char VEZDEHOD_KEY6[] PROGMEM = {0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x1A};
+const unsigned char VEZDEHOD_KEY7[] PROGMEM = {0xFF, 0xFF, 0xFF};
+const unsigned char VEZDEHOD_KEY8[] PROGMEM = {0xFF, 0x00, 0x00};
 /*
 unsigned char VEZDEHOD_KEY9[] PROGMEM = {0x01, 0xBE, 0x40, 0x11, 0x0A, 0x00, 0x00, 0x1D};
 unsigned char VEZDEHOD_KEY10[] PROGMEM = {0x01, 0x05, 0xE7, 0x56, 0x0B, 0x00, 0x00, 0x4D};
@@ -167,7 +167,7 @@ int read_mode()
 	unsigned char serial[8];
 	char read_ok = 0;
 
-	leds_mask = 1<<6; // Во время считывания мигаем средним светодиодом
+	leds_mask = 1<<2; // Во время считывания мигаем третьим светодиодом
 	while (BUTTON_PRESSED)
 	{
 		wdt_reset();
@@ -260,7 +260,7 @@ int read_mode()
 					_delay_ms(1);					
 				}
 			}			
-			leds_mask = 1<<6;
+			leds_mask = 1<<3;
 		}
 	}
 }
@@ -508,7 +508,7 @@ void sleep()
 int main (void)
 {
 	UCSRB = 0; // Выключаем UART, из-за него ток утекает, куда не надо
-
+	/*
 	set_bit(LED1_DDR, LED1_PIN); // top led
 	set_bit(LED2_DDR, LED2_PIN); // top-right led
 	set_bit(LED3_DDR, LED3_PIN); // bottom-right led
@@ -516,7 +516,12 @@ int main (void)
 	set_bit(LED5_DDR, LED5_PIN); // bottom-left led	
 	set_bit(LED6_DDR, LED6_PIN); // top-left led	
 	set_bit(LED7_DDR, LED7_PIN); // center led	
-	
+	*/
+	set_bit(DDRB, PIN1);
+	set_bit(DDRB, PIN2);
+	set_bit(DDRB, PIN3);
+	set_bit(DDRB, PIN4);
+
 	unset_bit(BUTTON_DDR, BUTTON_PIN);	set_bit(BUTTON_OUT, BUTTON_PIN); // Подтяжка кнопки
 	unset_bit(USB_DETECT_DDR, USB_DETECT_PIN);	set_bit(USB_DETECT_OUT, USB_DETECT_PIN); // Подтяжка определения USB	
 	unset_bit(CYFRAL_PULLUP_DDR, CYFRAL_PULLUP_PIN); unset_bit(CYFRAL_PULLUP_OUT, CYFRAL_PULLUP_PIN); // Подтяжка 750 Ом выключена
@@ -555,7 +560,7 @@ int main (void)
 		do
 		{
 			// При включении показываем бегущий по кругу светодиод
-			for(b = 0; b < 6; b++)
+			for(b = 0; b < 3; b++)
 			{
 				//set_leds(1<<b);
 				leds_mask = 1<<b;

@@ -1,0 +1,4536 @@
+
+ibutton.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001562  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000008c  00800060  00001562  000015f6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000133  008000ec  008000ec  00001682  2**0
+                  ALLOC
+  3 .stab         00003f3c  00000000  00000000  00001684  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      000016ad  00000000  00000000  000055c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  00006c6d  2**0
+                  CONTENTS, READONLY
+  6 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00006c80  2**2
+                  CONTENTS, READONLY
+  7 .debug_info   0000048c  00000000  00000000  00006cbc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 0000044e  00000000  00000000  00007148  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   0000001a  00000000  00000000  00007596  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000017a  00000000  00000000  000075b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	2c c0       	rjmp	.+88     	; 0x5a <__ctors_end>
+       2:	47 c0       	rjmp	.+142    	; 0x92 <__vector_1>
+       4:	55 c0       	rjmp	.+170    	; 0xb0 <__vector_2>
+       6:	44 c0       	rjmp	.+136    	; 0x90 <__bad_interrupt>
+       8:	43 c0       	rjmp	.+134    	; 0x90 <__bad_interrupt>
+       a:	42 c0       	rjmp	.+132    	; 0x90 <__bad_interrupt>
+       c:	41 c0       	rjmp	.+130    	; 0x90 <__bad_interrupt>
+       e:	40 c0       	rjmp	.+128    	; 0x90 <__bad_interrupt>
+      10:	3f c0       	rjmp	.+126    	; 0x90 <__bad_interrupt>
+      12:	3e c0       	rjmp	.+124    	; 0x90 <__bad_interrupt>
+      14:	3d c0       	rjmp	.+122    	; 0x90 <__bad_interrupt>
+      16:	82 c7       	rjmp	.+3844   	; 0xf1c <__vector_11>
+      18:	3b c0       	rjmp	.+118    	; 0x90 <__bad_interrupt>
+      1a:	3a c0       	rjmp	.+116    	; 0x90 <__bad_interrupt>
+      1c:	39 c0       	rjmp	.+114    	; 0x90 <__bad_interrupt>
+      1e:	38 c0       	rjmp	.+112    	; 0x90 <__bad_interrupt>
+      20:	37 c0       	rjmp	.+110    	; 0x90 <__bad_interrupt>
+      22:	36 c0       	rjmp	.+108    	; 0x90 <__bad_interrupt>
+      24:	35 c0       	rjmp	.+106    	; 0x90 <__bad_interrupt>
+
+00000026 <VEZDEHOD_KEY8>:
+      26:	ff 00 00                                            ...
+
+00000029 <VEZDEHOD_KEY7>:
+      29:	ff ff ff                                            ...
+
+0000002c <VEZDEHOD_KEY6>:
+      2c:	01 ff ff ff ff ff 00 1a                             ........
+
+00000034 <VEZDEHOD_KEY5>:
+      34:	01 ff ff ff ff 00 00 9b                             ........
+
+0000003c <VEZDEHOD_KEY4>:
+      3c:	fe ff ff ff ff                                      .....
+
+00000041 <VEZDEHOD_KEY3>:
+      41:	01 ff ff ff ff ff ff 2f                             ......./
+
+00000049 <VEZDEHOD_KEY2>:
+      49:	01 be 40 11 5a 36 00 e1                             ..@.Z6..
+
+00000051 <VEZDEHOD_KEY1>:
+      51:	01 00 00 00 00 00 00 3d 00                          .......=.
+
+0000005a <__ctors_end>:
+      5a:	11 24       	eor	r1, r1
+      5c:	1f be       	out	0x3f, r1	; 63
+      5e:	cf e5       	ldi	r28, 0x5F	; 95
+      60:	d4 e0       	ldi	r29, 0x04	; 4
+      62:	de bf       	out	0x3e, r29	; 62
+      64:	cd bf       	out	0x3d, r28	; 61
+
+00000066 <__do_copy_data>:
+      66:	10 e0       	ldi	r17, 0x00	; 0
+      68:	a0 e6       	ldi	r26, 0x60	; 96
+      6a:	b0 e0       	ldi	r27, 0x00	; 0
+      6c:	e2 e6       	ldi	r30, 0x62	; 98
+      6e:	f5 e1       	ldi	r31, 0x15	; 21
+      70:	02 c0       	rjmp	.+4      	; 0x76 <__do_copy_data+0x10>
+      72:	05 90       	lpm	r0, Z+
+      74:	0d 92       	st	X+, r0
+      76:	ac 3e       	cpi	r26, 0xEC	; 236
+      78:	b1 07       	cpc	r27, r17
+      7a:	d9 f7       	brne	.-10     	; 0x72 <__do_copy_data+0xc>
+
+0000007c <__do_clear_bss>:
+      7c:	22 e0       	ldi	r18, 0x02	; 2
+      7e:	ac ee       	ldi	r26, 0xEC	; 236
+      80:	b0 e0       	ldi	r27, 0x00	; 0
+      82:	01 c0       	rjmp	.+2      	; 0x86 <.do_clear_bss_start>
+
+00000084 <.do_clear_bss_loop>:
+      84:	1d 92       	st	X+, r1
+
+00000086 <.do_clear_bss_start>:
+      86:	af 31       	cpi	r26, 0x1F	; 31
+      88:	b2 07       	cpc	r27, r18
+      8a:	e1 f7       	brne	.-8      	; 0x84 <.do_clear_bss_loop>
+      8c:	91 d9       	rcall	.-3294   	; 0xfffff3b0 <__eeprom_end+0xff7ef3b0>
+      8e:	67 ca       	rjmp	.-2866   	; 0xfffff55e <__eeprom_end+0xff7ef55e>
+
+00000090 <__bad_interrupt>:
+      90:	b7 cf       	rjmp	.-146    	; 0x0 <__vectors>
+
+00000092 <__vector_1>:
+#else
+#define WRITE_LOG(t) ;
+#endif
+
+ISR(INT0_vect)
+{
+      92:	1f 92       	push	r1
+      94:	0f 92       	push	r0
+      96:	0f b6       	in	r0, 0x3f	; 63
+      98:	0f 92       	push	r0
+      9a:	11 24       	eor	r1, r1
+      9c:	8f 93       	push	r24
+	// Выключаем прерывание после срабатывания
+	// Его цель - только вывести устройство из спящего режима
+	unset_bit(GICR, INT0);
+      9e:	8b b7       	in	r24, 0x3b	; 59
+      a0:	8f 7b       	andi	r24, 0xBF	; 191
+      a2:	8b bf       	out	0x3b, r24	; 59
+}
+      a4:	8f 91       	pop	r24
+      a6:	0f 90       	pop	r0
+      a8:	0f be       	out	0x3f, r0	; 63
+      aa:	0f 90       	pop	r0
+      ac:	1f 90       	pop	r1
+      ae:	18 95       	reti
+
+000000b0 <__vector_2>:
+
+ISR(INT1_vect)
+{
+      b0:	1f 92       	push	r1
+      b2:	0f 92       	push	r0
+      b4:	0f b6       	in	r0, 0x3f	; 63
+      b6:	0f 92       	push	r0
+      b8:	11 24       	eor	r1, r1
+      ba:	8f 93       	push	r24
+	// Выключаем прерывание после срабатывания
+	// Его цель - только вывести устройство из спящего режима
+	unset_bit(GICR, INT1);
+      bc:	8b b7       	in	r24, 0x3b	; 59
+      be:	8f 77       	andi	r24, 0x7F	; 127
+      c0:	8b bf       	out	0x3b, r24	; 59
+}
+      c2:	8f 91       	pop	r24
+      c4:	0f 90       	pop	r0
+      c6:	0f be       	out	0x3f, r0	; 63
+      c8:	0f 90       	pop	r0
+      ca:	1f 90       	pop	r1
+      cc:	18 95       	reti
+
+000000ce <set_leds>:
+void set_leds(unsigned char leds_mask)
+{
+	//if (leds_mask & (1<<4)) set_bit(LED5_PORT, LED5_PIN); else unset_bit(LED5_PORT, LED5_PIN); // bottom-left led	
+	//if (leds_mask & (1<<5)) set_bit(LED6_PORT, LED6_PIN); else unset_bit(LED6_PORT, LED6_PIN); // top-left led	
+	//if (leds_mask & (1<<6)) set_bit(LED7_PORT, LED7_PIN); else unset_bit(LED7_PORT, LED7_PIN); // center led	
+	if (leds_mask & (1<<3)) set_bit(PORTB, PIN1); else unset_bit(PORTB, PIN1); // bottom led
+      ce:	83 ff       	sbrs	r24, 3
+      d0:	0b c0       	rjmp	.+22     	; 0xe8 <set_leds+0x1a>
+      d2:	c1 9a       	sbi	0x18, 1	; 24
+	if (leds_mask & (1<<2)) set_bit(PORTB, PIN2); else unset_bit(PORTB, PIN2); // bottom-right led
+      d4:	82 ff       	sbrs	r24, 2
+      d6:	0b c0       	rjmp	.+22     	; 0xee <set_leds+0x20>
+      d8:	c2 9a       	sbi	0x18, 2	; 24
+	if (leds_mask & (1<<1)) set_bit(PORTB, PIN3); else unset_bit(PORTB, PIN3); // top-right led
+      da:	81 ff       	sbrs	r24, 1
+      dc:	0b c0       	rjmp	.+22     	; 0xf4 <set_leds+0x26>
+      de:	c3 9a       	sbi	0x18, 3	; 24
+	if (leds_mask & (1<<0)) set_bit(PORTB, PIN4); else unset_bit(PORTB, PIN4); // top led
+      e0:	80 fd       	sbrc	r24, 0
+      e2:	0b c0       	rjmp	.+22     	; 0xfa <set_leds+0x2c>
+      e4:	c4 98       	cbi	0x18, 4	; 24
+      e6:	08 95       	ret
+void set_leds(unsigned char leds_mask)
+{
+	//if (leds_mask & (1<<4)) set_bit(LED5_PORT, LED5_PIN); else unset_bit(LED5_PORT, LED5_PIN); // bottom-left led	
+	//if (leds_mask & (1<<5)) set_bit(LED6_PORT, LED6_PIN); else unset_bit(LED6_PORT, LED6_PIN); // top-left led	
+	//if (leds_mask & (1<<6)) set_bit(LED7_PORT, LED7_PIN); else unset_bit(LED7_PORT, LED7_PIN); // center led	
+	if (leds_mask & (1<<3)) set_bit(PORTB, PIN1); else unset_bit(PORTB, PIN1); // bottom led
+      e8:	c1 98       	cbi	0x18, 1	; 24
+	if (leds_mask & (1<<2)) set_bit(PORTB, PIN2); else unset_bit(PORTB, PIN2); // bottom-right led
+      ea:	82 fd       	sbrc	r24, 2
+      ec:	f5 cf       	rjmp	.-22     	; 0xd8 <set_leds+0xa>
+      ee:	c2 98       	cbi	0x18, 2	; 24
+	if (leds_mask & (1<<1)) set_bit(PORTB, PIN3); else unset_bit(PORTB, PIN3); // top-right led
+      f0:	81 fd       	sbrc	r24, 1
+      f2:	f5 cf       	rjmp	.-22     	; 0xde <set_leds+0x10>
+      f4:	c3 98       	cbi	0x18, 3	; 24
+	if (leds_mask & (1<<0)) set_bit(PORTB, PIN4); else unset_bit(PORTB, PIN4); // top led
+      f6:	80 ff       	sbrs	r24, 0
+      f8:	f5 cf       	rjmp	.-22     	; 0xe4 <set_leds+0x16>
+      fa:	c4 9a       	sbi	0x18, 4	; 24
+      fc:	08 95       	ret
+
+000000fe <speedup_leds>:
+}
+
+// Ускоряет мигание светодиодами
+void speedup_leds(void)
+{
+	leds_time+=32;
+      fe:	80 91 ed 00 	lds	r24, 0x00ED	; 0x8000ed <leds_time>
+     102:	90 91 ee 00 	lds	r25, 0x00EE	; 0x8000ee <leds_time+0x1>
+     106:	80 96       	adiw	r24, 0x20	; 32
+     108:	90 93 ee 00 	sts	0x00EE, r25	; 0x8000ee <leds_time+0x1>
+     10c:	80 93 ed 00 	sts	0x00ED, r24	; 0x8000ed <leds_time>
+     110:	08 95       	ret
+
+00000112 <update_leds>:
+
+// Зажигаем следующий светодиод, если надо,
+// т.е. в каждый момент времени горит только один
+void update_leds(void)
+{
+	leds_time++;
+     112:	20 91 ed 00 	lds	r18, 0x00ED	; 0x8000ed <leds_time>
+     116:	30 91 ee 00 	lds	r19, 0x00EE	; 0x8000ee <leds_time+0x1>
+     11a:	2f 5f       	subi	r18, 0xFF	; 255
+     11c:	3f 4f       	sbci	r19, 0xFF	; 255
+     11e:	30 93 ee 00 	sts	0x00EE, r19	; 0x8000ee <leds_time+0x1>
+     122:	20 93 ed 00 	sts	0x00ED, r18	; 0x8000ed <leds_time>
+	if ((leds_mask & (1<<7)) && ((leds_time >> 13) % 2 == 1))
+     126:	40 91 f0 00 	lds	r20, 0x00F0	; 0x8000f0 <leds_mask>
+     12a:	47 fd       	sbrc	r20, 7
+     12c:	0f c0       	rjmp	.+30     	; 0x14c <update_leds+0x3a>
+		set_leds(0);
+	else set_leds(leds_mask & (1UL << (leds_time % 16)));
+     12e:	2f 70       	andi	r18, 0x0F	; 15
+     130:	33 27       	eor	r19, r19
+     132:	81 e0       	ldi	r24, 0x01	; 1
+     134:	90 e0       	ldi	r25, 0x00	; 0
+     136:	a0 e0       	ldi	r26, 0x00	; 0
+     138:	b0 e0       	ldi	r27, 0x00	; 0
+     13a:	04 c0       	rjmp	.+8      	; 0x144 <update_leds+0x32>
+     13c:	88 0f       	add	r24, r24
+     13e:	99 1f       	adc	r25, r25
+     140:	aa 1f       	adc	r26, r26
+     142:	bb 1f       	adc	r27, r27
+     144:	2a 95       	dec	r18
+     146:	d2 f7       	brpl	.-12     	; 0x13c <update_leds+0x2a>
+     148:	84 23       	and	r24, r20
+     14a:	c1 cf       	rjmp	.-126    	; 0xce <set_leds>
+// Зажигаем следующий светодиод, если надо,
+// т.е. в каждый момент времени горит только один
+void update_leds(void)
+{
+	leds_time++;
+	if ((leds_mask & (1<<7)) && ((leds_time >> 13) % 2 == 1))
+     14c:	35 ff       	sbrs	r19, 5
+     14e:	ef cf       	rjmp	.-34     	; 0x12e <update_leds+0x1c>
+		set_leds(0);
+     150:	80 e0       	ldi	r24, 0x00	; 0
+     152:	bd cf       	rjmp	.-134    	; 0xce <set_leds>
+
+00000154 <update_leds_bright>:
+
+// Зажигаем следующий светодиод, но больше времени уделяем на горение,
+// т.е. светодиоды визуально светятся ярче
+void update_leds_bright(void)
+{
+	leds_time++;
+     154:	20 91 ed 00 	lds	r18, 0x00ED	; 0x8000ed <leds_time>
+     158:	30 91 ee 00 	lds	r19, 0x00EE	; 0x8000ee <leds_time+0x1>
+     15c:	2f 5f       	subi	r18, 0xFF	; 255
+     15e:	3f 4f       	sbci	r19, 0xFF	; 255
+     160:	30 93 ee 00 	sts	0x00EE, r19	; 0x8000ee <leds_time+0x1>
+     164:	20 93 ed 00 	sts	0x00ED, r18	; 0x8000ed <leds_time>
+	if ((leds_mask & (1<<7)) && ((leds_time >> 13) % 2 == 1))
+     168:	40 91 f0 00 	lds	r20, 0x00F0	; 0x8000f0 <leds_mask>
+     16c:	47 fd       	sbrc	r20, 7
+     16e:	0f c0       	rjmp	.+30     	; 0x18e <update_leds_bright+0x3a>
+		set_leds(0);
+	else set_leds(leds_mask & (1UL << (leds_time % 8)));
+     170:	27 70       	andi	r18, 0x07	; 7
+     172:	33 27       	eor	r19, r19
+     174:	81 e0       	ldi	r24, 0x01	; 1
+     176:	90 e0       	ldi	r25, 0x00	; 0
+     178:	a0 e0       	ldi	r26, 0x00	; 0
+     17a:	b0 e0       	ldi	r27, 0x00	; 0
+     17c:	04 c0       	rjmp	.+8      	; 0x186 <update_leds_bright+0x32>
+     17e:	88 0f       	add	r24, r24
+     180:	99 1f       	adc	r25, r25
+     182:	aa 1f       	adc	r26, r26
+     184:	bb 1f       	adc	r27, r27
+     186:	2a 95       	dec	r18
+     188:	d2 f7       	brpl	.-12     	; 0x17e <update_leds_bright+0x2a>
+     18a:	84 23       	and	r24, r20
+     18c:	a0 cf       	rjmp	.-192    	; 0xce <set_leds>
+// Зажигаем следующий светодиод, но больше времени уделяем на горение,
+// т.е. светодиоды визуально светятся ярче
+void update_leds_bright(void)
+{
+	leds_time++;
+	if ((leds_mask & (1<<7)) && ((leds_time >> 13) % 2 == 1))
+     18e:	35 ff       	sbrs	r19, 5
+     190:	ef cf       	rjmp	.-34     	; 0x170 <update_leds_bright+0x1c>
+		set_leds(0);
+     192:	80 e0       	ldi	r24, 0x00	; 0
+     194:	9c cf       	rjmp	.-200    	; 0xce <set_leds>
+
+00000196 <show_digit>:
+
+	}
+	if (digit >> 4) mask |= (1<<7);
+	*/
+	mask = digit;
+	leds_mask = mask;
+     196:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
+	set_leds(mask);
+     19a:	99 cf       	rjmp	.-206    	; 0xce <set_leds>
+
+0000019c <key_exists>:
+}
+
+// Проверяет, есть ли заданный ключ в базе
+int key_exists(unsigned char* new_key)
+{
+     19c:	bf 92       	push	r11
+     19e:	cf 92       	push	r12
+     1a0:	df 92       	push	r13
+     1a2:	ef 92       	push	r14
+     1a4:	ff 92       	push	r15
+     1a6:	0f 93       	push	r16
+     1a8:	1f 93       	push	r17
+     1aa:	cf 93       	push	r28
+     1ac:	df 93       	push	r29
+     1ae:	cd b7       	in	r28, 0x3d	; 61
+     1b0:	de b7       	in	r29, 0x3e	; 62
+     1b2:	28 97       	sbiw	r28, 0x08	; 8
+     1b4:	0f b6       	in	r0, 0x3f	; 63
+     1b6:	f8 94       	cli
+     1b8:	de bf       	out	0x3e, r29	; 62
+     1ba:	0f be       	out	0x3f, r0	; 63
+     1bc:	cd bf       	out	0x3d, r28	; 61
+	unsigned char i, i2, bingo;
+	unsigned char old_key[8];
+	for (i = 0; i < key_count; i++)
+     1be:	20 91 f2 00 	lds	r18, 0x00F2	; 0x8000f2 <key_count>
+     1c2:	22 23       	and	r18, r18
+     1c4:	51 f1       	breq	.+84     	; 0x21a <key_exists+0x7e>
+     1c6:	b9 2e       	mov	r11, r25
+     1c8:	c8 2e       	mov	r12, r24
+     1ca:	d1 2c       	mov	r13, r1
+     1cc:	8e 01       	movw	r16, r28
+     1ce:	07 5f       	subi	r16, 0xF7	; 247
+     1d0:	1f 4f       	sbci	r17, 0xFF	; 255
+	{
+		bingo = 1;
+		eeprom_read_block(old_key, (void*)((i+1)*8), 8);
+     1d2:	ed 2c       	mov	r14, r13
+     1d4:	f1 2c       	mov	r15, r1
+     1d6:	8f ef       	ldi	r24, 0xFF	; 255
+     1d8:	e8 1a       	sub	r14, r24
+     1da:	f8 0a       	sbc	r15, r24
+     1dc:	b7 01       	movw	r22, r14
+     1de:	66 0f       	add	r22, r22
+     1e0:	77 1f       	adc	r23, r23
+     1e2:	66 0f       	add	r22, r22
+     1e4:	77 1f       	adc	r23, r23
+     1e6:	66 0f       	add	r22, r22
+     1e8:	77 1f       	adc	r23, r23
+     1ea:	48 e0       	ldi	r20, 0x08	; 8
+     1ec:	50 e0       	ldi	r21, 0x00	; 0
+     1ee:	ce 01       	movw	r24, r28
+     1f0:	01 96       	adiw	r24, 0x01	; 1
+     1f2:	87 d9       	rcall	.-3314   	; 0xfffff502 <__eeprom_end+0xff7ef502>
+     1f4:	ac 2d       	mov	r26, r12
+     1f6:	bb 2d       	mov	r27, r11
+     1f8:	fe 01       	movw	r30, r28
+     1fa:	31 96       	adiw	r30, 0x01	; 1
+{
+	unsigned char i, i2, bingo;
+	unsigned char old_key[8];
+	for (i = 0; i < key_count; i++)
+	{
+		bingo = 1;
+     1fc:	41 e0       	ldi	r20, 0x01	; 1
+		eeprom_read_block(old_key, (void*)((i+1)*8), 8);
+		for (i2 = 0; i2 < 8; i2++) if (new_key[i2] != old_key[i2]) bingo = 0;
+     1fe:	3d 91       	ld	r19, X+
+     200:	21 91       	ld	r18, Z+
+     202:	32 13       	cpse	r19, r18
+     204:	40 e0       	ldi	r20, 0x00	; 0
+     206:	e0 17       	cp	r30, r16
+     208:	f1 07       	cpc	r31, r17
+     20a:	c9 f7       	brne	.-14     	; 0x1fe <key_exists+0x62>
+		if (bingo) return i+1;
+     20c:	41 11       	cpse	r20, r1
+     20e:	07 c0       	rjmp	.+14     	; 0x21e <key_exists+0x82>
+// Проверяет, есть ли заданный ключ в базе
+int key_exists(unsigned char* new_key)
+{
+	unsigned char i, i2, bingo;
+	unsigned char old_key[8];
+	for (i = 0; i < key_count; i++)
+     210:	d3 94       	inc	r13
+     212:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+     216:	d8 16       	cp	r13, r24
+     218:	e0 f2       	brcs	.-72     	; 0x1d2 <key_exists+0x36>
+		bingo = 1;
+		eeprom_read_block(old_key, (void*)((i+1)*8), 8);
+		for (i2 = 0; i2 < 8; i2++) if (new_key[i2] != old_key[i2]) bingo = 0;
+		if (bingo) return i+1;
+	}
+	return 0;
+     21a:	e1 2c       	mov	r14, r1
+     21c:	f1 2c       	mov	r15, r1
+}
+     21e:	c7 01       	movw	r24, r14
+     220:	28 96       	adiw	r28, 0x08	; 8
+     222:	0f b6       	in	r0, 0x3f	; 63
+     224:	f8 94       	cli
+     226:	de bf       	out	0x3e, r29	; 62
+     228:	0f be       	out	0x3f, r0	; 63
+     22a:	cd bf       	out	0x3d, r28	; 61
+     22c:	df 91       	pop	r29
+     22e:	cf 91       	pop	r28
+     230:	1f 91       	pop	r17
+     232:	0f 91       	pop	r16
+     234:	ff 90       	pop	r15
+     236:	ef 90       	pop	r14
+     238:	df 90       	pop	r13
+     23a:	cf 90       	pop	r12
+     23c:	bf 90       	pop	r11
+     23e:	08 95       	ret
+
+00000240 <read_mode>:
+
+// Считывает ключ
+int read_mode()
+{
+     240:	8f 92       	push	r8
+     242:	9f 92       	push	r9
+     244:	bf 92       	push	r11
+     246:	cf 92       	push	r12
+     248:	df 92       	push	r13
+     24a:	ef 92       	push	r14
+     24c:	ff 92       	push	r15
+     24e:	0f 93       	push	r16
+     250:	1f 93       	push	r17
+     252:	cf 93       	push	r28
+     254:	df 93       	push	r29
+     256:	cd b7       	in	r28, 0x3d	; 61
+     258:	de b7       	in	r29, 0x3e	; 62
+     25a:	28 97       	sbiw	r28, 0x08	; 8
+     25c:	0f b6       	in	r0, 0x3f	; 63
+     25e:	f8 94       	cli
+     260:	de bf       	out	0x3e, r29	; 62
+     262:	0f be       	out	0x3f, r0	; 63
+     264:	cd bf       	out	0x3d, r28	; 61
+	onewire_init();
+     266:	f1 d3       	rcall	.+2018   	; 0xa4a <onewire_init>
+
+	int t = 0;
+	unsigned char serial[8];
+	char read_ok = 0;
+
+	leds_mask = 1<<2; // Во время считывания мигаем третьим светодиодом
+     268:	84 e0       	ldi	r24, 0x04	; 4
+     26a:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
+	while (BUTTON_PRESSED)
+     26e:	83 99       	sbic	0x10, 3	; 16
+     270:	0a c0       	rjmp	.+20     	; 0x286 <read_mode+0x46>
+	{
+		wdt_reset();
+     272:	a8 95       	wdr
+		update_leds();
+     274:	4e df       	rcall	.-356    	; 0x112 <update_leds>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     276:	ef ec       	ldi	r30, 0xCF	; 207
+     278:	f7 e0       	ldi	r31, 0x07	; 7
+     27a:	31 97       	sbiw	r30, 0x01	; 1
+     27c:	f1 f7       	brne	.-4      	; 0x27a <read_mode+0x3a>
+     27e:	00 c0       	rjmp	.+0      	; 0x280 <read_mode+0x40>
+     280:	00 00       	nop
+	int t = 0;
+	unsigned char serial[8];
+	char read_ok = 0;
+
+	leds_mask = 1<<2; // Во время считывания мигаем третьим светодиодом
+	while (BUTTON_PRESSED)
+     282:	83 9b       	sbis	0x10, 3	; 16
+     284:	f6 cf       	rjmp	.-20     	; 0x272 <read_mode+0x32>
+	return 0;
+}
+
+// Считывает ключ
+int read_mode()
+{
+     286:	e1 2c       	mov	r14, r1
+     288:	f1 2c       	mov	r15, r1
+     28a:	6e 01       	movw	r12, r28
+     28c:	89 e0       	ldi	r24, 0x09	; 9
+     28e:	c8 0e       	add	r12, r24
+     290:	d1 1c       	adc	r13, r1
+		CYFRAL_PULLUP_DISABLE;
+		CYFRAL_REFERENCE_DISABLE;
+		// Если ключ прочитан успешно...
+		if (code >= 0)
+		{
+			serial[0] = 0xFF;
+     292:	bb 24       	eor	r11, r11
+     294:	ba 94       	dec	r11
+		_delay_ms(1);
+	}
+
+	while (1)
+	{
+		wdt_reset();
+     296:	a8 95       	wdr
+		update_leds();
+     298:	3c df       	rcall	.-392    	; 0x112 <update_leds>
+		char res = onewire_write_reset(); // Посылает 1-wire ресет
+     29a:	e4 d3       	rcall	.+1992   	; 0xa64 <onewire_write_reset>
+		if (res) // Если устройство ответило...
+     29c:	81 11       	cpse	r24, r1
+     29e:	5a c0       	rjmp	.+180    	; 0x354 <read_mode+0x114>
+     2a0:	10 e0       	ldi	r17, 0x00	; 0
+				read_ok = 1;
+			}
+		}
+		
+		// Теперь пытаемся прочитать цифрал-клюс
+		CYFRAL_PULLUP_ENABLE;  // подтяжка 750 Ом
+     2a2:	c7 9a       	sbi	0x18, 7	; 24
+     2a4:	bf 9a       	sbi	0x17, 7	; 23
+		CYFRAL_REFERENCE_ENABLE; // делитель напряженния
+     2a6:	c0 9a       	sbi	0x18, 0	; 24
+		// Читаем ключ несколько раз, с проверкой
+		long int code = read_cyfral_with_check();
+     2a8:	f8 d5       	rcall	.+3056   	; 0xe9a <read_cyfral_with_check>
+		// Выключаем назад подтяжку и делитель напряжения
+		CYFRAL_PULLUP_DISABLE;
+     2aa:	bf 98       	cbi	0x17, 7	; 23
+     2ac:	c7 98       	cbi	0x18, 7	; 24
+		CYFRAL_REFERENCE_DISABLE;
+     2ae:	c0 98       	cbi	0x18, 0	; 24
+		// Если ключ прочитан успешно...
+		if (code >= 0)
+     2b0:	97 fd       	sbrc	r25, 7
+     2b2:	09 c0       	rjmp	.+18     	; 0x2c6 <read_mode+0x86>
+		{
+			serial[0] = 0xFF;
+     2b4:	b9 82       	std	Y+1, r11	; 0x01
+			serial[1] = code & 0xFF;
+     2b6:	6a 83       	std	Y+2, r22	; 0x02
+			serial[2] = (code>>8) & 0xFF;
+     2b8:	7b 83       	std	Y+3, r23	; 0x03
+			serial[3] = serial[4] = serial[5] = serial[6] = serial[7] = 0;
+     2ba:	18 86       	std	Y+8, r1	; 0x08
+     2bc:	1f 82       	std	Y+7, r1	; 0x07
+     2be:	1e 82       	std	Y+6, r1	; 0x06
+     2c0:	1d 82       	std	Y+5, r1	; 0x05
+     2c2:	1c 82       	std	Y+4, r1	; 0x04
+			read_ok = 1;
+     2c4:	11 e0       	ldi	r17, 0x01	; 1
+		}
+		t++;
+     2c6:	ff ef       	ldi	r31, 0xFF	; 255
+     2c8:	ef 1a       	sub	r14, r31
+     2ca:	ff 0a       	sbc	r15, r31
+		// После 2000 неудачных попыток выходим и выключаемся
+		if (t > 2000)
+     2cc:	81 ed       	ldi	r24, 0xD1	; 209
+     2ce:	e8 16       	cp	r14, r24
+     2d0:	87 e0       	ldi	r24, 0x07	; 7
+     2d2:	f8 06       	cpc	r15, r24
+     2d4:	09 f4       	brne	.+2      	; 0x2d8 <read_mode+0x98>
+     2d6:	6d c0       	rjmp	.+218    	; 0x3b2 <read_mode+0x172>
+			return 0;
+		if (BUTTON_PRESSED || USB_POWERED) // При нажатии кнопки или подключения USB...
+     2d8:	83 9b       	sbis	0x10, 3	; 16
+     2da:	57 c0       	rjmp	.+174    	; 0x38a <read_mode+0x14a>
+     2dc:	82 9b       	sbis	0x10, 2	; 16
+     2de:	55 c0       	rjmp	.+170    	; 0x38a <read_mode+0x14a>
+			return 1; // возврат в основной режим
+		
+		// Если ключ прочитан успешно...
+		if (read_ok)
+     2e0:	11 23       	and	r17, r17
+     2e2:	c9 f2       	breq	.-78     	; 0x296 <read_mode+0x56>
+		{
+			read_ok = 0;
+			t = 0;
+
+			// Проверяем - нет ли у нас уже такого ключа?
+			int exists = key_exists(serial);
+     2e4:	ce 01       	movw	r24, r28
+     2e6:	01 96       	adiw	r24, 0x01	; 1
+     2e8:	59 df       	rcall	.-334    	; 0x19c <key_exists>
+			int num;
+			// Если нет...
+			if (!exists)
+     2ea:	00 97       	sbiw	r24, 0x00	; 0
+     2ec:	09 f4       	brne	.+2      	; 0x2f0 <read_mode+0xb0>
+     2ee:	64 c0       	rjmp	.+200    	; 0x3b8 <read_mode+0x178>
+     2f0:	f8 2e       	mov	r15, r24
+		{
+			serial[0] = 0xFF;
+			serial[1] = code & 0xFF;
+			serial[2] = (code>>8) & 0xFF;
+			serial[3] = serial[4] = serial[5] = serial[6] = serial[7] = 0;
+			read_ok = 1;
+     2f2:	93 e0       	ldi	r25, 0x03	; 3
+     2f4:	89 2e       	mov	r8, r25
+     2f6:	91 2c       	mov	r9, r1
+
+	}
+	if (digit >> 4) mask |= (1<<7);
+	*/
+	mask = digit;
+	leds_mask = mask;
+     2f8:	f0 92 f0 00 	sts	0x00F0, r15	; 0x8000f0 <leds_mask>
+	set_leds(mask);
+     2fc:	8f 2d       	mov	r24, r15
+     2fe:	e7 de       	rcall	.-562    	; 0xce <set_leds>
+     300:	0c e2       	ldi	r16, 0x2C	; 44
+     302:	11 e0       	ldi	r17, 0x01	; 1
+			{
+				show_digit(num);
+				int i;
+				for (i = 0;i < 300; i++)
+				{
+					wdt_reset();
+     304:	a8 95       	wdr
+					update_leds();
+     306:	05 df       	rcall	.-502    	; 0x112 <update_leds>
+     308:	ef ec       	ldi	r30, 0xCF	; 207
+     30a:	f7 e0       	ldi	r31, 0x07	; 7
+     30c:	31 97       	sbiw	r30, 0x01	; 1
+     30e:	f1 f7       	brne	.-4      	; 0x30c <read_mode+0xcc>
+     310:	00 c0       	rjmp	.+0      	; 0x312 <read_mode+0xd2>
+     312:	00 00       	nop
+     314:	01 50       	subi	r16, 0x01	; 1
+     316:	11 09       	sbc	r17, r1
+			// Мигаем три раза номером ключа
+			for (t = 0; t < 3; t++)
+			{
+				show_digit(num);
+				int i;
+				for (i = 0;i < 300; i++)
+     318:	a9 f7       	brne	.-22     	; 0x304 <read_mode+0xc4>
+				{
+					wdt_reset();
+					update_leds();
+					_delay_ms(1);					
+				}
+				set_leds(0);
+     31a:	80 e0       	ldi	r24, 0x00	; 0
+     31c:	d8 de       	rcall	.-592    	; 0xce <set_leds>
+     31e:	8c e2       	ldi	r24, 0x2C	; 44
+     320:	91 e0       	ldi	r25, 0x01	; 1
+				for (i = 0;i < 300; i++)
+				{
+					wdt_reset();
+     322:	a8 95       	wdr
+     324:	ef ec       	ldi	r30, 0xCF	; 207
+     326:	f7 e0       	ldi	r31, 0x07	; 7
+     328:	31 97       	sbiw	r30, 0x01	; 1
+     32a:	f1 f7       	brne	.-4      	; 0x328 <read_mode+0xe8>
+     32c:	00 c0       	rjmp	.+0      	; 0x32e <read_mode+0xee>
+     32e:	00 00       	nop
+     330:	01 97       	sbiw	r24, 0x01	; 1
+					wdt_reset();
+					update_leds();
+					_delay_ms(1);					
+				}
+				set_leds(0);
+				for (i = 0;i < 300; i++)
+     332:	b9 f7       	brne	.-18     	; 0x322 <read_mode+0xe2>
+     334:	f1 e0       	ldi	r31, 0x01	; 1
+     336:	8f 1a       	sub	r8, r31
+     338:	91 08       	sbc	r9, r1
+			{
+				// Иначе отображаем номер существующего
+				num = exists;
+			}
+			// Мигаем три раза номером ключа
+			for (t = 0; t < 3; t++)
+     33a:	f1 f6       	brne	.-68     	; 0x2f8 <read_mode+0xb8>
+				{
+					wdt_reset();
+					_delay_ms(1);					
+				}
+			}			
+			leds_mask = 1<<3;
+     33c:	88 e0       	ldi	r24, 0x08	; 8
+     33e:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
+     342:	83 e0       	ldi	r24, 0x03	; 3
+     344:	e8 2e       	mov	r14, r24
+     346:	f1 2c       	mov	r15, r1
+		_delay_ms(1);
+	}
+
+	while (1)
+	{
+		wdt_reset();
+     348:	a8 95       	wdr
+		update_leds();
+     34a:	e3 de       	rcall	.-570    	; 0x112 <update_leds>
+		char res = onewire_write_reset(); // Посылает 1-wire ресет
+     34c:	8b d3       	rcall	.+1814   	; 0xa64 <onewire_write_reset>
+		if (res) // Если устройство ответило...
+     34e:	88 23       	and	r24, r24
+     350:	09 f4       	brne	.+2      	; 0x354 <read_mode+0x114>
+     352:	a6 cf       	rjmp	.-180    	; 0x2a0 <read_mode+0x60>
+		{
+			// Посылаем команду считывания ключа
+			onewire_write_byte(ONEWIRE_COMMAND_READ_ROM);
+     354:	83 e3       	ldi	r24, 0x33	; 51
+     356:	0f d4       	rcall	.+2078   	; 0xb76 <onewire_write_byte>
+     358:	8e 01       	movw	r16, r28
+     35a:	0f 5f       	subi	r16, 0xFF	; 255
+     35c:	1f 4f       	sbci	r17, 0xFF	; 255
+			int b;
+			// Читаем 8 байт из ключа
+			for (b = 0; b < 8; b++)
+				serial[b] = onewire_read_byte();						
+     35e:	c6 d3       	rcall	.+1932   	; 0xaec <onewire_read_byte>
+     360:	f8 01       	movw	r30, r16
+     362:	81 93       	st	Z+, r24
+     364:	8f 01       	movw	r16, r30
+		{
+			// Посылаем команду считывания ключа
+			onewire_write_byte(ONEWIRE_COMMAND_READ_ROM);
+			int b;
+			// Читаем 8 байт из ключа
+			for (b = 0; b < 8; b++)
+     366:	ce 16       	cp	r12, r30
+     368:	df 06       	cpc	r13, r31
+     36a:	c9 f7       	brne	.-14     	; 0x35e <read_mode+0x11e>
+				serial[b] = onewire_read_byte();						
+			// Проверяем CRC
+			if ((onewire_check_crc(serial, 8) == 0) && !onewire_all_zeros(serial, 8))
+     36c:	68 e0       	ldi	r22, 0x08	; 8
+     36e:	ce 01       	movw	r24, r28
+     370:	01 96       	adiw	r24, 0x01	; 1
+     372:	1b d4       	rcall	.+2102   	; 0xbaa <onewire_check_crc>
+     374:	81 11       	cpse	r24, r1
+     376:	94 cf       	rjmp	.-216    	; 0x2a0 <read_mode+0x60>
+     378:	68 e0       	ldi	r22, 0x08	; 8
+     37a:	ce 01       	movw	r24, r28
+     37c:	01 96       	adiw	r24, 0x01	; 1
+     37e:	30 d4       	rcall	.+2144   	; 0xbe0 <onewire_all_zeros>
+     380:	11 e0       	ldi	r17, 0x01	; 1
+     382:	88 23       	and	r24, r24
+     384:	09 f4       	brne	.+2      	; 0x388 <read_mode+0x148>
+     386:	8d cf       	rjmp	.-230    	; 0x2a2 <read_mode+0x62>
+     388:	8b cf       	rjmp	.-234    	; 0x2a0 <read_mode+0x60>
+		t++;
+		// После 2000 неудачных попыток выходим и выключаемся
+		if (t > 2000)
+			return 0;
+		if (BUTTON_PRESSED || USB_POWERED) // При нажатии кнопки или подключения USB...
+			return 1; // возврат в основной режим
+     38a:	81 e0       	ldi	r24, 0x01	; 1
+     38c:	90 e0       	ldi	r25, 0x00	; 0
+				}
+			}			
+			leds_mask = 1<<3;
+		}
+	}
+}
+     38e:	28 96       	adiw	r28, 0x08	; 8
+     390:	0f b6       	in	r0, 0x3f	; 63
+     392:	f8 94       	cli
+     394:	de bf       	out	0x3e, r29	; 62
+     396:	0f be       	out	0x3f, r0	; 63
+     398:	cd bf       	out	0x3d, r28	; 61
+     39a:	df 91       	pop	r29
+     39c:	cf 91       	pop	r28
+     39e:	1f 91       	pop	r17
+     3a0:	0f 91       	pop	r16
+     3a2:	ff 90       	pop	r15
+     3a4:	ef 90       	pop	r14
+     3a6:	df 90       	pop	r13
+     3a8:	cf 90       	pop	r12
+     3aa:	bf 90       	pop	r11
+     3ac:	9f 90       	pop	r9
+     3ae:	8f 90       	pop	r8
+     3b0:	08 95       	ret
+			read_ok = 1;
+		}
+		t++;
+		// После 2000 неудачных попыток выходим и выключаемся
+		if (t > 2000)
+			return 0;
+     3b2:	80 e0       	ldi	r24, 0x00	; 0
+     3b4:	90 e0       	ldi	r25, 0x00	; 0
+     3b6:	eb cf       	rjmp	.-42     	; 0x38e <read_mode+0x14e>
+			int num;
+			// Если нет...
+			if (!exists)
+			{
+				// Сохраняем ключ
+				current_key = key_count;
+     3b8:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+     3bc:	80 93 f1 00 	sts	0x00F1, r24	; 0x8000f1 <current_key>
+				key_count++;
+     3c0:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+     3c4:	8f 5f       	subi	r24, 0xFF	; 255
+     3c6:	80 93 f2 00 	sts	0x00F2, r24	; 0x8000f2 <key_count>
+				eeprom_write_block(serial, (void*)(key_count*8), 8);		
+     3ca:	60 91 f2 00 	lds	r22, 0x00F2	; 0x8000f2 <key_count>
+     3ce:	70 e0       	ldi	r23, 0x00	; 0
+     3d0:	66 0f       	add	r22, r22
+     3d2:	77 1f       	adc	r23, r23
+     3d4:	66 0f       	add	r22, r22
+     3d6:	77 1f       	adc	r23, r23
+     3d8:	66 0f       	add	r22, r22
+     3da:	77 1f       	adc	r23, r23
+     3dc:	48 e0       	ldi	r20, 0x08	; 8
+     3de:	50 e0       	ldi	r21, 0x00	; 0
+     3e0:	ce 01       	movw	r24, r28
+     3e2:	01 96       	adiw	r24, 0x01	; 1
+     3e4:	a6 d8       	rcall	.-3764   	; 0xfffff532 <__eeprom_end+0xff7ef532>
+				eeprom_write_byte((void*)0, key_count);
+     3e6:	60 91 f2 00 	lds	r22, 0x00F2	; 0x8000f2 <key_count>
+     3ea:	80 e0       	ldi	r24, 0x00	; 0
+     3ec:	90 e0       	ldi	r25, 0x00	; 0
+     3ee:	aa d8       	rcall	.-3756   	; 0xfffff544 <__eeprom_end+0xff7ef544>
+				num = key_count;
+     3f0:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+     3f4:	7d cf       	rjmp	.-262    	; 0x2f0 <read_mode+0xb0>
+
+000003f6 <ibutton_read_byte_from_master>:
+	}
+}
+
+// Читает байт от мастера. Таймаут - возвращает 0, ресет - 1, удачно - 2
+int ibutton_read_byte_from_master(unsigned char* value)
+{
+     3f6:	fc 01       	movw	r30, r24
+	int i;
+	*value = 0;
+     3f8:	10 82       	st	Z, r1
+	for (i = 0; i < 8; i++) // Ждем команду
+     3fa:	40 e0       	ldi	r20, 0x00	; 0
+     3fc:	50 e0       	ldi	r21, 0x00	; 0
+	{
+		TCNT1 = 0; while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+		TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+		if (TCNT1 >= 300) return 1;
+		if (TCNT1 < 45) *value |= (1 << i);
+     3fe:	61 e0       	ldi	r22, 0x01	; 1
+     400:	70 e0       	ldi	r23, 0x00	; 0
+{
+	int i;
+	*value = 0;
+	for (i = 0; i < 8; i++) // Ждем команду
+	{
+		TCNT1 = 0; while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     402:	1d bc       	out	0x2d, r1	; 45
+     404:	1c bc       	out	0x2c, r1	; 44
+     406:	05 c0       	rjmp	.+10     	; 0x412 <__LOCK_REGION_LENGTH__+0x12>
+     408:	2c b5       	in	r18, 0x2c	; 44
+     40a:	3d b5       	in	r19, 0x2d	; 45
+     40c:	20 33       	cpi	r18, 0x30	; 48
+     40e:	35 47       	sbci	r19, 0x75	; 117
+     410:	10 f4       	brcc	.+4      	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+     412:	86 99       	sbic	0x10, 6	; 16
+     414:	f9 cf       	rjmp	.-14     	; 0x408 <__LOCK_REGION_LENGTH__+0x8>
+     416:	2c b5       	in	r18, 0x2c	; 44
+     418:	3d b5       	in	r19, 0x2d	; 45
+     41a:	20 33       	cpi	r18, 0x30	; 48
+     41c:	35 47       	sbci	r19, 0x75	; 117
+     41e:	28 f5       	brcc	.+74     	; 0x46a <__stack+0xb>
+		TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+     420:	1d bc       	out	0x2d, r1	; 45
+     422:	1c bc       	out	0x2c, r1	; 44
+     424:	05 c0       	rjmp	.+10     	; 0x430 <__LOCK_REGION_LENGTH__+0x30>
+     426:	2c b5       	in	r18, 0x2c	; 44
+     428:	3d b5       	in	r19, 0x2d	; 45
+     42a:	20 33       	cpi	r18, 0x30	; 48
+     42c:	35 47       	sbci	r19, 0x75	; 117
+     42e:	10 f4       	brcc	.+4      	; 0x434 <__LOCK_REGION_LENGTH__+0x34>
+     430:	86 9b       	sbis	0x10, 6	; 16
+     432:	f9 cf       	rjmp	.-14     	; 0x426 <__LOCK_REGION_LENGTH__+0x26>
+		if (TCNT1 >= 300) return 1;
+     434:	2c b5       	in	r18, 0x2c	; 44
+     436:	3d b5       	in	r19, 0x2d	; 45
+     438:	2c 32       	cpi	r18, 0x2C	; 44
+     43a:	31 40       	sbci	r19, 0x01	; 1
+     43c:	c8 f4       	brcc	.+50     	; 0x470 <__stack+0x11>
+		if (TCNT1 < 45) *value |= (1 << i);
+     43e:	2c b5       	in	r18, 0x2c	; 44
+     440:	3d b5       	in	r19, 0x2d	; 45
+     442:	2d 32       	cpi	r18, 0x2D	; 45
+     444:	31 05       	cpc	r19, r1
+     446:	48 f4       	brcc	.+18     	; 0x45a <__LOCK_REGION_LENGTH__+0x5a>
+     448:	80 81       	ld	r24, Z
+     44a:	9b 01       	movw	r18, r22
+     44c:	04 2e       	mov	r0, r20
+     44e:	01 c0       	rjmp	.+2      	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+     450:	22 0f       	add	r18, r18
+     452:	0a 94       	dec	r0
+     454:	ea f7       	brpl	.-6      	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
+     456:	28 2b       	or	r18, r24
+     458:	20 83       	st	Z, r18
+// Читает байт от мастера. Таймаут - возвращает 0, ресет - 1, удачно - 2
+int ibutton_read_byte_from_master(unsigned char* value)
+{
+	int i;
+	*value = 0;
+	for (i = 0; i < 8; i++) // Ждем команду
+     45a:	4f 5f       	subi	r20, 0xFF	; 255
+     45c:	5f 4f       	sbci	r21, 0xFF	; 255
+     45e:	48 30       	cpi	r20, 0x08	; 8
+     460:	51 05       	cpc	r21, r1
+     462:	79 f6       	brne	.-98     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
+		TCNT1 = 0; while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+		TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+		if (TCNT1 >= 300) return 1;
+		if (TCNT1 < 45) *value |= (1 << i);
+	}
+	return 2;
+     464:	82 e0       	ldi	r24, 0x02	; 2
+     466:	90 e0       	ldi	r25, 0x00	; 0
+     468:	08 95       	ret
+{
+	int i;
+	*value = 0;
+	for (i = 0; i < 8; i++) // Ждем команду
+	{
+		TCNT1 = 0; while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     46a:	80 e0       	ldi	r24, 0x00	; 0
+     46c:	90 e0       	ldi	r25, 0x00	; 0
+     46e:	08 95       	ret
+		TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+		if (TCNT1 >= 300) return 1;
+     470:	81 e0       	ldi	r24, 0x01	; 1
+     472:	90 e0       	ldi	r25, 0x00	; 0
+		if (TCNT1 < 45) *value |= (1 << i);
+	}
+	return 2;
+}
+     474:	08 95       	ret
+
+00000476 <ibutton_wait_for_master3>:
+
+// Посылает мастуру presence-pulse и ждёт команду
+int ibutton_wait_for_master3(unsigned char* key)
+{
+     476:	0f 93       	push	r16
+     478:	1f 93       	push	r17
+     47a:	cf 93       	push	r28
+     47c:	df 93       	push	r29
+     47e:	1f 92       	push	r1
+     480:	cd b7       	in	r28, 0x3d	; 61
+     482:	de b7       	in	r29, 0x3e	; 62
+     484:	8c 01       	movw	r16, r24
+	wdt_reset(); 
+     486:	a8 95       	wdr
+	set_leds(0);	// Гасим светодиоды, т.к. нет времени ими мигать
+     488:	80 e0       	ldi	r24, 0x00	; 0
+     48a:	21 de       	rcall	.-958    	; 0xce <set_leds>
+	ONEWIRE_WAIT(20) // Немножко ждём
+     48c:	1d bc       	out	0x2d, r1	; 45
+     48e:	1c bc       	out	0x2c, r1	; 44
+     490:	8c b5       	in	r24, 0x2c	; 44
+     492:	9d b5       	in	r25, 0x2d	; 45
+     494:	44 97       	sbiw	r24, 0x14	; 20
+     496:	e0 f3       	brcs	.-8      	; 0x490 <ibutton_wait_for_master3+0x1a>
+	ONEWIRE_MASTER_TX(140); // Presence-pulse 
+     498:	8d 9a       	sbi	0x11, 5	; 17
+     49a:	1d bc       	out	0x2d, r1	; 45
+     49c:	1c bc       	out	0x2c, r1	; 44
+     49e:	8c b5       	in	r24, 0x2c	; 44
+     4a0:	9d b5       	in	r25, 0x2d	; 45
+     4a2:	8c 38       	cpi	r24, 0x8C	; 140
+     4a4:	91 05       	cpc	r25, r1
+     4a6:	d8 f3       	brcs	.-10     	; 0x49e <ibutton_wait_for_master3+0x28>
+     4a8:	8d 98       	cbi	0x11, 5	; 17
+	// Ждём возобновления линии
+	TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+     4aa:	1d bc       	out	0x2d, r1	; 45
+     4ac:	1c bc       	out	0x2c, r1	; 44
+     4ae:	05 c0       	rjmp	.+10     	; 0x4ba <ibutton_wait_for_master3+0x44>
+     4b0:	8c b5       	in	r24, 0x2c	; 44
+     4b2:	9d b5       	in	r25, 0x2d	; 45
+     4b4:	80 33       	cpi	r24, 0x30	; 48
+     4b6:	95 47       	sbci	r25, 0x75	; 117
+     4b8:	10 f4       	brcc	.+4      	; 0x4be <ibutton_wait_for_master3+0x48>
+     4ba:	86 9b       	sbis	0x10, 6	; 16
+     4bc:	f9 cf       	rjmp	.-14     	; 0x4b0 <ibutton_wait_for_master3+0x3a>
+	if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+     4be:	8c b5       	in	r24, 0x2c	; 44
+     4c0:	9d b5       	in	r25, 0x2d	; 45
+     4c2:	8c 32       	cpi	r24, 0x2C	; 44
+     4c4:	91 40       	sbci	r25, 0x01	; 1
+     4c6:	40 f0       	brcs	.+16     	; 0x4d8 <ibutton_wait_for_master3+0x62>
+     4c8:	81 e0       	ldi	r24, 0x01	; 1
+     4ca:	90 e0       	ldi	r25, 0x00	; 0
+				if (d != d2) return 0; // Если они не совпадают, выходим
+			}
+		}
+	} 
+	return 0;
+}
+     4cc:	0f 90       	pop	r0
+     4ce:	df 91       	pop	r29
+     4d0:	cf 91       	pop	r28
+     4d2:	1f 91       	pop	r17
+     4d4:	0f 91       	pop	r16
+     4d6:	08 95       	ret
+	ONEWIRE_MASTER_TX(140); // Presence-pulse 
+	// Ждём возобновления линии
+	TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+	if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+	int i, bit;
+	unsigned char command = 0;
+     4d8:	19 82       	std	Y+1, r1	; 0x01
+	i = ibutton_read_byte_from_master(&command); // Получаем комманду
+     4da:	ce 01       	movw	r24, r28
+     4dc:	01 96       	adiw	r24, 0x01	; 1
+     4de:	8b df       	rcall	.-234    	; 0x3f6 <ibutton_read_byte_from_master>
+	if (i != 2) return i;
+     4e0:	82 30       	cpi	r24, 0x02	; 2
+     4e2:	91 05       	cpc	r25, r1
+     4e4:	99 f7       	brne	.-26     	; 0x4cc <ibutton_wait_for_master3+0x56>
+	WRITE_LOG(command);
+     4e6:	e0 91 ec 00 	lds	r30, 0x00EC	; 0x8000ec <__data_end>
+     4ea:	e7 fd       	sbrc	r30, 7
+     4ec:	62 c0       	rjmp	.+196    	; 0x5b2 <ibutton_wait_for_master3+0x13c>
+     4ee:	81 e0       	ldi	r24, 0x01	; 1
+     4f0:	8e 0f       	add	r24, r30
+     4f2:	80 93 ec 00 	sts	0x00EC, r24	; 0x8000ec <__data_end>
+     4f6:	89 81       	ldd	r24, Y+1	; 0x01
+     4f8:	f0 e0       	ldi	r31, 0x00	; 0
+     4fa:	ee 0f       	add	r30, r30
+     4fc:	ff 1f       	adc	r31, r31
+     4fe:	e8 50       	subi	r30, 0x08	; 8
+     500:	ff 4f       	sbci	r31, 0xFF	; 255
+     502:	28 2f       	mov	r18, r24
+     504:	30 e0       	ldi	r19, 0x00	; 0
+     506:	31 83       	std	Z+1, r19	; 0x01
+     508:	20 83       	st	Z, r18
+
+	if (command == ONEWIRE_COMMAND_SKIP_ROM) // Если нам сначала прислали SKIP_ROM команду. На практике такого не бывало.
+     50a:	8c 3c       	cpi	r24, 0xCC	; 204
+     50c:	09 f4       	brne	.+2      	; 0x510 <ibutton_wait_for_master3+0x9a>
+     50e:	eb c0       	rjmp	.+470    	; 0x6e6 <ibutton_wait_for_master3+0x270>
+		i = ibutton_read_byte_from_master(&command);
+		if (i != 2) return i;
+		WRITE_LOG(command);
+	}
+
+	if ((command == ONEWIRE_COMMAND_READ_ROM) || (command == ONEWIRE_COMMAND_READ_ROM_ALT)) // Получили запрос, шлём ключ
+     510:	83 33       	cpi	r24, 0x33	; 51
+     512:	69 f0       	breq	.+26     	; 0x52e <ibutton_wait_for_master3+0xb8>
+     514:	8f 30       	cpi	r24, 0x0F	; 15
+     516:	59 f0       	breq	.+22     	; 0x52e <ibutton_wait_for_master3+0xb8>
+				if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+			}
+		}
+	} 
+	
+	if (command == ONEWIRE_COMMAND_SEARCH) // Мастер выполняет поиск!
+     518:	80 3f       	cpi	r24, 0xF0	; 240
+     51a:	09 f4       	brne	.+2      	; 0x51e <ibutton_wait_for_master3+0xa8>
+     51c:	4c c0       	rjmp	.+152    	; 0x5b6 <ibutton_wait_for_master3+0x140>
+		for (i = 0; i < 8; i++)
+		{
+			for (bit = 0; bit < 8; bit++)
+			{
+				// Ждём запроса от мастера
+				TCNT1 = 0; while ((!ONEWIRE_MASTER_RX) && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     51e:	80 e0       	ldi	r24, 0x00	; 0
+     520:	90 e0       	ldi	r25, 0x00	; 0
+				if (d != d2) return 0; // Если они не совпадают, выходим
+			}
+		}
+	} 
+	return 0;
+}
+     522:	0f 90       	pop	r0
+     524:	df 91       	pop	r29
+     526:	cf 91       	pop	r28
+     528:	1f 91       	pop	r17
+     52a:	0f 91       	pop	r16
+     52c:	08 95       	ret
+     52e:	f8 01       	movw	r30, r16
+     530:	a8 01       	movw	r20, r16
+     532:	48 5f       	subi	r20, 0xF8	; 248
+     534:	5f 4f       	sbci	r21, 0xFF	; 255
+	return 2;
+}
+
+// Посылает мастуру presence-pulse и ждёт команду
+int ibutton_wait_for_master3(unsigned char* key)
+{
+     536:	20 e0       	ldi	r18, 0x00	; 0
+     538:	30 e0       	ldi	r19, 0x00	; 0
+		for (i = 0; i < 8; i++)
+		{
+			for (bit = 0; bit < 8; bit++)
+			{
+				// Ждём запроса от мастера
+				TCNT1 = 0; while ((!ONEWIRE_MASTER_RX) && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     53a:	1d bc       	out	0x2d, r1	; 45
+     53c:	1c bc       	out	0x2c, r1	; 44
+     53e:	05 c0       	rjmp	.+10     	; 0x54a <ibutton_wait_for_master3+0xd4>
+     540:	8c b5       	in	r24, 0x2c	; 44
+     542:	9d b5       	in	r25, 0x2d	; 45
+     544:	80 33       	cpi	r24, 0x30	; 48
+     546:	95 47       	sbci	r25, 0x75	; 117
+     548:	10 f4       	brcc	.+4      	; 0x54e <ibutton_wait_for_master3+0xd8>
+     54a:	86 99       	sbic	0x10, 6	; 16
+     54c:	f9 cf       	rjmp	.-14     	; 0x540 <ibutton_wait_for_master3+0xca>
+     54e:	8c b5       	in	r24, 0x2c	; 44
+     550:	9d b5       	in	r25, 0x2d	; 45
+     552:	80 33       	cpi	r24, 0x30	; 48
+     554:	95 47       	sbci	r25, 0x75	; 117
+     556:	18 f7       	brcc	.-58     	; 0x51e <ibutton_wait_for_master3+0xa8>
+				// Если нужно передать логический ноль, прижимаем линию
+				if (((key[i] >> bit) & 1) == 0) 
+     558:	80 81       	ld	r24, Z
+     55a:	90 e0       	ldi	r25, 0x00	; 0
+     55c:	02 2e       	mov	r0, r18
+     55e:	02 c0       	rjmp	.+4      	; 0x564 <ibutton_wait_for_master3+0xee>
+     560:	95 95       	asr	r25
+     562:	87 95       	ror	r24
+     564:	0a 94       	dec	r0
+     566:	e2 f7       	brpl	.-8      	; 0x560 <ibutton_wait_for_master3+0xea>
+     568:	80 fd       	sbrc	r24, 0
+     56a:	08 c0       	rjmp	.+16     	; 0x57c <ibutton_wait_for_master3+0x106>
+				{
+					ONEWIRE_MASTER_TX(35);
+     56c:	8d 9a       	sbi	0x11, 5	; 17
+     56e:	1d bc       	out	0x2d, r1	; 45
+     570:	1c bc       	out	0x2c, r1	; 44
+     572:	8c b5       	in	r24, 0x2c	; 44
+     574:	9d b5       	in	r25, 0x2d	; 45
+     576:	83 97       	sbiw	r24, 0x23	; 35
+     578:	e0 f3       	brcs	.-8      	; 0x572 <ibutton_wait_for_master3+0xfc>
+     57a:	8d 98       	cbi	0x11, 5	; 17
+				}
+				// Ждём возобновления линии
+				TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+     57c:	1d bc       	out	0x2d, r1	; 45
+     57e:	1c bc       	out	0x2c, r1	; 44
+     580:	05 c0       	rjmp	.+10     	; 0x58c <ibutton_wait_for_master3+0x116>
+     582:	8c b5       	in	r24, 0x2c	; 44
+     584:	9d b5       	in	r25, 0x2d	; 45
+     586:	80 33       	cpi	r24, 0x30	; 48
+     588:	95 47       	sbci	r25, 0x75	; 117
+     58a:	10 f4       	brcc	.+4      	; 0x590 <ibutton_wait_for_master3+0x11a>
+     58c:	86 9b       	sbis	0x10, 6	; 16
+     58e:	f9 cf       	rjmp	.-14     	; 0x582 <ibutton_wait_for_master3+0x10c>
+				if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+     590:	8c b5       	in	r24, 0x2c	; 44
+     592:	9d b5       	in	r25, 0x2d	; 45
+     594:	8c 32       	cpi	r24, 0x2C	; 44
+     596:	91 40       	sbci	r25, 0x01	; 1
+     598:	08 f0       	brcs	.+2      	; 0x59c <ibutton_wait_for_master3+0x126>
+     59a:	96 cf       	rjmp	.-212    	; 0x4c8 <ibutton_wait_for_master3+0x52>
+
+	if ((command == ONEWIRE_COMMAND_READ_ROM) || (command == ONEWIRE_COMMAND_READ_ROM_ALT)) // Получили запрос, шлём ключ
+	{
+		for (i = 0; i < 8; i++)
+		{
+			for (bit = 0; bit < 8; bit++)
+     59c:	2f 5f       	subi	r18, 0xFF	; 255
+     59e:	3f 4f       	sbci	r19, 0xFF	; 255
+     5a0:	28 30       	cpi	r18, 0x08	; 8
+     5a2:	31 05       	cpc	r19, r1
+     5a4:	51 f6       	brne	.-108    	; 0x53a <ibutton_wait_for_master3+0xc4>
+     5a6:	31 96       	adiw	r30, 0x01	; 1
+		WRITE_LOG(command);
+	}
+
+	if ((command == ONEWIRE_COMMAND_READ_ROM) || (command == ONEWIRE_COMMAND_READ_ROM_ALT)) // Получили запрос, шлём ключ
+	{
+		for (i = 0; i < 8; i++)
+     5a8:	4e 17       	cp	r20, r30
+     5aa:	5f 07       	cpc	r21, r31
+     5ac:	21 f6       	brne	.-120    	; 0x536 <ibutton_wait_for_master3+0xc0>
+     5ae:	89 81       	ldd	r24, Y+1	; 0x01
+     5b0:	b3 cf       	rjmp	.-154    	; 0x518 <ibutton_wait_for_master3+0xa2>
+     5b2:	89 81       	ldd	r24, Y+1	; 0x01
+     5b4:	aa cf       	rjmp	.-172    	; 0x50a <ibutton_wait_for_master3+0x94>
+     5b6:	f8 01       	movw	r30, r16
+     5b8:	a8 01       	movw	r20, r16
+     5ba:	48 5f       	subi	r20, 0xF8	; 248
+     5bc:	5f 4f       	sbci	r21, 0xFF	; 255
+	return 2;
+}
+
+// Посылает мастуру presence-pulse и ждёт команду
+int ibutton_wait_for_master3(unsigned char* key)
+{
+     5be:	20 e0       	ldi	r18, 0x00	; 0
+     5c0:	30 e0       	ldi	r19, 0x00	; 0
+	{
+		for (i = 0; i < 8; i++)
+		{
+			for (bit = 0; bit < 8; bit++)
+			{
+				char d = (key[i] >> bit) & 1; // Текущий бит
+     5c2:	80 81       	ld	r24, Z
+     5c4:	90 e0       	ldi	r25, 0x00	; 0
+     5c6:	02 2e       	mov	r0, r18
+     5c8:	02 c0       	rjmp	.+4      	; 0x5ce <ibutton_wait_for_master3+0x158>
+     5ca:	95 95       	asr	r25
+     5cc:	87 95       	ror	r24
+     5ce:	0a 94       	dec	r0
+     5d0:	e2 f7       	brpl	.-8      	; 0x5ca <ibutton_wait_for_master3+0x154>
+     5d2:	68 2f       	mov	r22, r24
+     5d4:	61 70       	andi	r22, 0x01	; 1
+				// Ждём запроса от мастера
+				TCNT1 = 0; while ((!ONEWIRE_MASTER_RX) && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     5d6:	1d bc       	out	0x2d, r1	; 45
+     5d8:	1c bc       	out	0x2c, r1	; 44
+     5da:	05 c0       	rjmp	.+10     	; 0x5e6 <ibutton_wait_for_master3+0x170>
+     5dc:	8c b5       	in	r24, 0x2c	; 44
+     5de:	9d b5       	in	r25, 0x2d	; 45
+     5e0:	80 33       	cpi	r24, 0x30	; 48
+     5e2:	95 47       	sbci	r25, 0x75	; 117
+     5e4:	10 f4       	brcc	.+4      	; 0x5ea <ibutton_wait_for_master3+0x174>
+     5e6:	86 99       	sbic	0x10, 6	; 16
+     5e8:	f9 cf       	rjmp	.-14     	; 0x5dc <ibutton_wait_for_master3+0x166>
+     5ea:	8c b5       	in	r24, 0x2c	; 44
+     5ec:	9d b5       	in	r25, 0x2d	; 45
+     5ee:	80 33       	cpi	r24, 0x30	; 48
+     5f0:	95 47       	sbci	r25, 0x75	; 117
+     5f2:	08 f0       	brcs	.+2      	; 0x5f6 <ibutton_wait_for_master3+0x180>
+     5f4:	94 cf       	rjmp	.-216    	; 0x51e <ibutton_wait_for_master3+0xa8>
+				if (d == 0) // Если нужно передать логический ноль, прижимаем линию
+     5f6:	61 11       	cpse	r22, r1
+     5f8:	08 c0       	rjmp	.+16     	; 0x60a <ibutton_wait_for_master3+0x194>
+				{
+					ONEWIRE_MASTER_TX(35);
+     5fa:	8d 9a       	sbi	0x11, 5	; 17
+     5fc:	1d bc       	out	0x2d, r1	; 45
+     5fe:	1c bc       	out	0x2c, r1	; 44
+     600:	8c b5       	in	r24, 0x2c	; 44
+     602:	9d b5       	in	r25, 0x2d	; 45
+     604:	83 97       	sbiw	r24, 0x23	; 35
+     606:	e0 f3       	brcs	.-8      	; 0x600 <ibutton_wait_for_master3+0x18a>
+     608:	8d 98       	cbi	0x11, 5	; 17
+				}
+				// Ждём возобновления линии
+				TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+     60a:	1d bc       	out	0x2d, r1	; 45
+     60c:	1c bc       	out	0x2c, r1	; 44
+     60e:	05 c0       	rjmp	.+10     	; 0x61a <ibutton_wait_for_master3+0x1a4>
+     610:	8c b5       	in	r24, 0x2c	; 44
+     612:	9d b5       	in	r25, 0x2d	; 45
+     614:	80 33       	cpi	r24, 0x30	; 48
+     616:	95 47       	sbci	r25, 0x75	; 117
+     618:	10 f4       	brcc	.+4      	; 0x61e <ibutton_wait_for_master3+0x1a8>
+     61a:	86 9b       	sbis	0x10, 6	; 16
+     61c:	f9 cf       	rjmp	.-14     	; 0x610 <ibutton_wait_for_master3+0x19a>
+				if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+     61e:	8c b5       	in	r24, 0x2c	; 44
+     620:	9d b5       	in	r25, 0x2d	; 45
+     622:	8c 32       	cpi	r24, 0x2C	; 44
+     624:	91 40       	sbci	r25, 0x01	; 1
+     626:	08 f0       	brcs	.+2      	; 0x62a <ibutton_wait_for_master3+0x1b4>
+     628:	4f cf       	rjmp	.-354    	; 0x4c8 <ibutton_wait_for_master3+0x52>
+				
+				// Ждём запроса от мастера
+				TCNT1 = 0; while ((!ONEWIRE_MASTER_RX) && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     62a:	1d bc       	out	0x2d, r1	; 45
+     62c:	1c bc       	out	0x2c, r1	; 44
+     62e:	05 c0       	rjmp	.+10     	; 0x63a <ibutton_wait_for_master3+0x1c4>
+     630:	8c b5       	in	r24, 0x2c	; 44
+     632:	9d b5       	in	r25, 0x2d	; 45
+     634:	80 33       	cpi	r24, 0x30	; 48
+     636:	95 47       	sbci	r25, 0x75	; 117
+     638:	10 f4       	brcc	.+4      	; 0x63e <ibutton_wait_for_master3+0x1c8>
+     63a:	86 99       	sbic	0x10, 6	; 16
+     63c:	f9 cf       	rjmp	.-14     	; 0x630 <ibutton_wait_for_master3+0x1ba>
+     63e:	8c b5       	in	r24, 0x2c	; 44
+     640:	9d b5       	in	r25, 0x2d	; 45
+     642:	80 33       	cpi	r24, 0x30	; 48
+     644:	95 47       	sbci	r25, 0x75	; 117
+     646:	08 f0       	brcs	.+2      	; 0x64a <ibutton_wait_for_master3+0x1d4>
+     648:	6a cf       	rjmp	.-300    	; 0x51e <ibutton_wait_for_master3+0xa8>
+				if (d != 0) // Если нужно передать логическую единицу, прижимаем линию
+     64a:	66 23       	and	r22, r22
+     64c:	41 f0       	breq	.+16     	; 0x65e <ibutton_wait_for_master3+0x1e8>
+				{
+					ONEWIRE_MASTER_TX(35);
+     64e:	8d 9a       	sbi	0x11, 5	; 17
+     650:	1d bc       	out	0x2d, r1	; 45
+     652:	1c bc       	out	0x2c, r1	; 44
+     654:	8c b5       	in	r24, 0x2c	; 44
+     656:	9d b5       	in	r25, 0x2d	; 45
+     658:	83 97       	sbiw	r24, 0x23	; 35
+     65a:	e0 f3       	brcs	.-8      	; 0x654 <ibutton_wait_for_master3+0x1de>
+     65c:	8d 98       	cbi	0x11, 5	; 17
+				}
+				// Ждём возобновления линии
+				TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+     65e:	1d bc       	out	0x2d, r1	; 45
+     660:	1c bc       	out	0x2c, r1	; 44
+     662:	05 c0       	rjmp	.+10     	; 0x66e <ibutton_wait_for_master3+0x1f8>
+     664:	8c b5       	in	r24, 0x2c	; 44
+     666:	9d b5       	in	r25, 0x2d	; 45
+     668:	80 33       	cpi	r24, 0x30	; 48
+     66a:	95 47       	sbci	r25, 0x75	; 117
+     66c:	10 f4       	brcc	.+4      	; 0x672 <ibutton_wait_for_master3+0x1fc>
+     66e:	86 9b       	sbis	0x10, 6	; 16
+     670:	f9 cf       	rjmp	.-14     	; 0x664 <ibutton_wait_for_master3+0x1ee>
+				if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+     672:	8c b5       	in	r24, 0x2c	; 44
+     674:	9d b5       	in	r25, 0x2d	; 45
+     676:	8c 32       	cpi	r24, 0x2C	; 44
+     678:	91 40       	sbci	r25, 0x01	; 1
+     67a:	08 f0       	brcs	.+2      	; 0x67e <ibutton_wait_for_master3+0x208>
+     67c:	25 cf       	rjmp	.-438    	; 0x4c8 <ibutton_wait_for_master3+0x52>
+				
+				// Ждём сигнала от мастера
+				TCNT1 = 0; while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)); if (TCNT1 >= 30000) return 0;
+     67e:	1d bc       	out	0x2d, r1	; 45
+     680:	1c bc       	out	0x2c, r1	; 44
+     682:	05 c0       	rjmp	.+10     	; 0x68e <ibutton_wait_for_master3+0x218>
+     684:	8c b5       	in	r24, 0x2c	; 44
+     686:	9d b5       	in	r25, 0x2d	; 45
+     688:	80 33       	cpi	r24, 0x30	; 48
+     68a:	95 47       	sbci	r25, 0x75	; 117
+     68c:	10 f4       	brcc	.+4      	; 0x692 <ibutton_wait_for_master3+0x21c>
+     68e:	86 99       	sbic	0x10, 6	; 16
+     690:	f9 cf       	rjmp	.-14     	; 0x684 <ibutton_wait_for_master3+0x20e>
+     692:	8c b5       	in	r24, 0x2c	; 44
+     694:	9d b5       	in	r25, 0x2d	; 45
+     696:	80 33       	cpi	r24, 0x30	; 48
+     698:	95 47       	sbci	r25, 0x75	; 117
+     69a:	08 f0       	brcs	.+2      	; 0x69e <ibutton_wait_for_master3+0x228>
+     69c:	40 cf       	rjmp	.-384    	; 0x51e <ibutton_wait_for_master3+0xa8>
+				// Ждём возобновления линии
+				TCNT1 = 0; while (ONEWIRE_MASTER_RX && (TCNT1 < 30000));
+     69e:	1d bc       	out	0x2d, r1	; 45
+     6a0:	1c bc       	out	0x2c, r1	; 44
+     6a2:	05 c0       	rjmp	.+10     	; 0x6ae <ibutton_wait_for_master3+0x238>
+     6a4:	8c b5       	in	r24, 0x2c	; 44
+     6a6:	9d b5       	in	r25, 0x2d	; 45
+     6a8:	80 33       	cpi	r24, 0x30	; 48
+     6aa:	95 47       	sbci	r25, 0x75	; 117
+     6ac:	10 f4       	brcc	.+4      	; 0x6b2 <ibutton_wait_for_master3+0x23c>
+     6ae:	86 9b       	sbis	0x10, 6	; 16
+     6b0:	f9 cf       	rjmp	.-14     	; 0x6a4 <ibutton_wait_for_master3+0x22e>
+				if (TCNT1 >= 300) return 1; // Если линия долго прижата мастером, это ресет
+     6b2:	8c b5       	in	r24, 0x2c	; 44
+     6b4:	9d b5       	in	r25, 0x2d	; 45
+     6b6:	8c 32       	cpi	r24, 0x2C	; 44
+     6b8:	91 40       	sbci	r25, 0x01	; 1
+     6ba:	08 f0       	brcs	.+2      	; 0x6be <ibutton_wait_for_master3+0x248>
+     6bc:	05 cf       	rjmp	.-502    	; 0x4c8 <ibutton_wait_for_master3+0x52>
+				char d2;
+				if (TCNT1 < 45) d2 = 1; else d2 = 0; // Бит, который подтверждает мастер
+     6be:	ac b5       	in	r26, 0x2c	; 44
+     6c0:	bd b5       	in	r27, 0x2d	; 45
+				if (d != d2) return 0; // Если они не совпадают, выходим
+     6c2:	81 e0       	ldi	r24, 0x01	; 1
+     6c4:	9d 97       	sbiw	r26, 0x2d	; 45
+     6c6:	08 f0       	brcs	.+2      	; 0x6ca <ibutton_wait_for_master3+0x254>
+     6c8:	80 e0       	ldi	r24, 0x00	; 0
+     6ca:	68 13       	cpse	r22, r24
+     6cc:	28 cf       	rjmp	.-432    	; 0x51e <ibutton_wait_for_master3+0xa8>
+	
+	if (command == ONEWIRE_COMMAND_SEARCH) // Мастер выполняет поиск!
+	{
+		for (i = 0; i < 8; i++)
+		{
+			for (bit = 0; bit < 8; bit++)
+     6ce:	2f 5f       	subi	r18, 0xFF	; 255
+     6d0:	3f 4f       	sbci	r19, 0xFF	; 255
+     6d2:	28 30       	cpi	r18, 0x08	; 8
+     6d4:	31 05       	cpc	r19, r1
+     6d6:	09 f0       	breq	.+2      	; 0x6da <ibutton_wait_for_master3+0x264>
+     6d8:	74 cf       	rjmp	.-280    	; 0x5c2 <ibutton_wait_for_master3+0x14c>
+     6da:	31 96       	adiw	r30, 0x01	; 1
+		}
+	} 
+	
+	if (command == ONEWIRE_COMMAND_SEARCH) // Мастер выполняет поиск!
+	{
+		for (i = 0; i < 8; i++)
+     6dc:	4e 17       	cp	r20, r30
+     6de:	5f 07       	cpc	r21, r31
+     6e0:	09 f0       	breq	.+2      	; 0x6e4 <ibutton_wait_for_master3+0x26e>
+     6e2:	6d cf       	rjmp	.-294    	; 0x5be <ibutton_wait_for_master3+0x148>
+     6e4:	1c cf       	rjmp	.-456    	; 0x51e <ibutton_wait_for_master3+0xa8>
+	if (i != 2) return i;
+	WRITE_LOG(command);
+
+	if (command == ONEWIRE_COMMAND_SKIP_ROM) // Если нам сначала прислали SKIP_ROM команду. На практике такого не бывало.
+	{
+		i = ibutton_read_byte_from_master(&command);
+     6e6:	ce 01       	movw	r24, r28
+     6e8:	01 96       	adiw	r24, 0x01	; 1
+     6ea:	85 de       	rcall	.-758    	; 0x3f6 <ibutton_read_byte_from_master>
+		if (i != 2) return i;
+     6ec:	82 30       	cpi	r24, 0x02	; 2
+     6ee:	91 05       	cpc	r25, r1
+     6f0:	09 f0       	breq	.+2      	; 0x6f4 <ibutton_wait_for_master3+0x27e>
+     6f2:	ec ce       	rjmp	.-552    	; 0x4cc <ibutton_wait_for_master3+0x56>
+		WRITE_LOG(command);
+     6f4:	e0 91 ec 00 	lds	r30, 0x00EC	; 0x8000ec <__data_end>
+     6f8:	e7 fd       	sbrc	r30, 7
+     6fa:	0f c0       	rjmp	.+30     	; 0x71a <ibutton_wait_for_master3+0x2a4>
+     6fc:	81 e0       	ldi	r24, 0x01	; 1
+     6fe:	8e 0f       	add	r24, r30
+     700:	80 93 ec 00 	sts	0x00EC, r24	; 0x8000ec <__data_end>
+     704:	89 81       	ldd	r24, Y+1	; 0x01
+     706:	f0 e0       	ldi	r31, 0x00	; 0
+     708:	ee 0f       	add	r30, r30
+     70a:	ff 1f       	adc	r31, r31
+     70c:	e8 50       	subi	r30, 0x08	; 8
+     70e:	ff 4f       	sbci	r31, 0xFF	; 255
+     710:	28 2f       	mov	r18, r24
+     712:	30 e0       	ldi	r19, 0x00	; 0
+     714:	31 83       	std	Z+1, r19	; 0x01
+     716:	20 83       	st	Z, r18
+     718:	fb ce       	rjmp	.-522    	; 0x510 <ibutton_wait_for_master3+0x9a>
+     71a:	89 81       	ldd	r24, Y+1	; 0x01
+     71c:	f9 ce       	rjmp	.-526    	; 0x510 <ibutton_wait_for_master3+0x9a>
+
+0000071e <ibutton_wait_for_master2>:
+	return 0;
+}
+
+// Отвечает на ресет мастеру
+void ibutton_wait_for_master2(unsigned char* key)
+{
+     71e:	cf 93       	push	r28
+     720:	df 93       	push	r29
+     722:	ec 01       	movw	r28, r24
+	int reset;
+	do
+	{
+		reset = ibutton_wait_for_master3(key);	
+     724:	ce 01       	movw	r24, r28
+     726:	a7 de       	rcall	.-690    	; 0x476 <ibutton_wait_for_master3>
+	} while (reset); // Если в результате общения получили ресет, то начинаем общение заново
+     728:	89 2b       	or	r24, r25
+     72a:	e1 f7       	brne	.-8      	; 0x724 <ibutton_wait_for_master2+0x6>
+}
+     72c:	df 91       	pop	r29
+     72e:	cf 91       	pop	r28
+     730:	08 95       	ret
+
+00000732 <ibutton_wait_for_master>:
+
+// Ждём ресета от мастера
+void ibutton_wait_for_master(unsigned char* key)
+{
+     732:	ef 92       	push	r14
+     734:	ff 92       	push	r15
+     736:	0f 93       	push	r16
+     738:	1f 93       	push	r17
+     73a:	cf 93       	push	r28
+     73c:	df 93       	push	r29
+     73e:	ec 01       	movw	r28, r24
+	int waittime;
+	for (waittime = 0; waittime < 100; waittime++)
+     740:	00 e0       	ldi	r16, 0x00	; 0
+     742:	10 e0       	ldi	r17, 0x00	; 0
+		};
+		// Если долго не было сигнала, ждём дальше
+		if (TCNT1 >= 30000) continue;
+		// Если же сигнал есть, считаем время
+		TCNT1 = 0;	
+		while (ONEWIRE_MASTER_RX) if (TCNT1 > 30000) TCNT1 = 30000; // Пока есть сигнал
+     744:	80 e3       	ldi	r24, 0x30	; 48
+     746:	e8 2e       	mov	r14, r24
+     748:	85 e7       	ldi	r24, 0x75	; 117
+     74a:	f8 2e       	mov	r15, r24
+void ibutton_wait_for_master(unsigned char* key)
+{
+	int waittime;
+	for (waittime = 0; waittime < 100; waittime++)
+	{		
+		wdt_reset();
+     74c:	a8 95       	wdr
+		TCNT1 = 0;
+     74e:	1d bc       	out	0x2d, r1	; 45
+     750:	1c bc       	out	0x2c, r1	; 44
+		while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)) // Пока нет сигнала
+     752:	0b c0       	rjmp	.+22     	; 0x76a <ibutton_wait_for_master+0x38>
+     754:	8c b5       	in	r24, 0x2c	; 44
+     756:	9d b5       	in	r25, 0x2d	; 45
+     758:	80 33       	cpi	r24, 0x30	; 48
+     75a:	95 47       	sbci	r25, 0x75	; 117
+     75c:	40 f4       	brcc	.+16     	; 0x76e <ibutton_wait_for_master+0x3c>
+		{
+			wdt_reset();
+     75e:	a8 95       	wdr
+			update_leds();
+     760:	d8 dc       	rcall	.-1616   	; 0x112 <update_leds>
+			if (BUTTON_PRESSED || USB_POWERED) return;
+     762:	83 9b       	sbis	0x10, 3	; 16
+     764:	24 c0       	rjmp	.+72     	; 0x7ae <ibutton_wait_for_master+0x7c>
+     766:	82 9b       	sbis	0x10, 2	; 16
+     768:	22 c0       	rjmp	.+68     	; 0x7ae <ibutton_wait_for_master+0x7c>
+	int waittime;
+	for (waittime = 0; waittime < 100; waittime++)
+	{		
+		wdt_reset();
+		TCNT1 = 0;
+		while (!ONEWIRE_MASTER_RX && (TCNT1 < 30000)) // Пока нет сигнала
+     76a:	86 99       	sbic	0x10, 6	; 16
+     76c:	f3 cf       	rjmp	.-26     	; 0x754 <ibutton_wait_for_master+0x22>
+			wdt_reset();
+			update_leds();
+			if (BUTTON_PRESSED || USB_POWERED) return;
+		};
+		// Если долго не было сигнала, ждём дальше
+		if (TCNT1 >= 30000) continue;
+     76e:	8c b5       	in	r24, 0x2c	; 44
+     770:	9d b5       	in	r25, 0x2d	; 45
+     772:	80 33       	cpi	r24, 0x30	; 48
+     774:	95 47       	sbci	r25, 0x75	; 117
+     776:	90 f4       	brcc	.+36     	; 0x79c <ibutton_wait_for_master+0x6a>
+		// Если же сигнал есть, считаем время
+		TCNT1 = 0;	
+     778:	1d bc       	out	0x2d, r1	; 45
+     77a:	1c bc       	out	0x2c, r1	; 44
+		while (ONEWIRE_MASTER_RX) if (TCNT1 > 30000) TCNT1 = 30000; // Пока есть сигнал
+     77c:	05 c0       	rjmp	.+10     	; 0x788 <ibutton_wait_for_master+0x56>
+     77e:	8c b5       	in	r24, 0x2c	; 44
+     780:	9d b5       	in	r25, 0x2d	; 45
+     782:	81 33       	cpi	r24, 0x31	; 49
+     784:	95 47       	sbci	r25, 0x75	; 117
+     786:	18 f5       	brcc	.+70     	; 0x7ce <ibutton_wait_for_master+0x9c>
+     788:	86 9b       	sbis	0x10, 6	; 16
+     78a:	f9 cf       	rjmp	.-14     	; 0x77e <ibutton_wait_for_master+0x4c>
+		if (TCNT1 > 300) // Не слишком короткий
+     78c:	8c b5       	in	r24, 0x2c	; 44
+     78e:	9d b5       	in	r25, 0x2d	; 45
+     790:	8d 32       	cpi	r24, 0x2D	; 45
+     792:	91 40       	sbci	r25, 0x01	; 1
+     794:	98 f4       	brcc	.+38     	; 0x7bc <ibutton_wait_for_master+0x8a>
+
+// Ждём ресета от мастера
+void ibutton_wait_for_master(unsigned char* key)
+{
+	int waittime;
+	for (waittime = 0; waittime < 100; waittime++)
+     796:	01 e0       	ldi	r16, 0x01	; 1
+     798:	10 e0       	ldi	r17, 0x00	; 0
+     79a:	d8 cf       	rjmp	.-80     	; 0x74c <ibutton_wait_for_master+0x1a>
+     79c:	0f 5f       	subi	r16, 0xFF	; 255
+     79e:	1f 4f       	sbci	r17, 0xFF	; 255
+     7a0:	04 36       	cpi	r16, 0x64	; 100
+     7a2:	11 05       	cpc	r17, r1
+     7a4:	99 f6       	brne	.-90     	; 0x74c <ibutton_wait_for_master+0x1a>
+void ibutton_wait_for_master2(unsigned char* key)
+{
+	int reset;
+	do
+	{
+		reset = ibutton_wait_for_master3(key);	
+     7a6:	ce 01       	movw	r24, r28
+     7a8:	66 de       	rcall	.-820    	; 0x476 <ibutton_wait_for_master3>
+	} while (reset); // Если в результате общения получили ресет, то начинаем общение заново
+     7aa:	89 2b       	or	r24, r25
+     7ac:	e1 f7       	brne	.-8      	; 0x7a6 <ibutton_wait_for_master+0x74>
+		}
+		// Был сигнал, ждём ресета с нуля
+		waittime = 0;
+	}
+	ibutton_wait_for_master2(key); // Не дождались, начинаем сами
+}
+     7ae:	df 91       	pop	r29
+     7b0:	cf 91       	pop	r28
+     7b2:	1f 91       	pop	r17
+     7b4:	0f 91       	pop	r16
+     7b6:	ff 90       	pop	r15
+     7b8:	ef 90       	pop	r14
+     7ba:	08 95       	ret
+void ibutton_wait_for_master2(unsigned char* key)
+{
+	int reset;
+	do
+	{
+		reset = ibutton_wait_for_master3(key);	
+     7bc:	ce 01       	movw	r24, r28
+     7be:	5b de       	rcall	.-842    	; 0x476 <ibutton_wait_for_master3>
+	} while (reset); // Если в результате общения получили ресет, то начинаем общение заново
+     7c0:	89 2b       	or	r24, r25
+     7c2:	49 f3       	breq	.-46     	; 0x796 <ibutton_wait_for_master+0x64>
+void ibutton_wait_for_master2(unsigned char* key)
+{
+	int reset;
+	do
+	{
+		reset = ibutton_wait_for_master3(key);	
+     7c4:	ce 01       	movw	r24, r28
+     7c6:	57 de       	rcall	.-850    	; 0x476 <ibutton_wait_for_master3>
+	} while (reset); // Если в результате общения получили ресет, то начинаем общение заново
+     7c8:	89 2b       	or	r24, r25
+     7ca:	c1 f7       	brne	.-16     	; 0x7bc <ibutton_wait_for_master+0x8a>
+     7cc:	e4 cf       	rjmp	.-56     	; 0x796 <ibutton_wait_for_master+0x64>
+		};
+		// Если долго не было сигнала, ждём дальше
+		if (TCNT1 >= 30000) continue;
+		// Если же сигнал есть, считаем время
+		TCNT1 = 0;	
+		while (ONEWIRE_MASTER_RX) if (TCNT1 > 30000) TCNT1 = 30000; // Пока есть сигнал
+     7ce:	fd bc       	out	0x2d, r15	; 45
+     7d0:	ec bc       	out	0x2c, r14	; 44
+     7d2:	da cf       	rjmp	.-76     	; 0x788 <ibutton_wait_for_master+0x56>
+
+000007d4 <send_mode.part.2>:
+	}
+	ibutton_wait_for_master2(key); // Не дождались, начинаем сами
+}
+
+// Режим посылки ключа
+int send_mode()
+     7d4:	ef 92       	push	r14
+     7d6:	ff 92       	push	r15
+     7d8:	0f 93       	push	r16
+     7da:	1f 93       	push	r17
+     7dc:	cf 93       	push	r28
+     7de:	df 93       	push	r29
+     7e0:	cd b7       	in	r28, 0x3d	; 61
+     7e2:	de b7       	in	r29, 0x3e	; 62
+     7e4:	28 97       	sbiw	r28, 0x08	; 8
+     7e6:	0f b6       	in	r0, 0x3f	; 63
+     7e8:	f8 94       	cli
+     7ea:	de bf       	out	0x3e, r29	; 62
+     7ec:	0f be       	out	0x3f, r0	; 63
+     7ee:	cd bf       	out	0x3d, r28	; 61
+     7f0:	7e 01       	movw	r14, r28
+     7f2:	89 e0       	ldi	r24, 0x09	; 9
+     7f4:	e8 0e       	add	r14, r24
+     7f6:	f1 1c       	adc	r15, r1
+	// Если ключей нет, сразу переходим в режим чтения ключей
+	if (!key_count) return 1;
+	int t;
+	while (1)
+	{
+		if (current_key >= key_count) current_key = 0;
+     7f8:	80 91 f1 00 	lds	r24, 0x00F1	; 0x8000f1 <current_key>
+     7fc:	90 91 f2 00 	lds	r25, 0x00F2	; 0x8000f2 <key_count>
+     800:	89 17       	cp	r24, r25
+     802:	08 f0       	brcs	.+2      	; 0x806 <send_mode.part.2+0x32>
+     804:	6f c0       	rjmp	.+222    	; 0x8e4 <send_mode.part.2+0x110>
+     806:	8f 5f       	subi	r24, 0xFF	; 255
+
+	}
+	if (digit >> 4) mask |= (1<<7);
+	*/
+	mask = digit;
+	leds_mask = mask;
+     808:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
+	set_leds(mask);
+     80c:	60 dc       	rcall	.-1856   	; 0xce <set_leds>
+	{
+		if (current_key >= key_count) current_key = 0;
+		// Показываем номер текущего ключа
+		show_digit(current_key+1);
+		// Ждём пока кнопку, отпустят
+		while (BUTTON_PRESSED)
+     80e:	83 99       	sbic	0x10, 3	; 16
+     810:	0a c0       	rjmp	.+20     	; 0x826 <send_mode.part.2+0x52>
+		{
+			wdt_reset();
+     812:	a8 95       	wdr
+			update_leds_bright();
+     814:	9f dc       	rcall	.-1730   	; 0x154 <update_leds_bright>
+     816:	8f ec       	ldi	r24, 0xCF	; 207
+     818:	97 e0       	ldi	r25, 0x07	; 7
+     81a:	01 97       	sbiw	r24, 0x01	; 1
+     81c:	f1 f7       	brne	.-4      	; 0x81a <send_mode.part.2+0x46>
+     81e:	00 c0       	rjmp	.+0      	; 0x820 <send_mode.part.2+0x4c>
+     820:	00 00       	nop
+	{
+		if (current_key >= key_count) current_key = 0;
+		// Показываем номер текущего ключа
+		show_digit(current_key+1);
+		// Ждём пока кнопку, отпустят
+		while (BUTTON_PRESSED)
+     822:	83 9b       	sbis	0x10, 3	; 16
+     824:	f6 cf       	rjmp	.-20     	; 0x812 <send_mode.part.2+0x3e>
+			update_leds_bright();
+			_delay_ms(1);
+		}
+		unsigned char key[8];
+		// В обычном режиме читаем ключ из EEPROM
+		if (!vezdehod_mode)
+     826:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
+     82a:	88 23       	and	r24, r24
+     82c:	09 f4       	brne	.+2      	; 0x830 <send_mode.part.2+0x5c>
+     82e:	85 c0       	rjmp	.+266    	; 0x93a <send_mode.part.2+0x166>
+     830:	e0 91 f1 00 	lds	r30, 0x00F1	; 0x8000f1 <current_key>
+     834:	f0 e0       	ldi	r31, 0x00	; 0
+     836:	ee 0f       	add	r30, r30
+     838:	ff 1f       	adc	r31, r31
+     83a:	e0 5a       	subi	r30, 0xA0	; 160
+     83c:	ff 4f       	sbci	r31, 0xFF	; 255
+     83e:	01 90       	ld	r0, Z+
+     840:	f0 81       	ld	r31, Z
+     842:	e0 2d       	mov	r30, r0
+     844:	de 01       	movw	r26, r28
+     846:	11 96       	adiw	r26, 0x01	; 1
+			eeprom_read_block(key, (void*)((current_key+1)*8), 8);
+		else
+		{ // Если режим вездехода, то читаем ключ из PGM памяти
+			int i;
+			for (i = 0; i < 8; i++)
+				key[i] = pgm_read_byte(&VEZDEHOD_KEYS[current_key][i]);
+     848:	84 91       	lpm	r24, Z
+     84a:	8d 93       	st	X+, r24
+     84c:	31 96       	adiw	r30, 0x01	; 1
+		if (!vezdehod_mode)
+			eeprom_read_block(key, (void*)((current_key+1)*8), 8);
+		else
+		{ // Если режим вездехода, то читаем ключ из PGM памяти
+			int i;
+			for (i = 0; i < 8; i++)
+     84e:	ae 15       	cp	r26, r14
+     850:	bf 05       	cpc	r27, r15
+     852:	d1 f7       	brne	.-12     	; 0x848 <send_mode.part.2+0x74>
+				key[i] = pgm_read_byte(&VEZDEHOD_KEYS[current_key][i]);
+		}
+		// Включаем 1-wire
+		onewire_init();
+     854:	fa d0       	rcall	.+500    	; 0xa4a <onewire_init>
+		t = 0;
+     856:	00 e0       	ldi	r16, 0x00	; 0
+     858:	10 e0       	ldi	r17, 0x00	; 0
+		while (1)
+		{
+			if (key[0] == 0xFF) // Цифрал
+     85a:	89 81       	ldd	r24, Y+1	; 0x01
+     85c:	8f 3f       	cpi	r24, 0xFF	; 255
+     85e:	89 f0       	breq	.+34     	; 0x882 <send_mode.part.2+0xae>
+				update_leds();
+				uint16_t cyfral_key = key[1] + key[2]*0x100;
+				// Посылаем ключ
+				cyfral_send(cyfral_key);
+			}
+			else if (key[0] == 0xFE) // Метаком
+     860:	8e 3f       	cpi	r24, 0xFE	; 254
+     862:	39 f1       	breq	.+78     	; 0x8b2 <send_mode.part.2+0xde>
+				update_leds();
+				// Посылаем ключ
+				metacom_send(key+1);
+			} else { // iButton
+				// После трёх попыток выключаемся
+				if (t >= 2) return 0;
+     864:	02 30       	cpi	r16, 0x02	; 2
+     866:	11 05       	cpc	r17, r1
+     868:	74 f5       	brge	.+92     	; 0x8c6 <send_mode.part.2+0xf2>
+				// Переходим в режим переговоров с дверью
+				ibutton_wait_for_master(key);
+     86a:	ce 01       	movw	r24, r28
+     86c:	01 96       	adiw	r24, 0x01	; 1
+     86e:	61 df       	rcall	.-318    	; 0x732 <ibutton_wait_for_master>
+			}					
+			
+			if (BUTTON_PRESSED)
+     870:	83 9b       	sbis	0x10, 3	; 16
+     872:	3c c0       	rjmp	.+120    	; 0x8ec <send_mode.part.2+0x118>
+					t++;
+					if (t >= 1000 && !vezdehod_mode) return 1; // смена режима
+				}
+				break;
+			}
+			if (USB_POWERED) return 1;
+     874:	82 9b       	sbis	0x10, 2	; 16
+     876:	5e c0       	rjmp	.+188    	; 0x934 <send_mode.part.2+0x160>
+			t++;
+     878:	0f 5f       	subi	r16, 0xFF	; 255
+     87a:	1f 4f       	sbci	r17, 0xFF	; 255
+		// Включаем 1-wire
+		onewire_init();
+		t = 0;
+		while (1)
+		{
+			if (key[0] == 0xFF) // Цифрал
+     87c:	89 81       	ldd	r24, Y+1	; 0x01
+     87e:	8f 3f       	cpi	r24, 0xFF	; 255
+     880:	79 f7       	brne	.-34     	; 0x860 <send_mode.part.2+0x8c>
+			{
+				// После 1000 попыток выключаемся
+				if (t > 1000) return 0;
+     882:	09 3e       	cpi	r16, 0xE9	; 233
+     884:	93 e0       	ldi	r25, 0x03	; 3
+     886:	19 07       	cpc	r17, r25
+     888:	f1 f0       	breq	.+60     	; 0x8c6 <send_mode.part.2+0xf2>
+				wdt_reset();
+     88a:	a8 95       	wdr
+}
+
+// Ускоряет мигание светодиодами
+void speedup_leds(void)
+{
+	leds_time+=32;
+     88c:	80 91 ed 00 	lds	r24, 0x00ED	; 0x8000ed <leds_time>
+     890:	90 91 ee 00 	lds	r25, 0x00EE	; 0x8000ee <leds_time+0x1>
+     894:	80 96       	adiw	r24, 0x20	; 32
+     896:	90 93 ee 00 	sts	0x00EE, r25	; 0x8000ee <leds_time+0x1>
+     89a:	80 93 ed 00 	sts	0x00ED, r24	; 0x8000ed <leds_time>
+			{
+				// После 1000 попыток выключаемся
+				if (t > 1000) return 0;
+				wdt_reset();
+				speedup_leds();
+				update_leds();
+     89e:	39 dc       	rcall	.-1934   	; 0x112 <update_leds>
+				uint16_t cyfral_key = key[1] + key[2]*0x100;
+				// Посылаем ключ
+				cyfral_send(cyfral_key);
+     8a0:	8b 81       	ldd	r24, Y+3	; 0x03
+     8a2:	90 e0       	ldi	r25, 0x00	; 0
+     8a4:	98 2f       	mov	r25, r24
+     8a6:	88 27       	eor	r24, r24
+     8a8:	2a 81       	ldd	r18, Y+2	; 0x02
+     8aa:	82 0f       	add	r24, r18
+     8ac:	91 1d       	adc	r25, r1
+     8ae:	ba d1       	rcall	.+884    	; 0xc24 <cyfral_send>
+     8b0:	df cf       	rjmp	.-66     	; 0x870 <send_mode.part.2+0x9c>
+			}
+			else if (key[0] == 0xFE) // Метаком
+			{
+				// После 1000 попыток выключаемся
+				if (t > 1000) return 0;
+     8b2:	09 3e       	cpi	r16, 0xE9	; 233
+     8b4:	83 e0       	ldi	r24, 0x03	; 3
+     8b6:	18 07       	cpc	r17, r24
+     8b8:	31 f0       	breq	.+12     	; 0x8c6 <send_mode.part.2+0xf2>
+				wdt_reset();
+     8ba:	a8 95       	wdr
+				update_leds();
+     8bc:	2a dc       	rcall	.-1964   	; 0x112 <update_leds>
+				// Посылаем ключ
+				metacom_send(key+1);
+     8be:	ce 01       	movw	r24, r28
+     8c0:	02 96       	adiw	r24, 0x02	; 2
+     8c2:	f3 d4       	rcall	.+2534   	; 0x12aa <metacom_send>
+     8c4:	d5 cf       	rjmp	.-86     	; 0x870 <send_mode.part.2+0x9c>
+		while (1)
+		{
+			if (key[0] == 0xFF) // Цифрал
+			{
+				// После 1000 попыток выключаемся
+				if (t > 1000) return 0;
+     8c6:	80 e0       	ldi	r24, 0x00	; 0
+     8c8:	90 e0       	ldi	r25, 0x00	; 0
+			}
+			if (USB_POWERED) return 1;
+			t++;
+		}
+	}	
+}
+     8ca:	28 96       	adiw	r28, 0x08	; 8
+     8cc:	0f b6       	in	r0, 0x3f	; 63
+     8ce:	f8 94       	cli
+     8d0:	de bf       	out	0x3e, r29	; 62
+     8d2:	0f be       	out	0x3f, r0	; 63
+     8d4:	cd bf       	out	0x3d, r28	; 61
+     8d6:	df 91       	pop	r29
+     8d8:	cf 91       	pop	r28
+     8da:	1f 91       	pop	r17
+     8dc:	0f 91       	pop	r16
+     8de:	ff 90       	pop	r15
+     8e0:	ef 90       	pop	r14
+     8e2:	08 95       	ret
+	// Если ключей нет, сразу переходим в режим чтения ключей
+	if (!key_count) return 1;
+	int t;
+	while (1)
+	{
+		if (current_key >= key_count) current_key = 0;
+     8e4:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
+     8e8:	81 e0       	ldi	r24, 0x01	; 1
+     8ea:	8e cf       	rjmp	.-228    	; 0x808 <send_mode.part.2+0x34>
+			}					
+			
+			if (BUTTON_PRESSED)
+			{
+				t = 0;
+				current_key++;				
+     8ec:	80 91 f1 00 	lds	r24, 0x00F1	; 0x8000f1 <current_key>
+     8f0:	91 e0       	ldi	r25, 0x01	; 1
+     8f2:	98 0f       	add	r25, r24
+     8f4:	90 93 f1 00 	sts	0x00F1, r25	; 0x8000f1 <current_key>
+				if (current_key >= key_count) current_key = 0;
+     8f8:	20 91 f2 00 	lds	r18, 0x00F2	; 0x8000f2 <key_count>
+     8fc:	92 17       	cp	r25, r18
+     8fe:	70 f5       	brcc	.+92     	; 0x95c <send_mode.part.2+0x188>
+     900:	8e 5f       	subi	r24, 0xFE	; 254
+
+	}
+	if (digit >> 4) mask |= (1<<7);
+	*/
+	mask = digit;
+	leds_mask = mask;
+     902:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
+	set_leds(mask);
+     906:	e3 db       	rcall	.-2106   	; 0xce <set_leds>
+				ibutton_wait_for_master(key);
+			}					
+			
+			if (BUTTON_PRESSED)
+			{
+				t = 0;
+     908:	00 e0       	ldi	r16, 0x00	; 0
+     90a:	10 e0       	ldi	r17, 0x00	; 0
+				current_key++;				
+				if (current_key >= key_count) current_key = 0;
+				show_digit(current_key+1);
+				while (BUTTON_PRESSED)
+     90c:	83 99       	sbic	0x10, 3	; 16
+     90e:	74 cf       	rjmp	.-280    	; 0x7f8 <send_mode.part.2+0x24>
+				{
+					wdt_reset();
+     910:	a8 95       	wdr
+					update_leds_bright();
+     912:	20 dc       	rcall	.-1984   	; 0x154 <update_leds_bright>
+     914:	8f ec       	ldi	r24, 0xCF	; 207
+     916:	97 e0       	ldi	r25, 0x07	; 7
+     918:	01 97       	sbiw	r24, 0x01	; 1
+     91a:	f1 f7       	brne	.-4      	; 0x918 <send_mode.part.2+0x144>
+     91c:	00 c0       	rjmp	.+0      	; 0x91e <send_mode.part.2+0x14a>
+     91e:	00 00       	nop
+					_delay_ms(1);
+					t++;
+     920:	0f 5f       	subi	r16, 0xFF	; 255
+     922:	1f 4f       	sbci	r17, 0xFF	; 255
+					if (t >= 1000 && !vezdehod_mode) return 1; // смена режима
+     924:	08 3e       	cpi	r16, 0xE8	; 232
+     926:	93 e0       	ldi	r25, 0x03	; 3
+     928:	19 07       	cpc	r17, r25
+     92a:	84 f3       	brlt	.-32     	; 0x90c <send_mode.part.2+0x138>
+     92c:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
+     930:	81 11       	cpse	r24, r1
+     932:	ec cf       	rjmp	.-40     	; 0x90c <send_mode.part.2+0x138>
+     934:	81 e0       	ldi	r24, 0x01	; 1
+     936:	90 e0       	ldi	r25, 0x00	; 0
+     938:	c8 cf       	rjmp	.-112    	; 0x8ca <send_mode.part.2+0xf6>
+			_delay_ms(1);
+		}
+		unsigned char key[8];
+		// В обычном режиме читаем ключ из EEPROM
+		if (!vezdehod_mode)
+			eeprom_read_block(key, (void*)((current_key+1)*8), 8);
+     93a:	60 91 f1 00 	lds	r22, 0x00F1	; 0x8000f1 <current_key>
+     93e:	70 e0       	ldi	r23, 0x00	; 0
+     940:	6f 5f       	subi	r22, 0xFF	; 255
+     942:	7f 4f       	sbci	r23, 0xFF	; 255
+     944:	66 0f       	add	r22, r22
+     946:	77 1f       	adc	r23, r23
+     948:	66 0f       	add	r22, r22
+     94a:	77 1f       	adc	r23, r23
+     94c:	66 0f       	add	r22, r22
+     94e:	77 1f       	adc	r23, r23
+     950:	48 e0       	ldi	r20, 0x08	; 8
+     952:	50 e0       	ldi	r21, 0x00	; 0
+     954:	ce 01       	movw	r24, r28
+     956:	01 96       	adiw	r24, 0x01	; 1
+     958:	d4 d5       	rcall	.+2984   	; 0x1502 <eeprom_read_block>
+     95a:	7c cf       	rjmp	.-264    	; 0x854 <send_mode.part.2+0x80>
+			
+			if (BUTTON_PRESSED)
+			{
+				t = 0;
+				current_key++;				
+				if (current_key >= key_count) current_key = 0;
+     95c:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
+     960:	81 e0       	ldi	r24, 0x01	; 1
+     962:	cf cf       	rjmp	.-98     	; 0x902 <send_mode.part.2+0x12e>
+
+00000964 <send_mode>:
+
+// Режим посылки ключа
+int send_mode()
+{	
+	// Если ключей нет, сразу переходим в режим чтения ключей
+	if (!key_count) return 1;
+     964:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+     968:	81 11       	cpse	r24, r1
+     96a:	34 cf       	rjmp	.-408    	; 0x7d4 <send_mode.part.2>
+			}
+			if (USB_POWERED) return 1;
+			t++;
+		}
+	}	
+}
+     96c:	81 e0       	ldi	r24, 0x01	; 1
+     96e:	90 e0       	ldi	r25, 0x00	; 0
+     970:	08 95       	ret
+
+00000972 <sleep>:
+
+void sleep()
+{
+	onewire_init();
+     972:	6b d0       	rcall	.+214    	; 0xa4a <onewire_init>
+	set_leds(0);
+     974:	80 e0       	ldi	r24, 0x00	; 0
+     976:	ab db       	rcall	.-2218   	; 0xce <set_leds>
+	UCSRB = 0; // disable USART
+     978:	1a b8       	out	0x0a, r1	; 10
+	unset_bit(PORTD, 0); unset_bit(PORTD, 1); // Прижимаем USART к земле
+     97a:	90 98       	cbi	0x12, 0	; 18
+     97c:	91 98       	cbi	0x12, 1	; 18
+	set_bit(DDRD, 0); set_bit(DDRD, 1);
+     97e:	88 9a       	sbi	0x11, 0	; 17
+     980:	89 9a       	sbi	0x11, 1	; 17
+
+	LINE_DISABLE;
+     982:	c6 98       	cbi	0x18, 6	; 24
+	CYFRAL_PULLUP_DISABLE;
+     984:	bf 98       	cbi	0x17, 7	; 23
+     986:	c7 98       	cbi	0x18, 7	; 24
+	CYFRAL_REFERENCE_DISABLE;
+     988:	c0 98       	cbi	0x18, 0	; 24
+	
+	set_bit(MCUCR, SM1); unset_bit2(MCUCR, SM0, SM2); // Power-down спящий режим
+     98a:	85 b7       	in	r24, 0x35	; 53
+     98c:	80 62       	ori	r24, 0x20	; 32
+     98e:	85 bf       	out	0x35, r24	; 53
+     990:	85 b7       	in	r24, 0x35	; 53
+     992:	8f 7a       	andi	r24, 0xAF	; 175
+     994:	85 bf       	out	0x35, r24	; 53
+	set_bit2(GICR, INT1, INT0); // Включаем прерывания
+     996:	8b b7       	in	r24, 0x3b	; 59
+     998:	80 6c       	ori	r24, 0xC0	; 192
+     99a:	8b bf       	out	0x3b, r24	; 59
+
+	set_bit(WDTCR, WDCE), unset_bit(WDTCR, WDE); // Собаку выключаем
+     99c:	81 b5       	in	r24, 0x21	; 33
+     99e:	80 61       	ori	r24, 0x10	; 16
+     9a0:	81 bd       	out	0x21, r24	; 33
+     9a2:	81 b5       	in	r24, 0x21	; 33
+     9a4:	87 7f       	andi	r24, 0xF7	; 247
+     9a6:	81 bd       	out	0x21, r24	; 33
+	
+	if (BUTTON_PRESSED || USB_POWERED) return;
+     9a8:	83 9b       	sbis	0x10, 3	; 16
+     9aa:	09 c0       	rjmp	.+18     	; 0x9be <sleep+0x4c>
+     9ac:	82 9b       	sbis	0x10, 2	; 16
+     9ae:	07 c0       	rjmp	.+14     	; 0x9be <sleep+0x4c>
+	sleep_mode();
+     9b0:	85 b7       	in	r24, 0x35	; 53
+     9b2:	80 68       	ori	r24, 0x80	; 128
+     9b4:	85 bf       	out	0x35, r24	; 53
+     9b6:	88 95       	sleep
+     9b8:	85 b7       	in	r24, 0x35	; 53
+     9ba:	8f 77       	andi	r24, 0x7F	; 127
+     9bc:	85 bf       	out	0x35, r24	; 53
+     9be:	08 95       	ret
+
+000009c0 <USART_init>:
+#include <avr/io.h>
+
+void USART_init(void)
+{
+  unsigned int bd = (F_CPU / (16UL * UART_BAUD)) - 1;
+  UBRRL = bd & 0xFF;
+     9c0:	89 e1       	ldi	r24, 0x19	; 25
+     9c2:	89 b9       	out	0x09, r24	; 9
+  UBRRH = bd >> 8;
+     9c4:	10 bc       	out	0x20, r1	; 32
+
+  UCSRB = /*_BV(TXEN) | */_BV(RXEN) | _BV(RXCIE); /* tx/rx enable */
+     9c6:	80 e9       	ldi	r24, 0x90	; 144
+     9c8:	8a b9       	out	0x0a, r24	; 10
+//  UCSRC = 1<<URSEL|1<<UCSZ0|1<<UCSZ1;
+  UCSRC |= _BV(UMSEL);
+     9ca:	80 b5       	in	r24, 0x20	; 32
+     9cc:	80 64       	ori	r24, 0x40	; 64
+     9ce:	80 bd       	out	0x20, r24	; 32
+     9d0:	08 95       	ret
+
+000009d2 <USART_TransmitByte>:
+}
+
+void USART_TransmitByte( unsigned char data )
+{
+	/* Wait for empty transmit buffer */
+	while ( !( UCSRA & (1<<UDRE)) );
+     9d2:	5d 9b       	sbis	0x0b, 5	; 11
+     9d4:	fe cf       	rjmp	.-4      	; 0x9d2 <USART_TransmitByte>
+	/* Put data into buffer, sends the data */
+	UDR = data;
+     9d6:	8c b9       	out	0x0c, r24	; 12
+     9d8:	08 95       	ret
+
+000009da <USART_TransmitHex>:
+}
+
+void USART_TransmitHex( unsigned char data )
+{
+	unsigned char h = data>>4;
+     9da:	98 2f       	mov	r25, r24
+     9dc:	92 95       	swap	r25
+     9de:	9f 70       	andi	r25, 0x0F	; 15
+	char ho = (h < 10) ? (h+'0') : (h+'A'-10);
+     9e0:	9a 30       	cpi	r25, 0x0A	; 10
+     9e2:	70 f4       	brcc	.+28     	; 0xa00 <USART_TransmitHex+0x26>
+     9e4:	90 5d       	subi	r25, 0xD0	; 208
+	unsigned char l = data & 0xF;
+     9e6:	8f 70       	andi	r24, 0x0F	; 15
+	char lo = (l < 10) ? (l+'0') : (l+'A'-10);
+     9e8:	8a 30       	cpi	r24, 0x0A	; 10
+     9ea:	40 f4       	brcc	.+16     	; 0x9fc <USART_TransmitHex+0x22>
+     9ec:	80 5d       	subi	r24, 0xD0	; 208
+	while ( !( UCSRA & (1<<UDRE)) );
+     9ee:	5d 9b       	sbis	0x0b, 5	; 11
+     9f0:	fe cf       	rjmp	.-4      	; 0x9ee <USART_TransmitHex+0x14>
+	UDR = ho;
+     9f2:	9c b9       	out	0x0c, r25	; 12
+	while ( !( UCSRA & (1<<UDRE)) );
+     9f4:	5d 9b       	sbis	0x0b, 5	; 11
+     9f6:	fe cf       	rjmp	.-4      	; 0x9f4 <USART_TransmitHex+0x1a>
+	UDR = lo;
+     9f8:	8c b9       	out	0x0c, r24	; 12
+     9fa:	08 95       	ret
+void USART_TransmitHex( unsigned char data )
+{
+	unsigned char h = data>>4;
+	char ho = (h < 10) ? (h+'0') : (h+'A'-10);
+	unsigned char l = data & 0xF;
+	char lo = (l < 10) ? (l+'0') : (l+'A'-10);
+     9fc:	89 5c       	subi	r24, 0xC9	; 201
+	while ( !( UCSRA & (1<<UDRE)) );
+     9fe:	f7 cf       	rjmp	.-18     	; 0x9ee <USART_TransmitHex+0x14>
+}
+
+void USART_TransmitHex( unsigned char data )
+{
+	unsigned char h = data>>4;
+	char ho = (h < 10) ? (h+'0') : (h+'A'-10);
+     a00:	99 5c       	subi	r25, 0xC9	; 201
+     a02:	f1 cf       	rjmp	.-30     	; 0x9e6 <USART_TransmitHex+0xc>
+
+00000a04 <USART_TransmitText>:
+	while ( !( UCSRA & (1<<UDRE)) );
+	UDR = lo;
+}
+
+void USART_TransmitText(char* data)
+{
+     a04:	fc 01       	movw	r30, r24
+	while (*data != 0)
+     a06:	90 81       	ld	r25, Z
+     a08:	99 23       	and	r25, r25
+     a0a:	39 f0       	breq	.+14     	; 0xa1a <USART_TransmitText+0x16>
+     a0c:	31 96       	adiw	r30, 0x01	; 1
+	{
+		/* Wait for empty transmit buffer */
+		while ( !( UCSRA & (1<<UDRE)) );
+     a0e:	5d 9b       	sbis	0x0b, 5	; 11
+     a10:	fe cf       	rjmp	.-4      	; 0xa0e <USART_TransmitText+0xa>
+		/* Put data into buffer, sends the data */
+		UDR = *data;
+     a12:	9c b9       	out	0x0c, r25	; 12
+	UDR = lo;
+}
+
+void USART_TransmitText(char* data)
+{
+	while (*data != 0)
+     a14:	91 91       	ld	r25, Z+
+     a16:	91 11       	cpse	r25, r1
+     a18:	fa cf       	rjmp	.-12     	; 0xa0e <USART_TransmitText+0xa>
+     a1a:	08 95       	ret
+
+00000a1c <USART_Transmit>:
+
+void USART_Transmit(void* p, unsigned long int len)
+{
+	unsigned char* buff = (unsigned char*)p;
+	unsigned long int b;
+	for (b = 0; b < len; b++) USART_TransmitByte(buff[b]);
+     a1c:	41 15       	cp	r20, r1
+     a1e:	51 05       	cpc	r21, r1
+     a20:	61 05       	cpc	r22, r1
+     a22:	71 05       	cpc	r23, r1
+     a24:	51 f0       	breq	.+20     	; 0xa3a <USART_Transmit+0x1e>
+     a26:	fc 01       	movw	r30, r24
+     a28:	48 0f       	add	r20, r24
+     a2a:	59 1f       	adc	r21, r25
+     a2c:	81 91       	ld	r24, Z+
+}
+
+void USART_TransmitByte( unsigned char data )
+{
+	/* Wait for empty transmit buffer */
+	while ( !( UCSRA & (1<<UDRE)) );
+     a2e:	5d 9b       	sbis	0x0b, 5	; 11
+     a30:	fe cf       	rjmp	.-4      	; 0xa2e <USART_Transmit+0x12>
+	/* Put data into buffer, sends the data */
+	UDR = data;
+     a32:	8c b9       	out	0x0c, r24	; 12
+
+void USART_Transmit(void* p, unsigned long int len)
+{
+	unsigned char* buff = (unsigned char*)p;
+	unsigned long int b;
+	for (b = 0; b < len; b++) USART_TransmitByte(buff[b]);
+     a34:	e4 17       	cp	r30, r20
+     a36:	f5 07       	cpc	r31, r21
+     a38:	c9 f7       	brne	.-14     	; 0xa2c <USART_Transmit+0x10>
+     a3a:	08 95       	ret
+
+00000a3c <onewire_port_init>:
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+void onewire_port_init()
+{
+	ONEWIRE_DDR &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     a3c:	81 b3       	in	r24, 0x11	; 17
+     a3e:	8f 79       	andi	r24, 0x9F	; 159
+     a40:	81 bb       	out	0x11, r24	; 17
+	ONEWIRE_PORT &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     a42:	82 b3       	in	r24, 0x12	; 18
+     a44:	8f 79       	andi	r24, 0x9F	; 159
+     a46:	82 bb       	out	0x12, r24	; 18
+     a48:	08 95       	ret
+
+00000a4a <onewire_init>:
+}
+
+void onewire_init()
+{
+	ONEWIRE_TIMER_INIT; 
+     a4a:	8e b5       	in	r24, 0x2e	; 46
+     a4c:	82 60       	ori	r24, 0x02	; 2
+     a4e:	8e bd       	out	0x2e, r24	; 46
+     a50:	8e b5       	in	r24, 0x2e	; 46
+     a52:	8a 7f       	andi	r24, 0xFA	; 250
+     a54:	8e bd       	out	0x2e, r24	; 46
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+void onewire_port_init()
+{
+	ONEWIRE_DDR &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     a56:	81 b3       	in	r24, 0x11	; 17
+     a58:	8f 79       	andi	r24, 0x9F	; 159
+     a5a:	81 bb       	out	0x11, r24	; 17
+	ONEWIRE_PORT &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     a5c:	82 b3       	in	r24, 0x12	; 18
+     a5e:	8f 79       	andi	r24, 0x9F	; 159
+     a60:	82 bb       	out	0x12, r24	; 18
+     a62:	08 95       	ret
+
+00000a64 <onewire_write_reset>:
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+void onewire_port_init()
+{
+	ONEWIRE_DDR &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     a64:	81 b3       	in	r24, 0x11	; 17
+     a66:	8f 79       	andi	r24, 0x9F	; 159
+     a68:	81 bb       	out	0x11, r24	; 17
+	ONEWIRE_PORT &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     a6a:	82 b3       	in	r24, 0x12	; 18
+     a6c:	8f 79       	andi	r24, 0x9F	; 159
+     a6e:	82 bb       	out	0x12, r24	; 18
+// Инициализирует передачу. Возвращает 1, если устройства ответили.
+char onewire_write_reset()
+{
+	onewire_port_init();
+	int i;
+	ONEWIRE_DDR |= 1<<ONEWIRE_MASTER_TX_PIN;
+     a70:	8d 9a       	sbi	0x11, 5	; 17
+     a72:	25 e0       	ldi	r18, 0x05	; 5
+     a74:	30 e0       	ldi	r19, 0x00	; 0
+	for (i = 0; i < 5; i++)
+	{	
+		ONEWIRE_WAIT(100);
+     a76:	1d bc       	out	0x2d, r1	; 45
+     a78:	1c bc       	out	0x2c, r1	; 44
+     a7a:	8c b5       	in	r24, 0x2c	; 44
+     a7c:	9d b5       	in	r25, 0x2d	; 45
+     a7e:	84 36       	cpi	r24, 0x64	; 100
+     a80:	91 05       	cpc	r25, r1
+     a82:	d8 f3       	brcs	.-10     	; 0xa7a <onewire_write_reset+0x16>
+     a84:	21 50       	subi	r18, 0x01	; 1
+     a86:	31 09       	sbc	r19, r1
+char onewire_write_reset()
+{
+	onewire_port_init();
+	int i;
+	ONEWIRE_DDR |= 1<<ONEWIRE_MASTER_TX_PIN;
+	for (i = 0; i < 5; i++)
+     a88:	b1 f7       	brne	.-20     	; 0xa76 <onewire_write_reset+0x12>
+	{	
+		ONEWIRE_WAIT(100);
+	}
+	ONEWIRE_DDR &= ~(1<<ONEWIRE_MASTER_TX_PIN);
+     a8a:	8d 98       	cbi	0x11, 5	; 17
+     a8c:	44 ef       	ldi	r20, 0xF4	; 244
+     a8e:	51 e0       	ldi	r21, 0x01	; 1
+
+	int res = 0;
+     a90:	80 e0       	ldi	r24, 0x00	; 0
+	for (i = 0; i < 500; i++)
+	{
+		if (ONEWIRE_MASTER_RX) res = 1;
+     a92:	86 9b       	sbis	0x10, 6	; 16
+     a94:	81 e0       	ldi	r24, 0x01	; 1
+		ONEWIRE_WAIT(1);
+     a96:	1d bc       	out	0x2d, r1	; 45
+     a98:	1c bc       	out	0x2c, r1	; 44
+     a9a:	2c b5       	in	r18, 0x2c	; 44
+     a9c:	3d b5       	in	r19, 0x2d	; 45
+     a9e:	23 2b       	or	r18, r19
+     aa0:	e1 f3       	breq	.-8      	; 0xa9a <onewire_write_reset+0x36>
+     aa2:	41 50       	subi	r20, 0x01	; 1
+     aa4:	51 09       	sbc	r21, r1
+		ONEWIRE_WAIT(100);
+	}
+	ONEWIRE_DDR &= ~(1<<ONEWIRE_MASTER_TX_PIN);
+
+	int res = 0;
+	for (i = 0; i < 500; i++)
+     aa6:	a9 f7       	brne	.-22     	; 0xa92 <onewire_write_reset+0x2e>
+	{
+		if (ONEWIRE_MASTER_RX) res = 1;
+		ONEWIRE_WAIT(1);
+	}	
+	return res;
+}
+     aa8:	08 95       	ret
+
+00000aaa <onewire_read_bit>:
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+void onewire_port_init()
+{
+	ONEWIRE_DDR &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     aaa:	81 b3       	in	r24, 0x11	; 17
+     aac:	8f 79       	andi	r24, 0x9F	; 159
+     aae:	81 bb       	out	0x11, r24	; 17
+	ONEWIRE_PORT &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     ab0:	82 b3       	in	r24, 0x12	; 18
+     ab2:	8f 79       	andi	r24, 0x9F	; 159
+     ab4:	82 bb       	out	0x12, r24	; 18
+}
+
+// Читает 1 бит
+char onewire_read_bit()
+{	onewire_port_init();
+	ONEWIRE_MASTER_TX(5); ONEWIRE_WAIT(5);
+     ab6:	8d 9a       	sbi	0x11, 5	; 17
+     ab8:	1d bc       	out	0x2d, r1	; 45
+     aba:	1c bc       	out	0x2c, r1	; 44
+     abc:	8c b5       	in	r24, 0x2c	; 44
+     abe:	9d b5       	in	r25, 0x2d	; 45
+     ac0:	05 97       	sbiw	r24, 0x05	; 5
+     ac2:	e0 f3       	brcs	.-8      	; 0xabc <onewire_read_bit+0x12>
+     ac4:	8d 98       	cbi	0x11, 5	; 17
+     ac6:	1d bc       	out	0x2d, r1	; 45
+     ac8:	1c bc       	out	0x2c, r1	; 44
+     aca:	8c b5       	in	r24, 0x2c	; 44
+     acc:	9d b5       	in	r25, 0x2d	; 45
+     ace:	05 97       	sbiw	r24, 0x05	; 5
+     ad0:	e0 f3       	brcs	.-8      	; 0xaca <onewire_read_bit+0x20>
+	char cbit = 1;
+	ONEWIRE_TIMER_REG = 0;
+     ad2:	1d bc       	out	0x2d, r1	; 45
+     ad4:	1c bc       	out	0x2c, r1	; 44
+
+// Читает 1 бит
+char onewire_read_bit()
+{	onewire_port_init();
+	ONEWIRE_MASTER_TX(5); ONEWIRE_WAIT(5);
+	char cbit = 1;
+     ad6:	81 e0       	ldi	r24, 0x01	; 1
+	ONEWIRE_TIMER_REG = 0;
+	int t = 0;
+	while (t < 1)
+	{
+		if (ONEWIRE_MASTER_RX) cbit = 0;
+     ad8:	86 9b       	sbis	0x10, 6	; 16
+     ada:	80 e0       	ldi	r24, 0x00	; 0
+		if (ONEWIRE_TIMER_REG > 100 * ONEWIRE_USEC)
+     adc:	2c b5       	in	r18, 0x2c	; 44
+     ade:	3d b5       	in	r19, 0x2d	; 45
+     ae0:	25 36       	cpi	r18, 0x65	; 101
+     ae2:	31 05       	cpc	r19, r1
+     ae4:	c8 f3       	brcs	.-14     	; 0xad8 <onewire_read_bit+0x2e>
+		{
+			t++;
+			ONEWIRE_TIMER_REG = 0;
+     ae6:	1d bc       	out	0x2d, r1	; 45
+     ae8:	1c bc       	out	0x2c, r1	; 44
+		}
+	}
+	return cbit;
+}
+     aea:	08 95       	ret
+
+00000aec <onewire_read_byte>:
+
+// Читает байт
+unsigned char onewire_read_byte()
+{
+     aec:	ef 92       	push	r14
+     aee:	ff 92       	push	r15
+     af0:	1f 93       	push	r17
+     af2:	cf 93       	push	r28
+     af4:	df 93       	push	r29
+     af6:	c0 e0       	ldi	r28, 0x00	; 0
+     af8:	d0 e0       	ldi	r29, 0x00	; 0
+	unsigned char res, bit, cbit;
+	res = 0;
+     afa:	10 e0       	ldi	r17, 0x00	; 0
+	for (bit = 0; bit < 8; bit++)
+	{		
+		cbit = onewire_read_bit();
+		if (cbit)
+			res |= (1 << bit);
+     afc:	ee 24       	eor	r14, r14
+     afe:	e3 94       	inc	r14
+     b00:	f1 2c       	mov	r15, r1
+{
+	unsigned char res, bit, cbit;
+	res = 0;
+	for (bit = 0; bit < 8; bit++)
+	{		
+		cbit = onewire_read_bit();
+     b02:	d3 df       	rcall	.-90     	; 0xaaa <onewire_read_bit>
+		if (cbit)
+     b04:	88 23       	and	r24, r24
+     b06:	39 f0       	breq	.+14     	; 0xb16 <onewire_read_byte+0x2a>
+			res |= (1 << bit);
+     b08:	c7 01       	movw	r24, r14
+     b0a:	0c 2e       	mov	r0, r28
+     b0c:	01 c0       	rjmp	.+2      	; 0xb10 <onewire_read_byte+0x24>
+     b0e:	88 0f       	add	r24, r24
+     b10:	0a 94       	dec	r0
+     b12:	ea f7       	brpl	.-6      	; 0xb0e <onewire_read_byte+0x22>
+     b14:	18 2b       	or	r17, r24
+     b16:	21 96       	adiw	r28, 0x01	; 1
+// Читает байт
+unsigned char onewire_read_byte()
+{
+	unsigned char res, bit, cbit;
+	res = 0;
+	for (bit = 0; bit < 8; bit++)
+     b18:	c8 30       	cpi	r28, 0x08	; 8
+     b1a:	d1 05       	cpc	r29, r1
+     b1c:	91 f7       	brne	.-28     	; 0xb02 <onewire_read_byte+0x16>
+		cbit = onewire_read_bit();
+		if (cbit)
+			res |= (1 << bit);
+	}
+	return res;
+}
+     b1e:	81 2f       	mov	r24, r17
+     b20:	df 91       	pop	r29
+     b22:	cf 91       	pop	r28
+     b24:	1f 91       	pop	r17
+     b26:	ff 90       	pop	r15
+     b28:	ef 90       	pop	r14
+     b2a:	08 95       	ret
+
+00000b2c <onewire_write_bit>:
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
+
+void onewire_port_init()
+{
+	ONEWIRE_DDR &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     b2c:	91 b3       	in	r25, 0x11	; 17
+     b2e:	9f 79       	andi	r25, 0x9F	; 159
+     b30:	91 bb       	out	0x11, r25	; 17
+	ONEWIRE_PORT &= ~((1 << ONEWIRE_MASTER_TX_PIN) | (1 << ONEWIRE_MASTER_RX_PIN));
+     b32:	92 b3       	in	r25, 0x12	; 18
+     b34:	9f 79       	andi	r25, 0x9F	; 159
+     b36:	92 bb       	out	0x12, r25	; 18
+}
+
+void onewire_write_bit(unsigned char b)
+{
+	onewire_port_init();
+	if (b) { ONEWIRE_WRITE1; } else { ONEWIRE_WRITE0;}
+     b38:	8d 9a       	sbi	0x11, 5	; 17
+     b3a:	1d bc       	out	0x2d, r1	; 45
+     b3c:	1c bc       	out	0x2c, r1	; 44
+     b3e:	88 23       	and	r24, r24
+     b40:	69 f0       	breq	.+26     	; 0xb5c <onewire_write_bit+0x30>
+     b42:	8c b5       	in	r24, 0x2c	; 44
+     b44:	9d b5       	in	r25, 0x2d	; 45
+     b46:	0a 97       	sbiw	r24, 0x0a	; 10
+     b48:	e0 f3       	brcs	.-8      	; 0xb42 <onewire_write_bit+0x16>
+     b4a:	8d 98       	cbi	0x11, 5	; 17
+     b4c:	1d bc       	out	0x2d, r1	; 45
+     b4e:	1c bc       	out	0x2c, r1	; 44
+     b50:	8c b5       	in	r24, 0x2c	; 44
+     b52:	9d b5       	in	r25, 0x2d	; 45
+     b54:	8b 34       	cpi	r24, 0x4B	; 75
+     b56:	91 05       	cpc	r25, r1
+     b58:	d8 f3       	brcs	.-10     	; 0xb50 <onewire_write_bit+0x24>
+     b5a:	08 95       	ret
+     b5c:	8c b5       	in	r24, 0x2c	; 44
+     b5e:	9d b5       	in	r25, 0x2d	; 45
+     b60:	8b 34       	cpi	r24, 0x4B	; 75
+     b62:	91 05       	cpc	r25, r1
+     b64:	d8 f3       	brcs	.-10     	; 0xb5c <onewire_write_bit+0x30>
+     b66:	8d 98       	cbi	0x11, 5	; 17
+     b68:	1d bc       	out	0x2d, r1	; 45
+     b6a:	1c bc       	out	0x2c, r1	; 44
+     b6c:	8c b5       	in	r24, 0x2c	; 44
+     b6e:	9d b5       	in	r25, 0x2d	; 45
+     b70:	0a 97       	sbiw	r24, 0x0a	; 10
+     b72:	e0 f3       	brcs	.-8      	; 0xb6c <onewire_write_bit+0x40>
+     b74:	08 95       	ret
+
+00000b76 <onewire_write_byte>:
+}
+
+void onewire_write_byte(unsigned char b)
+{
+     b76:	0f 93       	push	r16
+     b78:	1f 93       	push	r17
+     b7a:	cf 93       	push	r28
+     b7c:	df 93       	push	r29
+     b7e:	08 2f       	mov	r16, r24
+     b80:	10 e0       	ldi	r17, 0x00	; 0
+     b82:	c0 e0       	ldi	r28, 0x00	; 0
+     b84:	d0 e0       	ldi	r29, 0x00	; 0
+	unsigned char bit;
+	for (bit = 0; bit < 8; bit++)
+	{
+		onewire_write_bit((b >> bit) & 1);
+     b86:	c8 01       	movw	r24, r16
+     b88:	0c 2e       	mov	r0, r28
+     b8a:	02 c0       	rjmp	.+4      	; 0xb90 <onewire_write_byte+0x1a>
+     b8c:	95 95       	asr	r25
+     b8e:	87 95       	ror	r24
+     b90:	0a 94       	dec	r0
+     b92:	e2 f7       	brpl	.-8      	; 0xb8c <onewire_write_byte+0x16>
+     b94:	81 70       	andi	r24, 0x01	; 1
+     b96:	ca df       	rcall	.-108    	; 0xb2c <onewire_write_bit>
+     b98:	21 96       	adiw	r28, 0x01	; 1
+}
+
+void onewire_write_byte(unsigned char b)
+{
+	unsigned char bit;
+	for (bit = 0; bit < 8; bit++)
+     b9a:	c8 30       	cpi	r28, 0x08	; 8
+     b9c:	d1 05       	cpc	r29, r1
+     b9e:	99 f7       	brne	.-26     	; 0xb86 <onewire_write_byte+0x10>
+	{
+		onewire_write_bit((b >> bit) & 1);
+	}
+}
+     ba0:	df 91       	pop	r29
+     ba2:	cf 91       	pop	r28
+     ba4:	1f 91       	pop	r17
+     ba6:	0f 91       	pop	r16
+     ba8:	08 95       	ret
+
+00000baa <onewire_check_crc>:
+// Считает CRC
+char onewire_check_crc(unsigned char* data, unsigned char size)
+{
+    uint8_t crc=0;
+    uint8_t i,j;
+    for (i=0; i<size;i++) 
+     baa:	66 23       	and	r22, r22
+     bac:	b9 f0       	breq	.+46     	; 0xbdc <onewire_check_crc+0x32>
+     bae:	fc 01       	movw	r30, r24
+     bb0:	61 50       	subi	r22, 0x01	; 1
+     bb2:	70 e0       	ldi	r23, 0x00	; 0
+     bb4:	6f 5f       	subi	r22, 0xFF	; 255
+     bb6:	7f 4f       	sbci	r23, 0xFF	; 255
+     bb8:	68 0f       	add	r22, r24
+     bba:	79 1f       	adc	r23, r25
+     bbc:	80 e0       	ldi	r24, 0x00	; 0
+        for (j=0;j<8;j++) 
+		{
+			uint8_t mix = (crc ^ inbyte) & 0x01;
+			crc >>= 1;
+            if (mix) 
+            crc ^= 0x8C;                  
+     bbe:	4c e8       	ldi	r20, 0x8C	; 140
+{
+    uint8_t crc=0;
+    uint8_t i,j;
+    for (i=0; i<size;i++) 
+    {
+		uint8_t inbyte = data[i];
+     bc0:	21 91       	ld	r18, Z+
+     bc2:	98 e0       	ldi	r25, 0x08	; 8
+        for (j=0;j<8;j++) 
+		{
+			uint8_t mix = (crc ^ inbyte) & 0x01;
+     bc4:	38 2f       	mov	r19, r24
+     bc6:	32 27       	eor	r19, r18
+			crc >>= 1;
+     bc8:	86 95       	lsr	r24
+            if (mix) 
+     bca:	30 fd       	sbrc	r19, 0
+            crc ^= 0x8C;                  
+     bcc:	84 27       	eor	r24, r20
+			inbyte >>= 1;
+     bce:	26 95       	lsr	r18
+     bd0:	91 50       	subi	r25, 0x01	; 1
+    uint8_t crc=0;
+    uint8_t i,j;
+    for (i=0; i<size;i++) 
+    {
+		uint8_t inbyte = data[i];
+        for (j=0;j<8;j++) 
+     bd2:	c1 f7       	brne	.-16     	; 0xbc4 <onewire_check_crc+0x1a>
+// Считает CRC
+char onewire_check_crc(unsigned char* data, unsigned char size)
+{
+    uint8_t crc=0;
+    uint8_t i,j;
+    for (i=0; i<size;i++) 
+     bd4:	e6 17       	cp	r30, r22
+     bd6:	f7 07       	cpc	r31, r23
+     bd8:	99 f7       	brne	.-26     	; 0xbc0 <onewire_check_crc+0x16>
+     bda:	08 95       	ret
+     bdc:	80 e0       	ldi	r24, 0x00	; 0
+            crc ^= 0x8C;                  
+			inbyte >>= 1;
+        }
+    }
+    return crc;
+}
+     bde:	08 95       	ret
+
+00000be0 <onewire_all_zeros>:
+
+// В буфере только нули?
+char onewire_all_zeros(unsigned char* data, unsigned char size)
+{
+    uint8_t i;
+    for (i=0; i<size;i++) 
+     be0:	66 23       	and	r22, r22
+     be2:	99 f0       	breq	.+38     	; 0xc0a <onewire_all_zeros+0x2a>
+    {
+		if (data[i]) return 0;
+     be4:	fc 01       	movw	r30, r24
+     be6:	20 81       	ld	r18, Z
+     be8:	21 11       	cpse	r18, r1
+     bea:	11 c0       	rjmp	.+34     	; 0xc0e <onewire_all_zeros+0x2e>
+     bec:	31 96       	adiw	r30, 0x01	; 1
+     bee:	61 50       	subi	r22, 0x01	; 1
+     bf0:	26 2f       	mov	r18, r22
+     bf2:	30 e0       	ldi	r19, 0x00	; 0
+     bf4:	2f 5f       	subi	r18, 0xFF	; 255
+     bf6:	3f 4f       	sbci	r19, 0xFF	; 255
+     bf8:	28 0f       	add	r18, r24
+     bfa:	39 1f       	adc	r19, r25
+     bfc:	03 c0       	rjmp	.+6      	; 0xc04 <onewire_all_zeros+0x24>
+     bfe:	91 91       	ld	r25, Z+
+     c00:	91 11       	cpse	r25, r1
+     c02:	05 c0       	rjmp	.+10     	; 0xc0e <onewire_all_zeros+0x2e>
+
+// В буфере только нули?
+char onewire_all_zeros(unsigned char* data, unsigned char size)
+{
+    uint8_t i;
+    for (i=0; i<size;i++) 
+     c04:	e2 17       	cp	r30, r18
+     c06:	f3 07       	cpc	r31, r19
+     c08:	d1 f7       	brne	.-12     	; 0xbfe <onewire_all_zeros+0x1e>
+    {
+		if (data[i]) return 0;
+    }
+	return 1;
+     c0a:	81 e0       	ldi	r24, 0x01	; 1
+     c0c:	08 95       	ret
+char onewire_all_zeros(unsigned char* data, unsigned char size)
+{
+    uint8_t i;
+    for (i=0; i<size;i++) 
+    {
+		if (data[i]) return 0;
+     c0e:	80 e0       	ldi	r24, 0x00	; 0
+    }
+	return 1;
+}
+     c10:	08 95       	ret
+
+00000c12 <onewire_pullup>:
+#endif
+
+// Включает мощную подтяжку к VCC
+void onewire_pullup()
+{
+	if (ONEWIRE_MASTER_RX) return;
+     c12:	86 9b       	sbis	0x10, 6	; 16
+     c14:	06 c0       	rjmp	.+12     	; 0xc22 <onewire_pullup+0x10>
+	ONEWIRE_PORT |= (1<<ONEWIRE_MASTER_TX_PIN) | (1<<ONEWIRE_MASTER_RX_PIN); ONEWIRE_DDR |= (1<<ONEWIRE_MASTER_TX_PIN) | (1<<ONEWIRE_MASTER_RX_PIN);
+     c16:	82 b3       	in	r24, 0x12	; 18
+     c18:	80 66       	ori	r24, 0x60	; 96
+     c1a:	82 bb       	out	0x12, r24	; 18
+     c1c:	81 b3       	in	r24, 0x11	; 17
+     c1e:	80 66       	ori	r24, 0x60	; 96
+     c20:	81 bb       	out	0x11, r24	; 17
+     c22:	08 95       	ret
+
+00000c24 <cyfral_send>:
+		}
+	}
+}
+
+void cyfral_send(uint16_t key)
+{
+     c24:	cf 92       	push	r12
+     c26:	df 92       	push	r13
+     c28:	ef 92       	push	r14
+     c2a:	ff 92       	push	r15
+     c2c:	0f 93       	push	r16
+     c2e:	1f 93       	push	r17
+     c30:	cf 93       	push	r28
+     c32:	df 93       	push	r29
+     c34:	8c 01       	movw	r16, r24
+     c36:	20 e0       	ldi	r18, 0x00	; 0
+     c38:	30 e0       	ldi	r19, 0x00	; 0
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+	{
+		if (data & (1UL<<b))
+     c3a:	47 e0       	ldi	r20, 0x07	; 7
+     c3c:	50 e0       	ldi	r21, 0x00	; 0
+     c3e:	60 e0       	ldi	r22, 0x00	; 0
+     c40:	70 e0       	ldi	r23, 0x00	; 0
+     c42:	db 01       	movw	r26, r22
+     c44:	ca 01       	movw	r24, r20
+     c46:	02 2e       	mov	r0, r18
+     c48:	04 c0       	rjmp	.+8      	; 0xc52 <cyfral_send+0x2e>
+     c4a:	b6 95       	lsr	r27
+     c4c:	a7 95       	ror	r26
+     c4e:	97 95       	ror	r25
+     c50:	87 95       	ror	r24
+     c52:	0a 94       	dec	r0
+     c54:	d2 f7       	brpl	.-12     	; 0xc4a <cyfral_send+0x26>
+		{
+			ONEWIRE_MASTER_TX(105);			
+     c56:	8d 9a       	sbi	0x11, 5	; 17
+     c58:	1d bc       	out	0x2d, r1	; 45
+     c5a:	1c bc       	out	0x2c, r1	; 44
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+	{
+		if (data & (1UL<<b))
+     c5c:	80 ff       	sbrs	r24, 0
+     c5e:	5a c0       	rjmp	.+180    	; 0xd14 <cyfral_send+0xf0>
+		{
+			ONEWIRE_MASTER_TX(105);			
+     c60:	8c b5       	in	r24, 0x2c	; 44
+     c62:	9d b5       	in	r25, 0x2d	; 45
+     c64:	89 36       	cpi	r24, 0x69	; 105
+     c66:	91 05       	cpc	r25, r1
+     c68:	d8 f3       	brcs	.-10     	; 0xc60 <cyfral_send+0x3c>
+     c6a:	8d 98       	cbi	0x11, 5	; 17
+			ONEWIRE_WAIT(36);
+     c6c:	1d bc       	out	0x2d, r1	; 45
+     c6e:	1c bc       	out	0x2c, r1	; 44
+     c70:	8c b5       	in	r24, 0x2c	; 44
+     c72:	9d b5       	in	r25, 0x2d	; 45
+     c74:	84 97       	sbiw	r24, 0x24	; 36
+     c76:	e0 f3       	brcs	.-8      	; 0xc70 <cyfral_send+0x4c>
+     c78:	2f 5f       	subi	r18, 0xFF	; 255
+     c7a:	3f 4f       	sbci	r19, 0xFF	; 255
+#include "onewire.h"
+
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+     c7c:	24 30       	cpi	r18, 0x04	; 4
+     c7e:	31 05       	cpc	r19, r1
+     c80:	01 f7       	brne	.-64     	; 0xc42 <cyfral_send+0x1e>
+     c82:	c0 e0       	ldi	r28, 0x00	; 0
+     c84:	d0 e0       	ldi	r29, 0x00	; 0
+	uint8_t b;
+	for (b = 0; b < 8; b++)
+	{
+		speedup_leds();
+		update_leds();
+		cyfral_send_nibble(1UL << ((key >> (b*2)) & 0b11));
+     c86:	c1 2c       	mov	r12, r1
+     c88:	d1 2c       	mov	r13, r1
+     c8a:	76 01       	movw	r14, r12
+     c8c:	c3 94       	inc	r12
+{
+	cyfral_send_nibble(0b0111);
+	uint8_t b;
+	for (b = 0; b < 8; b++)
+	{
+		speedup_leds();
+     c8e:	37 da       	rcall	.-2962   	; 0xfe <speedup_leds>
+		update_leds();
+     c90:	40 da       	rcall	.-2944   	; 0x112 <update_leds>
+		cyfral_send_nibble(1UL << ((key >> (b*2)) & 0b11));
+     c92:	c8 01       	movw	r24, r16
+     c94:	0c 2e       	mov	r0, r28
+     c96:	02 c0       	rjmp	.+4      	; 0xc9c <cyfral_send+0x78>
+     c98:	96 95       	lsr	r25
+     c9a:	87 95       	ror	r24
+     c9c:	0a 94       	dec	r0
+     c9e:	e2 f7       	brpl	.-8      	; 0xc98 <cyfral_send+0x74>
+     ca0:	83 70       	andi	r24, 0x03	; 3
+     ca2:	99 27       	eor	r25, r25
+     ca4:	b7 01       	movw	r22, r14
+     ca6:	a6 01       	movw	r20, r12
+     ca8:	04 c0       	rjmp	.+8      	; 0xcb2 <cyfral_send+0x8e>
+     caa:	44 0f       	add	r20, r20
+     cac:	55 1f       	adc	r21, r21
+     cae:	66 1f       	adc	r22, r22
+     cb0:	77 1f       	adc	r23, r23
+     cb2:	8a 95       	dec	r24
+     cb4:	d2 f7       	brpl	.-12     	; 0xcaa <cyfral_send+0x86>
+     cb6:	20 e0       	ldi	r18, 0x00	; 0
+     cb8:	30 e0       	ldi	r19, 0x00	; 0
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+	{
+		if (data & (1UL<<b))
+     cba:	db 01       	movw	r26, r22
+     cbc:	ca 01       	movw	r24, r20
+     cbe:	02 2e       	mov	r0, r18
+     cc0:	04 c0       	rjmp	.+8      	; 0xcca <cyfral_send+0xa6>
+     cc2:	b6 95       	lsr	r27
+     cc4:	a7 95       	ror	r26
+     cc6:	97 95       	ror	r25
+     cc8:	87 95       	ror	r24
+     cca:	0a 94       	dec	r0
+     ccc:	d2 f7       	brpl	.-12     	; 0xcc2 <cyfral_send+0x9e>
+		{
+			ONEWIRE_MASTER_TX(105);			
+     cce:	8d 9a       	sbi	0x11, 5	; 17
+     cd0:	1d bc       	out	0x2d, r1	; 45
+     cd2:	1c bc       	out	0x2c, r1	; 44
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+	{
+		if (data & (1UL<<b))
+     cd4:	80 ff       	sbrs	r24, 0
+     cd6:	31 c0       	rjmp	.+98     	; 0xd3a <cyfral_send+0x116>
+		{
+			ONEWIRE_MASTER_TX(105);			
+     cd8:	8c b5       	in	r24, 0x2c	; 44
+     cda:	9d b5       	in	r25, 0x2d	; 45
+     cdc:	89 36       	cpi	r24, 0x69	; 105
+     cde:	91 05       	cpc	r25, r1
+     ce0:	d8 f3       	brcs	.-10     	; 0xcd8 <cyfral_send+0xb4>
+     ce2:	8d 98       	cbi	0x11, 5	; 17
+			ONEWIRE_WAIT(36);
+     ce4:	1d bc       	out	0x2d, r1	; 45
+     ce6:	1c bc       	out	0x2c, r1	; 44
+     ce8:	8c b5       	in	r24, 0x2c	; 44
+     cea:	9d b5       	in	r25, 0x2d	; 45
+     cec:	84 97       	sbiw	r24, 0x24	; 36
+     cee:	e0 f3       	brcs	.-8      	; 0xce8 <cyfral_send+0xc4>
+     cf0:	2f 5f       	subi	r18, 0xFF	; 255
+     cf2:	3f 4f       	sbci	r19, 0xFF	; 255
+#include "onewire.h"
+
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+     cf4:	24 30       	cpi	r18, 0x04	; 4
+     cf6:	31 05       	cpc	r19, r1
+     cf8:	01 f7       	brne	.-64     	; 0xcba <cyfral_send+0x96>
+     cfa:	22 96       	adiw	r28, 0x02	; 2
+
+void cyfral_send(uint16_t key)
+{
+	cyfral_send_nibble(0b0111);
+	uint8_t b;
+	for (b = 0; b < 8; b++)
+     cfc:	c0 31       	cpi	r28, 0x10	; 16
+     cfe:	d1 05       	cpc	r29, r1
+     d00:	31 f6       	brne	.-116    	; 0xc8e <cyfral_send+0x6a>
+	{
+		speedup_leds();
+		update_leds();
+		cyfral_send_nibble(1UL << ((key >> (b*2)) & 0b11));
+	}
+}
+     d02:	df 91       	pop	r29
+     d04:	cf 91       	pop	r28
+     d06:	1f 91       	pop	r17
+     d08:	0f 91       	pop	r16
+     d0a:	ff 90       	pop	r15
+     d0c:	ef 90       	pop	r14
+     d0e:	df 90       	pop	r13
+     d10:	cf 90       	pop	r12
+     d12:	08 95       	ret
+		if (data & (1UL<<b))
+		{
+			ONEWIRE_MASTER_TX(105);			
+			ONEWIRE_WAIT(36);
+		} else {
+			ONEWIRE_MASTER_TX(53);			
+     d14:	8c b5       	in	r24, 0x2c	; 44
+     d16:	9d b5       	in	r25, 0x2d	; 45
+     d18:	c5 97       	sbiw	r24, 0x35	; 53
+     d1a:	e0 f3       	brcs	.-8      	; 0xd14 <cyfral_send+0xf0>
+     d1c:	8d 98       	cbi	0x11, 5	; 17
+			ONEWIRE_WAIT(80);
+     d1e:	1d bc       	out	0x2d, r1	; 45
+     d20:	1c bc       	out	0x2c, r1	; 44
+     d22:	8c b5       	in	r24, 0x2c	; 44
+     d24:	9d b5       	in	r25, 0x2d	; 45
+     d26:	80 35       	cpi	r24, 0x50	; 80
+     d28:	91 05       	cpc	r25, r1
+     d2a:	d8 f3       	brcs	.-10     	; 0xd22 <cyfral_send+0xfe>
+     d2c:	2f 5f       	subi	r18, 0xFF	; 255
+     d2e:	3f 4f       	sbci	r19, 0xFF	; 255
+#include "onewire.h"
+
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+     d30:	24 30       	cpi	r18, 0x04	; 4
+     d32:	31 05       	cpc	r19, r1
+     d34:	09 f0       	breq	.+2      	; 0xd38 <cyfral_send+0x114>
+     d36:	85 cf       	rjmp	.-246    	; 0xc42 <cyfral_send+0x1e>
+     d38:	a4 cf       	rjmp	.-184    	; 0xc82 <cyfral_send+0x5e>
+		if (data & (1UL<<b))
+		{
+			ONEWIRE_MASTER_TX(105);			
+			ONEWIRE_WAIT(36);
+		} else {
+			ONEWIRE_MASTER_TX(53);			
+     d3a:	8c b5       	in	r24, 0x2c	; 44
+     d3c:	9d b5       	in	r25, 0x2d	; 45
+     d3e:	c5 97       	sbiw	r24, 0x35	; 53
+     d40:	e0 f3       	brcs	.-8      	; 0xd3a <cyfral_send+0x116>
+     d42:	8d 98       	cbi	0x11, 5	; 17
+			ONEWIRE_WAIT(80);
+     d44:	1d bc       	out	0x2d, r1	; 45
+     d46:	1c bc       	out	0x2c, r1	; 44
+     d48:	8c b5       	in	r24, 0x2c	; 44
+     d4a:	9d b5       	in	r25, 0x2d	; 45
+     d4c:	80 35       	cpi	r24, 0x50	; 80
+     d4e:	91 05       	cpc	r25, r1
+     d50:	d8 f3       	brcs	.-10     	; 0xd48 <cyfral_send+0x124>
+     d52:	2f 5f       	subi	r18, 0xFF	; 255
+     d54:	3f 4f       	sbci	r19, 0xFF	; 255
+#include "onewire.h"
+
+inline void cyfral_send_nibble(uint8_t data)
+{
+	uint8_t b;
+	for (b = 0; b < 4; b++)
+     d56:	24 30       	cpi	r18, 0x04	; 4
+     d58:	31 05       	cpc	r19, r1
+     d5a:	09 f0       	breq	.+2      	; 0xd5e <cyfral_send+0x13a>
+     d5c:	ae cf       	rjmp	.-164    	; 0xcba <cyfral_send+0x96>
+     d5e:	cd cf       	rjmp	.-102    	; 0xcfa <cyfral_send+0xd6>
+
+00000d60 <read_cyfral>:
+		cyfral_send_nibble(1UL << ((key >> (b*2)) & 0b11));
+	}
+}
+
+long int read_cyfral()
+{
+     d60:	1f 93       	push	r17
+     d62:	cf 93       	push	r28
+     d64:	df 93       	push	r29
+     d66:	cd b7       	in	r28, 0x3d	; 61
+     d68:	de b7       	in	r29, 0x3e	; 62
+     d6a:	c8 5c       	subi	r28, 0xC8	; 200
+     d6c:	d1 09       	sbc	r29, r1
+     d6e:	0f b6       	in	r0, 0x3f	; 63
+     d70:	f8 94       	cli
+     d72:	de bf       	out	0x3e, r29	; 62
+     d74:	0f be       	out	0x3f, r0	; 63
+     d76:	cd bf       	out	0x3d, r28	; 61
+     d78:	de 01       	movw	r26, r28
+     d7a:	11 96       	adiw	r26, 0x01	; 1
+     d7c:	fd 01       	movw	r30, r26
+	uint16_t buffer[100];
+	int pos = 0;
+     d7e:	20 e0       	ldi	r18, 0x00	; 0
+     d80:	30 e0       	ldi	r19, 0x00	; 0
+	do 
+	{
+		TCNT1 = 0;
+     d82:	1d bc       	out	0x2d, r1	; 45
+     d84:	1c bc       	out	0x2c, r1	; 44
+		while (!CYFRAL_SIGNAL && TCNT1 < 0x400);
+     d86:	05 c0       	rjmp	.+10     	; 0xd92 <read_cyfral+0x32>
+     d88:	8c b5       	in	r24, 0x2c	; 44
+     d8a:	9d b5       	in	r25, 0x2d	; 45
+     d8c:	81 15       	cp	r24, r1
+     d8e:	94 40       	sbci	r25, 0x04	; 4
+     d90:	10 f4       	brcc	.+4      	; 0xd96 <read_cyfral+0x36>
+     d92:	45 99       	sbic	0x08, 5	; 8
+     d94:	f9 cf       	rjmp	.-14     	; 0xd88 <read_cyfral+0x28>
+		if (TCNT1 >= 0x400) return -1;
+     d96:	8c b5       	in	r24, 0x2c	; 44
+     d98:	9d b5       	in	r25, 0x2d	; 45
+     d9a:	81 15       	cp	r24, r1
+     d9c:	94 40       	sbci	r25, 0x04	; 4
+     d9e:	d0 f4       	brcc	.+52     	; 0xdd4 <read_cyfral+0x74>
+		//buffer[pos++] = TCNT1;
+		TCNT1 = 0;
+     da0:	1d bc       	out	0x2d, r1	; 45
+     da2:	1c bc       	out	0x2c, r1	; 44
+		while (CYFRAL_SIGNAL && TCNT1 < 0x400);
+     da4:	05 c0       	rjmp	.+10     	; 0xdb0 <read_cyfral+0x50>
+     da6:	8c b5       	in	r24, 0x2c	; 44
+     da8:	9d b5       	in	r25, 0x2d	; 45
+     daa:	81 15       	cp	r24, r1
+     dac:	94 40       	sbci	r25, 0x04	; 4
+     dae:	10 f4       	brcc	.+4      	; 0xdb4 <read_cyfral+0x54>
+     db0:	45 9b       	sbis	0x08, 5	; 8
+     db2:	f9 cf       	rjmp	.-14     	; 0xda6 <read_cyfral+0x46>
+		if (TCNT1 >= 0x400) return -1;
+     db4:	8c b5       	in	r24, 0x2c	; 44
+     db6:	9d b5       	in	r25, 0x2d	; 45
+     db8:	81 15       	cp	r24, r1
+     dba:	94 40       	sbci	r25, 0x04	; 4
+     dbc:	58 f4       	brcc	.+22     	; 0xdd4 <read_cyfral+0x74>
+		buffer[pos++] = TCNT1;
+     dbe:	c9 01       	movw	r24, r18
+     dc0:	01 96       	adiw	r24, 0x01	; 1
+     dc2:	4c b5       	in	r20, 0x2c	; 44
+     dc4:	5d b5       	in	r21, 0x2d	; 45
+     dc6:	41 93       	st	Z+, r20
+     dc8:	51 93       	st	Z+, r21
+		
+	} while (pos < sizeof(buffer)/2);
+     dca:	84 36       	cpi	r24, 0x64	; 100
+     dcc:	91 05       	cpc	r25, r1
+     dce:	81 f0       	breq	.+32     	; 0xdf0 <read_cyfral+0x90>
+     dd0:	9c 01       	movw	r18, r24
+     dd2:	d7 cf       	rjmp	.-82     	; 0xd82 <read_cyfral+0x22>
+	int pos = 0;
+	do 
+	{
+		TCNT1 = 0;
+		while (!CYFRAL_SIGNAL && TCNT1 < 0x400);
+		if (TCNT1 >= 0x400) return -1;
+     dd4:	6f ef       	ldi	r22, 0xFF	; 255
+     dd6:	7f ef       	ldi	r23, 0xFF	; 255
+     dd8:	cb 01       	movw	r24, r22
+			}
+			b++;
+		}
+	} else return -1;
+	return code;	
+}
+     dda:	c8 53       	subi	r28, 0x38	; 56
+     ddc:	df 4f       	sbci	r29, 0xFF	; 255
+     dde:	0f b6       	in	r0, 0x3f	; 63
+     de0:	f8 94       	cli
+     de2:	de bf       	out	0x3e, r29	; 62
+     de4:	0f be       	out	0x3f, r0	; 63
+     de6:	cd bf       	out	0x3d, r28	; 61
+     de8:	df 91       	pop	r29
+     dea:	cf 91       	pop	r28
+     dec:	1f 91       	pop	r17
+     dee:	08 95       	ret
+		buffer[pos++] = TCNT1;
+		
+	} while (pos < sizeof(buffer)/2);
+	int i, j;
+	int startpos = -1;
+	for (i = 0; i < pos-9*4; i++)
+     df0:	23 52       	subi	r18, 0x23	; 35
+     df2:	31 09       	sbc	r19, r1
+     df4:	12 16       	cp	r1, r18
+     df6:	13 06       	cpc	r1, r19
+     df8:	6c f7       	brge	.-38     	; 0xdd4 <read_cyfral+0x74>
+     dfa:	81 e0       	ldi	r24, 0x01	; 1
+     dfc:	90 e0       	ldi	r25, 0x00	; 0
+     dfe:	05 c0       	rjmp	.+10     	; 0xe0a <read_cyfral+0xaa>
+     e00:	ac 01       	movw	r20, r24
+     e02:	01 96       	adiw	r24, 0x01	; 1
+     e04:	42 17       	cp	r20, r18
+     e06:	53 07       	cpc	r21, r19
+     e08:	2c f7       	brge	.-54     	; 0xdd4 <read_cyfral+0x74>
+	{
+		if ((buffer[i] > 70) && (buffer[i+1] > 70)  && (buffer[i+2] > 70) && (buffer[i+3] < 70))
+     e0a:	4d 91       	ld	r20, X+
+     e0c:	5d 91       	ld	r21, X+
+     e0e:	47 34       	cpi	r20, 0x47	; 71
+     e10:	51 05       	cpc	r21, r1
+     e12:	b0 f3       	brcs	.-20     	; 0xe00 <read_cyfral+0xa0>
+     e14:	ac 01       	movw	r20, r24
+     e16:	6d 91       	ld	r22, X+
+     e18:	7c 91       	ld	r23, X
+     e1a:	11 97       	sbiw	r26, 0x01	; 1
+     e1c:	67 34       	cpi	r22, 0x47	; 71
+     e1e:	71 05       	cpc	r23, r1
+     e20:	80 f3       	brcs	.-32     	; 0xe02 <read_cyfral+0xa2>
+     e22:	12 96       	adiw	r26, 0x02	; 2
+     e24:	6d 91       	ld	r22, X+
+     e26:	7c 91       	ld	r23, X
+     e28:	13 97       	sbiw	r26, 0x03	; 3
+     e2a:	67 34       	cpi	r22, 0x47	; 71
+     e2c:	71 05       	cpc	r23, r1
+     e2e:	48 f3       	brcs	.-46     	; 0xe02 <read_cyfral+0xa2>
+     e30:	14 96       	adiw	r26, 0x04	; 4
+     e32:	6d 91       	ld	r22, X+
+     e34:	7c 91       	ld	r23, X
+     e36:	15 97       	sbiw	r26, 0x05	; 5
+     e38:	66 34       	cpi	r22, 0x46	; 70
+     e3a:	71 05       	cpc	r23, r1
+     e3c:	10 f7       	brcc	.-60     	; 0xe02 <read_cyfral+0xa2>
+     e3e:	9c 01       	movw	r18, r24
+     e40:	2d 5f       	subi	r18, 0xFD	; 253
+     e42:	3f 4f       	sbci	r19, 0xFF	; 255
+     e44:	22 0f       	add	r18, r18
+     e46:	33 1f       	adc	r19, r19
+     e48:	81 e0       	ldi	r24, 0x01	; 1
+     e4a:	90 e0       	ldi	r25, 0x00	; 0
+     e4c:	8c 0f       	add	r24, r28
+     e4e:	9d 1f       	adc	r25, r29
+     e50:	28 0f       	add	r18, r24
+     e52:	39 1f       	adc	r19, r25
+	}
+	uint16_t code = 0;
+	int b = 0;
+	if (startpos >= 0)
+	{
+		for (i = startpos+4; i < startpos+9*4; i+=4)
+     e54:	a0 e0       	ldi	r26, 0x00	; 0
+     e56:	b0 e0       	ldi	r27, 0x00	; 0
+     e58:	60 e0       	ldi	r22, 0x00	; 0
+     e5a:	70 e0       	ldi	r23, 0x00	; 0
+     e5c:	1a 2f       	mov	r17, r26
+     e5e:	f9 01       	movw	r30, r18
+     e60:	80 e0       	ldi	r24, 0x00	; 0
+     e62:	90 e0       	ldi	r25, 0x00	; 0
+		{
+			for (j = 0; j < 4; j++)
+			{
+				//send_num(buffer[i+j]);
+				if (buffer[i+j] > 70)
+     e64:	41 91       	ld	r20, Z+
+     e66:	51 91       	ld	r21, Z+
+     e68:	47 34       	cpi	r20, 0x47	; 71
+     e6a:	51 05       	cpc	r21, r1
+     e6c:	48 f0       	brcs	.+18     	; 0xe80 <read_cyfral+0x120>
+					code |= j << (b*2);
+     e6e:	ac 01       	movw	r20, r24
+     e70:	01 2e       	mov	r0, r17
+     e72:	02 c0       	rjmp	.+4      	; 0xe78 <read_cyfral+0x118>
+     e74:	44 0f       	add	r20, r20
+     e76:	55 1f       	adc	r21, r21
+     e78:	0a 94       	dec	r0
+     e7a:	e2 f7       	brpl	.-8      	; 0xe74 <read_cyfral+0x114>
+     e7c:	64 2b       	or	r22, r20
+     e7e:	75 2b       	or	r23, r21
+	int b = 0;
+	if (startpos >= 0)
+	{
+		for (i = startpos+4; i < startpos+9*4; i+=4)
+		{
+			for (j = 0; j < 4; j++)
+     e80:	01 96       	adiw	r24, 0x01	; 1
+     e82:	84 30       	cpi	r24, 0x04	; 4
+     e84:	91 05       	cpc	r25, r1
+     e86:	71 f7       	brne	.-36     	; 0xe64 <read_cyfral+0x104>
+     e88:	28 5f       	subi	r18, 0xF8	; 248
+     e8a:	3f 4f       	sbci	r19, 0xFF	; 255
+     e8c:	12 96       	adiw	r26, 0x02	; 2
+	}
+	uint16_t code = 0;
+	int b = 0;
+	if (startpos >= 0)
+	{
+		for (i = startpos+4; i < startpos+9*4; i+=4)
+     e8e:	a0 31       	cpi	r26, 0x10	; 16
+     e90:	b1 05       	cpc	r27, r1
+     e92:	21 f7       	brne	.-56     	; 0xe5c <read_cyfral+0xfc>
+					code |= j << (b*2);
+			}
+			b++;
+		}
+	} else return -1;
+	return code;	
+     e94:	80 e0       	ldi	r24, 0x00	; 0
+     e96:	90 e0       	ldi	r25, 0x00	; 0
+     e98:	a0 cf       	rjmp	.-192    	; 0xdda <read_cyfral+0x7a>
+
+00000e9a <read_cyfral_with_check>:
+}
+
+long int read_cyfral_with_check()	
+{
+     e9a:	8f 92       	push	r8
+     e9c:	9f 92       	push	r9
+     e9e:	af 92       	push	r10
+     ea0:	bf 92       	push	r11
+     ea2:	cf 92       	push	r12
+     ea4:	df 92       	push	r13
+     ea6:	ef 92       	push	r14
+     ea8:	ff 92       	push	r15
+     eaa:	cf 93       	push	r28
+     eac:	df 93       	push	r29
+     eae:	c0 e0       	ldi	r28, 0x00	; 0
+     eb0:	d0 e0       	ldi	r29, 0x00	; 0
+	long int code = 0, tries = 0, i;
+     eb2:	81 2c       	mov	r8, r1
+     eb4:	91 2c       	mov	r9, r1
+     eb6:	54 01       	movw	r10, r8
+     eb8:	c1 2c       	mov	r12, r1
+     eba:	d1 2c       	mov	r13, r1
+     ebc:	76 01       	movw	r14, r12
+     ebe:	09 c0       	rjmp	.+18     	; 0xed2 <read_cyfral_with_check+0x38>
+     ec0:	81 2c       	mov	r8, r1
+     ec2:	91 2c       	mov	r9, r1
+     ec4:	54 01       	movw	r10, r8
+     ec6:	21 96       	adiw	r28, 0x01	; 1
+     ec8:	6b 01       	movw	r12, r22
+     eca:	7c 01       	movw	r14, r24
+	for (i = 0; i < 10; i++)
+     ecc:	ca 30       	cpi	r28, 0x0A	; 10
+     ece:	d1 05       	cpc	r29, r1
+     ed0:	b1 f0       	breq	.+44     	; 0xefe <read_cyfral_with_check+0x64>
+	{
+		long int code2 = read_cyfral();
+     ed2:	46 df       	rcall	.-372    	; 0xd60 <read_cyfral>
+		if ((code2 >= 0) && (code == code2))
+     ed4:	97 fd       	sbrc	r25, 7
+     ed6:	f4 cf       	rjmp	.-24     	; 0xec0 <read_cyfral_with_check+0x26>
+     ed8:	6c 15       	cp	r22, r12
+     eda:	7d 05       	cpc	r23, r13
+     edc:	8e 05       	cpc	r24, r14
+     ede:	9f 05       	cpc	r25, r15
+     ee0:	79 f7       	brne	.-34     	; 0xec0 <read_cyfral_with_check+0x26>
+		{
+			tries++;
+     ee2:	2f ef       	ldi	r18, 0xFF	; 255
+     ee4:	82 1a       	sub	r8, r18
+     ee6:	92 0a       	sbc	r9, r18
+     ee8:	a2 0a       	sbc	r10, r18
+     eea:	b2 0a       	sbc	r11, r18
+		} else {
+			tries = 0;
+			code = code2;
+		}
+		if (tries >= 3) 
+     eec:	23 e0       	ldi	r18, 0x03	; 3
+     eee:	82 16       	cp	r8, r18
+     ef0:	91 04       	cpc	r9, r1
+     ef2:	a1 04       	cpc	r10, r1
+     ef4:	b1 04       	cpc	r11, r1
+     ef6:	3c f3       	brlt	.-50     	; 0xec6 <read_cyfral_with_check+0x2c>
+long int read_cyfral_with_check()	
+{
+	long int code = 0, tries = 0, i;
+	for (i = 0; i < 10; i++)
+	{
+		long int code2 = read_cyfral();
+     ef8:	b6 01       	movw	r22, r12
+     efa:	c7 01       	movw	r24, r14
+     efc:	04 c0       	rjmp	.+8      	; 0xf06 <read_cyfral_with_check+0x6c>
+		if (tries >= 3) 
+		{
+			return code2;
+		}
+	}	
+	return -1;
+     efe:	6f ef       	ldi	r22, 0xFF	; 255
+     f00:	7f ef       	ldi	r23, 0xFF	; 255
+     f02:	8f ef       	ldi	r24, 0xFF	; 255
+     f04:	9f ef       	ldi	r25, 0xFF	; 255
+}
+     f06:	df 91       	pop	r29
+     f08:	cf 91       	pop	r28
+     f0a:	ff 90       	pop	r15
+     f0c:	ef 90       	pop	r14
+     f0e:	df 90       	pop	r13
+     f10:	cf 90       	pop	r12
+     f12:	bf 90       	pop	r11
+     f14:	af 90       	pop	r10
+     f16:	9f 90       	pop	r9
+     f18:	8f 90       	pop	r8
+     f1a:	08 95       	ret
+
+00000f1c <__vector_11>:
+volatile int usart_params_length = 0;
+volatile char usart_mode_params;
+volatile char usart_execute = 0;
+
+ISR(USART_RXC_vect)
+{
+     f1c:	1f 92       	push	r1
+     f1e:	0f 92       	push	r0
+     f20:	0f b6       	in	r0, 0x3f	; 63
+     f22:	0f 92       	push	r0
+     f24:	11 24       	eor	r1, r1
+     f26:	2f 93       	push	r18
+     f28:	3f 93       	push	r19
+     f2a:	4f 93       	push	r20
+     f2c:	6f 93       	push	r22
+     f2e:	7f 93       	push	r23
+     f30:	8f 93       	push	r24
+     f32:	9f 93       	push	r25
+     f34:	ef 93       	push	r30
+     f36:	ff 93       	push	r31
+	{
+		b = UDR;
+		if (b == '\r' || b == '\n')
+		{
+			usart_command[usart_command_length] = 0;
+			usart_execute = 1;
+     f38:	41 e0       	ldi	r20, 0x01	; 1
+
+ISR(USART_RXC_vect)
+{
+	char b;
+	unsigned char c;			
+	while (UCSRA & (1<<RXC))
+     f3a:	5f 9b       	sbis	0x0b, 7	; 11
+     f3c:	26 c0       	rjmp	.+76     	; 0xf8a <__vector_11+0x6e>
+	{
+		b = UDR;
+     f3e:	8c b1       	in	r24, 0x0c	; 12
+		if (b == '\r' || b == '\n')
+     f40:	8d 30       	cpi	r24, 0x0D	; 13
+     f42:	89 f1       	breq	.+98     	; 0xfa6 <__vector_11+0x8a>
+     f44:	8a 30       	cpi	r24, 0x0A	; 10
+     f46:	79 f1       	breq	.+94     	; 0xfa6 <__vector_11+0x8a>
+		{
+			usart_command[usart_command_length] = 0;
+			usart_execute = 1;
+		}
+		else if (b == ' ')
+     f48:	80 32       	cpi	r24, 0x20	; 32
+     f4a:	09 f4       	brne	.+2      	; 0xf4e <__vector_11+0x32>
+     f4c:	67 c0       	rjmp	.+206    	; 0x101c <__vector_11+0x100>
+		{
+			if (!usart_mode_params) 
+				usart_params_length = 0;
+			usart_mode_params = 1;
+		}
+		else if (!usart_mode_params)
+     f4e:	90 91 f8 01 	lds	r25, 0x01F8	; 0x8001f8 <usart_mode_params>
+     f52:	91 11       	cpse	r25, r1
+     f54:	32 c0       	rjmp	.+100    	; 0xfba <__vector_11+0x9e>
+		{
+			if (usart_command_length+1 < sizeof(usart_command))
+     f56:	20 91 f6 00 	lds	r18, 0x00F6	; 0x8000f6 <usart_command_length>
+     f5a:	30 91 f7 00 	lds	r19, 0x00F7	; 0x8000f7 <usart_command_length+0x1>
+     f5e:	2f 5f       	subi	r18, 0xFF	; 255
+     f60:	3f 4f       	sbci	r19, 0xFF	; 255
+     f62:	2e 31       	cpi	r18, 0x1E	; 30
+     f64:	31 05       	cpc	r19, r1
+     f66:	48 f7       	brcc	.-46     	; 0xf3a <__vector_11+0x1e>
+				usart_command[usart_command_length++] = b;
+     f68:	20 91 f6 00 	lds	r18, 0x00F6	; 0x8000f6 <usart_command_length>
+     f6c:	30 91 f7 00 	lds	r19, 0x00F7	; 0x8000f7 <usart_command_length+0x1>
+     f70:	b9 01       	movw	r22, r18
+     f72:	6f 5f       	subi	r22, 0xFF	; 255
+     f74:	7f 4f       	sbci	r23, 0xFF	; 255
+     f76:	70 93 f7 00 	sts	0x00F7, r23	; 0x8000f7 <usart_command_length+0x1>
+     f7a:	60 93 f6 00 	sts	0x00F6, r22	; 0x8000f6 <usart_command_length>
+     f7e:	f9 01       	movw	r30, r18
+     f80:	ef 5f       	subi	r30, 0xFF	; 255
+     f82:	fd 4f       	sbci	r31, 0xFD	; 253
+     f84:	80 83       	st	Z, r24
+
+ISR(USART_RXC_vect)
+{
+	char b;
+	unsigned char c;			
+	while (UCSRA & (1<<RXC))
+     f86:	5f 99       	sbic	0x0b, 7	; 11
+     f88:	da cf       	rjmp	.-76     	; 0xf3e <__vector_11+0x22>
+					else usart_params[usart_params_length/2] |= (c & 0x0F);
+				usart_params_length++;
+			}
+		}
+	}
+}
+     f8a:	ff 91       	pop	r31
+     f8c:	ef 91       	pop	r30
+     f8e:	9f 91       	pop	r25
+     f90:	8f 91       	pop	r24
+     f92:	7f 91       	pop	r23
+     f94:	6f 91       	pop	r22
+     f96:	4f 91       	pop	r20
+     f98:	3f 91       	pop	r19
+     f9a:	2f 91       	pop	r18
+     f9c:	0f 90       	pop	r0
+     f9e:	0f be       	out	0x3f, r0	; 63
+     fa0:	0f 90       	pop	r0
+     fa2:	1f 90       	pop	r1
+     fa4:	18 95       	reti
+	while (UCSRA & (1<<RXC))
+	{
+		b = UDR;
+		if (b == '\r' || b == '\n')
+		{
+			usart_command[usart_command_length] = 0;
+     fa6:	e0 91 f6 00 	lds	r30, 0x00F6	; 0x8000f6 <usart_command_length>
+     faa:	f0 91 f7 00 	lds	r31, 0x00F7	; 0x8000f7 <usart_command_length+0x1>
+     fae:	ef 5f       	subi	r30, 0xFF	; 255
+     fb0:	fd 4f       	sbci	r31, 0xFD	; 253
+     fb2:	10 82       	st	Z, r1
+			usart_execute = 1;
+     fb4:	40 93 f3 00 	sts	0x00F3, r20	; 0x8000f3 <usart_execute>
+     fb8:	c0 cf       	rjmp	.-128    	; 0xf3a <__vector_11+0x1e>
+				usart_command[usart_command_length++] = b;
+		}
+		else 
+		{
+			
+			if (b >= '0' && b <= '9') c = b-'0';
+     fba:	90 ed       	ldi	r25, 0xD0	; 208
+     fbc:	98 0f       	add	r25, r24
+     fbe:	9a 30       	cpi	r25, 0x0A	; 10
+     fc0:	38 f0       	brcs	.+14     	; 0xfd0 <__vector_11+0xb4>
+				else if (b >= 'A' && b <= 'F') c = b-'A'+10;
+     fc2:	9f eb       	ldi	r25, 0xBF	; 191
+     fc4:	98 0f       	add	r25, r24
+     fc6:	96 30       	cpi	r25, 0x06	; 6
+     fc8:	08 f0       	brcs	.+2      	; 0xfcc <__vector_11+0xb0>
+     fca:	b7 cf       	rjmp	.-146    	; 0xf3a <__vector_11+0x1e>
+     fcc:	99 ec       	ldi	r25, 0xC9	; 201
+     fce:	98 0f       	add	r25, r24
+				else continue;
+			if (usart_params_length < 16)
+     fd0:	20 91 f4 00 	lds	r18, 0x00F4	; 0x8000f4 <usart_params_length>
+     fd4:	30 91 f5 00 	lds	r19, 0x00F5	; 0x8000f5 <usart_params_length+0x1>
+     fd8:	20 31       	cpi	r18, 0x10	; 16
+     fda:	31 05       	cpc	r19, r1
+     fdc:	0c f0       	brlt	.+2      	; 0xfe0 <__vector_11+0xc4>
+     fde:	ad cf       	rjmp	.-166    	; 0xf3a <__vector_11+0x1e>
+			{
+				if (usart_params_length % 2 == 0) usart_params[usart_params_length/2] = (c<<4);
+     fe0:	20 91 f4 00 	lds	r18, 0x00F4	; 0x8000f4 <usart_params_length>
+     fe4:	30 91 f5 00 	lds	r19, 0x00F5	; 0x8000f5 <usart_params_length+0x1>
+     fe8:	20 ff       	sbrs	r18, 0
+     fea:	23 c0       	rjmp	.+70     	; 0x1032 <__vector_11+0x116>
+					else usart_params[usart_params_length/2] |= (c & 0x0F);
+     fec:	20 91 f4 00 	lds	r18, 0x00F4	; 0x8000f4 <usart_params_length>
+     ff0:	30 91 f5 00 	lds	r19, 0x00F5	; 0x8000f5 <usart_params_length+0x1>
+     ff4:	37 fd       	sbrc	r19, 7
+     ff6:	2c c0       	rjmp	.+88     	; 0x1050 <__vector_11+0x134>
+     ff8:	35 95       	asr	r19
+     ffa:	27 95       	ror	r18
+     ffc:	f9 01       	movw	r30, r18
+     ffe:	e7 50       	subi	r30, 0x07	; 7
+    1000:	fe 4f       	sbci	r31, 0xFE	; 254
+    1002:	80 81       	ld	r24, Z
+    1004:	98 2b       	or	r25, r24
+    1006:	90 83       	st	Z, r25
+				usart_params_length++;
+    1008:	80 91 f4 00 	lds	r24, 0x00F4	; 0x8000f4 <usart_params_length>
+    100c:	90 91 f5 00 	lds	r25, 0x00F5	; 0x8000f5 <usart_params_length+0x1>
+    1010:	01 96       	adiw	r24, 0x01	; 1
+    1012:	90 93 f5 00 	sts	0x00F5, r25	; 0x8000f5 <usart_params_length+0x1>
+    1016:	80 93 f4 00 	sts	0x00F4, r24	; 0x8000f4 <usart_params_length>
+    101a:	8f cf       	rjmp	.-226    	; 0xf3a <__vector_11+0x1e>
+			usart_command[usart_command_length] = 0;
+			usart_execute = 1;
+		}
+		else if (b == ' ')
+		{
+			if (!usart_mode_params) 
+    101c:	80 91 f8 01 	lds	r24, 0x01F8	; 0x8001f8 <usart_mode_params>
+    1020:	81 11       	cpse	r24, r1
+    1022:	04 c0       	rjmp	.+8      	; 0x102c <__vector_11+0x110>
+				usart_params_length = 0;
+    1024:	10 92 f5 00 	sts	0x00F5, r1	; 0x8000f5 <usart_params_length+0x1>
+    1028:	10 92 f4 00 	sts	0x00F4, r1	; 0x8000f4 <usart_params_length>
+			usart_mode_params = 1;
+    102c:	40 93 f8 01 	sts	0x01F8, r20	; 0x8001f8 <usart_mode_params>
+    1030:	84 cf       	rjmp	.-248    	; 0xf3a <__vector_11+0x1e>
+			if (b >= '0' && b <= '9') c = b-'0';
+				else if (b >= 'A' && b <= 'F') c = b-'A'+10;
+				else continue;
+			if (usart_params_length < 16)
+			{
+				if (usart_params_length % 2 == 0) usart_params[usart_params_length/2] = (c<<4);
+    1032:	20 91 f4 00 	lds	r18, 0x00F4	; 0x8000f4 <usart_params_length>
+    1036:	30 91 f5 00 	lds	r19, 0x00F5	; 0x8000f5 <usart_params_length+0x1>
+    103a:	37 fd       	sbrc	r19, 7
+    103c:	0c c0       	rjmp	.+24     	; 0x1056 <__vector_11+0x13a>
+    103e:	35 95       	asr	r19
+    1040:	27 95       	ror	r18
+    1042:	92 95       	swap	r25
+    1044:	90 7f       	andi	r25, 0xF0	; 240
+    1046:	f9 01       	movw	r30, r18
+    1048:	e7 50       	subi	r30, 0x07	; 7
+    104a:	fe 4f       	sbci	r31, 0xFE	; 254
+    104c:	90 83       	st	Z, r25
+    104e:	dc cf       	rjmp	.-72     	; 0x1008 <__vector_11+0xec>
+					else usart_params[usart_params_length/2] |= (c & 0x0F);
+    1050:	2f 5f       	subi	r18, 0xFF	; 255
+    1052:	3f 4f       	sbci	r19, 0xFF	; 255
+    1054:	d1 cf       	rjmp	.-94     	; 0xff8 <__vector_11+0xdc>
+			if (b >= '0' && b <= '9') c = b-'0';
+				else if (b >= 'A' && b <= 'F') c = b-'A'+10;
+				else continue;
+			if (usart_params_length < 16)
+			{
+				if (usart_params_length % 2 == 0) usart_params[usart_params_length/2] = (c<<4);
+    1056:	2f 5f       	subi	r18, 0xFF	; 255
+    1058:	3f 4f       	sbci	r19, 0xFF	; 255
+    105a:	f1 cf       	rjmp	.-30     	; 0x103e <__vector_11+0x122>
+
+0000105c <usb_mode>:
+		}
+	}
+}
+
+void usb_mode(void)
+{
+    105c:	6f 92       	push	r6
+    105e:	7f 92       	push	r7
+    1060:	8f 92       	push	r8
+    1062:	9f 92       	push	r9
+    1064:	af 92       	push	r10
+    1066:	bf 92       	push	r11
+    1068:	cf 92       	push	r12
+    106a:	df 92       	push	r13
+    106c:	ef 92       	push	r14
+    106e:	ff 92       	push	r15
+    1070:	0f 93       	push	r16
+    1072:	1f 93       	push	r17
+    1074:	cf 93       	push	r28
+    1076:	df 93       	push	r29
+    1078:	cd b7       	in	r28, 0x3d	; 61
+    107a:	de b7       	in	r29, 0x3e	; 62
+    107c:	28 97       	sbiw	r28, 0x08	; 8
+    107e:	0f b6       	in	r0, 0x3f	; 63
+    1080:	f8 94       	cli
+    1082:	de bf       	out	0x3e, r29	; 62
+    1084:	0f be       	out	0x3f, r0	; 63
+    1086:	cd bf       	out	0x3d, r28	; 61
+	int b;
+	usart_command_length = 0;
+    1088:	10 92 f7 00 	sts	0x00F7, r1	; 0x8000f7 <usart_command_length+0x1>
+    108c:	10 92 f6 00 	sts	0x00F6, r1	; 0x8000f6 <usart_command_length>
+	usart_mode_params = 0;
+    1090:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <usart_mode_params>
+	usart_execute = 0;
+    1094:	10 92 f3 00 	sts	0x00F3, r1	; 0x8000f3 <usart_execute>
+	for (b = 0; b < 8; b++)	
+    1098:	80 e0       	ldi	r24, 0x00	; 0
+    109a:	90 e0       	ldi	r25, 0x00	; 0
+		usart_params[b] = 0;
+    109c:	fc 01       	movw	r30, r24
+    109e:	e7 50       	subi	r30, 0x07	; 7
+    10a0:	fe 4f       	sbci	r31, 0xFE	; 254
+    10a2:	10 82       	st	Z, r1
+{
+	int b;
+	usart_command_length = 0;
+	usart_mode_params = 0;
+	usart_execute = 0;
+	for (b = 0; b < 8; b++)	
+    10a4:	01 96       	adiw	r24, 0x01	; 1
+    10a6:	88 30       	cpi	r24, 0x08	; 8
+    10a8:	91 05       	cpc	r25, r1
+    10aa:	c1 f7       	brne	.-16     	; 0x109c <usb_mode+0x40>
+		usart_params[b] = 0;
+	unsigned char usb_key_count = eeprom_read_byte((void*)0);
+    10ac:	80 e0       	ldi	r24, 0x00	; 0
+    10ae:	90 e0       	ldi	r25, 0x00	; 0
+    10b0:	38 d2       	rcall	.+1136   	; 0x1522 <eeprom_read_byte>
+    10b2:	68 2e       	mov	r6, r24
+	USART_init();
+    10b4:	85 dc       	rcall	.-1782   	; 0x9c0 <USART_init>
+	while (USB_POWERED)
+	{	
+		for(b = 0; b < 6; b++)
+		{
+			wdt_reset();
+			set_leds(1<<b);
+    10b6:	77 24       	eor	r7, r7
+    10b8:	73 94       	inc	r7
+    10ba:	ce 01       	movw	r24, r28
+    10bc:	09 96       	adiw	r24, 0x09	; 9
+    10be:	7c 01       	movw	r14, r24
+	usart_execute = 0;
+	for (b = 0; b < 8; b++)	
+		usart_params[b] = 0;
+	unsigned char usb_key_count = eeprom_read_byte((void*)0);
+	USART_init();
+	while (USB_POWERED)
+    10c0:	82 99       	sbic	0x10, 2	; 16
+    10c2:	8e c0       	rjmp	.+284    	; 0x11e0 <usb_mode+0x184>
+    10c4:	00 e0       	ldi	r16, 0x00	; 0
+    10c6:	10 e0       	ldi	r17, 0x00	; 0
+	{	
+		for(b = 0; b < 6; b++)
+		{
+			wdt_reset();
+    10c8:	a8 95       	wdr
+			set_leds(1<<b);
+    10ca:	87 2d       	mov	r24, r7
+    10cc:	00 2e       	mov	r0, r16
+    10ce:	01 c0       	rjmp	.+2      	; 0x10d2 <usb_mode+0x76>
+    10d0:	88 0f       	add	r24, r24
+    10d2:	0a 94       	dec	r0
+    10d4:	ea f7       	brpl	.-6      	; 0x10d0 <usb_mode+0x74>
+    10d6:	fb d7       	rcall	.+4086   	; 0x20ce <__TEXT_REGION_LENGTH__+0xce>
+    10d8:	9f e7       	ldi	r25, 0x7F	; 127
+    10da:	e8 e3       	ldi	r30, 0x38	; 56
+    10dc:	f1 e0       	ldi	r31, 0x01	; 1
+    10de:	91 50       	subi	r25, 0x01	; 1
+    10e0:	e0 40       	sbci	r30, 0x00	; 0
+    10e2:	f0 40       	sbci	r31, 0x00	; 0
+    10e4:	e1 f7       	brne	.-8      	; 0x10de <usb_mode+0x82>
+    10e6:	00 c0       	rjmp	.+0      	; 0x10e8 <usb_mode+0x8c>
+    10e8:	00 00       	nop
+			_delay_ms(50);
+			if (usart_execute)
+    10ea:	80 91 f3 00 	lds	r24, 0x00F3	; 0x8000f3 <usart_execute>
+    10ee:	81 11       	cpse	r24, r1
+    10f0:	06 c0       	rjmp	.+12     	; 0x10fe <usb_mode+0xa2>
+    10f2:	0f 5f       	subi	r16, 0xFF	; 255
+    10f4:	1f 4f       	sbci	r17, 0xFF	; 255
+		usart_params[b] = 0;
+	unsigned char usb_key_count = eeprom_read_byte((void*)0);
+	USART_init();
+	while (USB_POWERED)
+	{	
+		for(b = 0; b < 6; b++)
+    10f6:	06 30       	cpi	r16, 0x06	; 6
+    10f8:	11 05       	cpc	r17, r1
+    10fa:	31 f7       	brne	.-52     	; 0x10c8 <usb_mode+0x6c>
+    10fc:	e1 cf       	rjmp	.-62     	; 0x10c0 <usb_mode+0x64>
+			wdt_reset();
+			set_leds(1<<b);
+			_delay_ms(50);
+			if (usart_execute)
+			{
+				if (usart_command_length > 0)
+    10fe:	80 91 f6 00 	lds	r24, 0x00F6	; 0x8000f6 <usart_command_length>
+    1102:	90 91 f7 00 	lds	r25, 0x00F7	; 0x8000f7 <usart_command_length+0x1>
+    1106:	18 16       	cp	r1, r24
+    1108:	19 06       	cpc	r1, r25
+    110a:	0c f0       	brlt	.+2      	; 0x110e <usb_mode+0xb2>
+    110c:	55 c0       	rjmp	.+170    	; 0x11b8 <usb_mode+0x15c>
+				{
+					set_bit(UCSRB, TXEN); // �������� TX
+    110e:	53 9a       	sbi	0x0a, 3	; 10
+    1110:	8f e1       	ldi	r24, 0x1F	; 31
+    1112:	9e e4       	ldi	r25, 0x4E	; 78
+    1114:	01 97       	sbiw	r24, 0x01	; 1
+    1116:	f1 f7       	brne	.-4      	; 0x1114 <usb_mode+0xb8>
+    1118:	00 c0       	rjmp	.+0      	; 0x111a <usb_mode+0xbe>
+    111a:	00 00       	nop
+					_delay_ms(10);
+					if (strcmp((char*)usart_command, COMMAND_NAME) == 0)
+    111c:	60 91 78 00 	lds	r22, 0x0078	; 0x800078 <COMMAND_NAME>
+    1120:	70 91 79 00 	lds	r23, 0x0079	; 0x800079 <COMMAND_NAME+0x1>
+    1124:	81 e0       	ldi	r24, 0x01	; 1
+    1126:	92 e0       	ldi	r25, 0x02	; 2
+    1128:	e3 d1       	rcall	.+966    	; 0x14f0 <strcmp>
+    112a:	89 2b       	or	r24, r25
+    112c:	09 f4       	brne	.+2      	; 0x1130 <usb_mode+0xd4>
+    112e:	6d c0       	rjmp	.+218    	; 0x120a <usb_mode+0x1ae>
+					{
+						USART_TransmitText("iButton Multikey by Cluster\r\n> ");
+					}
+					else if (strcmp((char*)usart_command, COMMAND_REBOOT) == 0)
+    1130:	60 91 76 00 	lds	r22, 0x0076	; 0x800076 <COMMAND_REBOOT>
+    1134:	70 91 77 00 	lds	r23, 0x0077	; 0x800077 <COMMAND_REBOOT+0x1>
+    1138:	81 e0       	ldi	r24, 0x01	; 1
+    113a:	92 e0       	ldi	r25, 0x02	; 2
+    113c:	d9 d1       	rcall	.+946    	; 0x14f0 <strcmp>
+    113e:	89 2b       	or	r24, r25
+    1140:	09 f4       	brne	.+2      	; 0x1144 <usb_mode+0xe8>
+    1142:	ab c0       	rjmp	.+342    	; 0x129a <usb_mode+0x23e>
+						USART_TransmitText("OK.\r\n");
+						cli();
+						set_bit(WDTCR, WDE);
+						while(1);
+					}					
+					else if (strcmp((char*)usart_command, COMMAND_READ) == 0)
+    1144:	60 91 74 00 	lds	r22, 0x0074	; 0x800074 <COMMAND_READ>
+    1148:	70 91 75 00 	lds	r23, 0x0075	; 0x800075 <COMMAND_READ+0x1>
+    114c:	81 e0       	ldi	r24, 0x01	; 1
+    114e:	92 e0       	ldi	r25, 0x02	; 2
+    1150:	cf d1       	rcall	.+926    	; 0x14f0 <strcmp>
+    1152:	89 2b       	or	r24, r25
+    1154:	09 f4       	brne	.+2      	; 0x1158 <usb_mode+0xfc>
+    1156:	5d c0       	rjmp	.+186    	; 0x1212 <usb_mode+0x1b6>
+								USART_TransmitHex(key[b]);
+							}
+						}
+						USART_TransmitText("\r\n> ");
+					}					
+					else if (strcmp((char*)usart_command, COMMAND_ERASE) == 0)
+    1158:	60 91 72 00 	lds	r22, 0x0072	; 0x800072 <COMMAND_ERASE>
+    115c:	70 91 73 00 	lds	r23, 0x0073	; 0x800073 <COMMAND_ERASE+0x1>
+    1160:	81 e0       	ldi	r24, 0x01	; 1
+    1162:	92 e0       	ldi	r25, 0x02	; 2
+    1164:	c5 d1       	rcall	.+906    	; 0x14f0 <strcmp>
+    1166:	89 2b       	or	r24, r25
+    1168:	09 f4       	brne	.+2      	; 0x116c <usb_mode+0x110>
+    116a:	8e c0       	rjmp	.+284    	; 0x1288 <usb_mode+0x22c>
+					{
+						usb_key_count = 0;
+						eeprom_write_byte((void*)0, usb_key_count);
+						USART_TransmitText("Done.\r\n> ");
+					}
+					else if (strcmp((char*)usart_command, COMMAND_WRITE) == 0)
+    116c:	60 91 70 00 	lds	r22, 0x0070	; 0x800070 <COMMAND_WRITE>
+    1170:	70 91 71 00 	lds	r23, 0x0071	; 0x800071 <COMMAND_WRITE+0x1>
+    1174:	81 e0       	ldi	r24, 0x01	; 1
+    1176:	92 e0       	ldi	r25, 0x02	; 2
+    1178:	bb d1       	rcall	.+886    	; 0x14f0 <strcmp>
+    117a:	89 2b       	or	r24, r25
+    117c:	09 f0       	breq	.+2      	; 0x1180 <usb_mode+0x124>
+    117e:	80 c0       	rjmp	.+256    	; 0x1280 <usb_mode+0x224>
+					{
+						
+						usb_key_count++;
+    1180:	63 94       	inc	r6
+						eeprom_write_block((char*)usart_params, (void*)(usb_key_count*8), 8);		
+    1182:	66 2d       	mov	r22, r6
+    1184:	70 e0       	ldi	r23, 0x00	; 0
+    1186:	66 0f       	add	r22, r22
+    1188:	77 1f       	adc	r23, r23
+    118a:	66 0f       	add	r22, r22
+    118c:	77 1f       	adc	r23, r23
+    118e:	66 0f       	add	r22, r22
+    1190:	77 1f       	adc	r23, r23
+    1192:	48 e0       	ldi	r20, 0x08	; 8
+    1194:	50 e0       	ldi	r21, 0x00	; 0
+    1196:	89 ef       	ldi	r24, 0xF9	; 249
+    1198:	91 e0       	ldi	r25, 0x01	; 1
+    119a:	cb d1       	rcall	.+918    	; 0x1532 <eeprom_write_block>
+						eeprom_write_byte((void*)0, usb_key_count);
+    119c:	66 2d       	mov	r22, r6
+    119e:	80 e0       	ldi	r24, 0x00	; 0
+    11a0:	90 e0       	ldi	r25, 0x00	; 0
+    11a2:	d0 d1       	rcall	.+928    	; 0x1544 <eeprom_write_byte>
+						USART_TransmitText("Done.\r\n> ");
+    11a4:	80 eb       	ldi	r24, 0xB0	; 176
+    11a6:	90 e0       	ldi	r25, 0x00	; 0
+    11a8:	2d dc       	rcall	.-1958   	; 0xa04 <USART_TransmitText>
+    11aa:	8f e1       	ldi	r24, 0x1F	; 31
+    11ac:	9e e4       	ldi	r25, 0x4E	; 78
+    11ae:	01 97       	sbiw	r24, 0x01	; 1
+    11b0:	f1 f7       	brne	.-4      	; 0x11ae <usb_mode+0x152>
+    11b2:	00 c0       	rjmp	.+0      	; 0x11b4 <usb_mode+0x158>
+    11b4:	00 00       	nop
+					}
+					else USART_TransmitText("Unknown command\r\n> ");
+					_delay_ms(10);
+					unset_bit(UCSRB, TXEN); // ��������� TX
+    11b6:	53 98       	cbi	0x0a, 3	; 10
+				}
+				usart_command_length = 0;
+    11b8:	10 92 f7 00 	sts	0x00F7, r1	; 0x8000f7 <usart_command_length+0x1>
+    11bc:	10 92 f6 00 	sts	0x00F6, r1	; 0x8000f6 <usart_command_length>
+				usart_mode_params = 0;
+    11c0:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <usart_mode_params>
+				usart_execute = 0;
+    11c4:	10 92 f3 00 	sts	0x00F3, r1	; 0x8000f3 <usart_execute>
+				for (b = 0; b < 8; b++)	
+    11c8:	80 e0       	ldi	r24, 0x00	; 0
+    11ca:	90 e0       	ldi	r25, 0x00	; 0
+					usart_params[b] = 0;			
+    11cc:	fc 01       	movw	r30, r24
+    11ce:	e7 50       	subi	r30, 0x07	; 7
+    11d0:	fe 4f       	sbci	r31, 0xFE	; 254
+    11d2:	10 82       	st	Z, r1
+					unset_bit(UCSRB, TXEN); // ��������� TX
+				}
+				usart_command_length = 0;
+				usart_mode_params = 0;
+				usart_execute = 0;
+				for (b = 0; b < 8; b++)	
+    11d4:	01 96       	adiw	r24, 0x01	; 1
+    11d6:	88 30       	cpi	r24, 0x08	; 8
+    11d8:	91 05       	cpc	r25, r1
+    11da:	c1 f7       	brne	.-16     	; 0x11cc <usb_mode+0x170>
+	usart_execute = 0;
+	for (b = 0; b < 8; b++)	
+		usart_params[b] = 0;
+	unsigned char usb_key_count = eeprom_read_byte((void*)0);
+	USART_init();
+	while (USB_POWERED)
+    11dc:	82 9b       	sbis	0x10, 2	; 16
+    11de:	72 cf       	rjmp	.-284    	; 0x10c4 <usb_mode+0x68>
+				for (b = 0; b < 8; b++)	
+					usart_params[b] = 0;			
+			}
+		}
+	}
+    11e0:	28 96       	adiw	r28, 0x08	; 8
+    11e2:	0f b6       	in	r0, 0x3f	; 63
+    11e4:	f8 94       	cli
+    11e6:	de bf       	out	0x3e, r29	; 62
+    11e8:	0f be       	out	0x3f, r0	; 63
+    11ea:	cd bf       	out	0x3d, r28	; 61
+    11ec:	df 91       	pop	r29
+    11ee:	cf 91       	pop	r28
+    11f0:	1f 91       	pop	r17
+    11f2:	0f 91       	pop	r16
+    11f4:	ff 90       	pop	r15
+    11f6:	ef 90       	pop	r14
+    11f8:	df 90       	pop	r13
+    11fa:	cf 90       	pop	r12
+    11fc:	bf 90       	pop	r11
+    11fe:	af 90       	pop	r10
+    1200:	9f 90       	pop	r9
+    1202:	8f 90       	pop	r8
+    1204:	7f 90       	pop	r7
+    1206:	6f 90       	pop	r6
+    1208:	08 95       	ret
+				{
+					set_bit(UCSRB, TXEN); // �������� TX
+					_delay_ms(10);
+					if (strcmp((char*)usart_command, COMMAND_NAME) == 0)
+					{
+						USART_TransmitText("iButton Multikey by Cluster\r\n> ");
+    120a:	8a e7       	ldi	r24, 0x7A	; 122
+    120c:	90 e0       	ldi	r25, 0x00	; 0
+    120e:	fa db       	rcall	.-2060   	; 0xa04 <USART_TransmitText>
+    1210:	cc cf       	rjmp	.-104    	; 0x11aa <usb_mode+0x14e>
+						set_bit(WDTCR, WDE);
+						while(1);
+					}					
+					else if (strcmp((char*)usart_command, COMMAND_READ) == 0)
+					{
+						USART_TransmitText("Count: ");
+    1212:	80 ea       	ldi	r24, 0xA0	; 160
+    1214:	90 e0       	ldi	r25, 0x00	; 0
+    1216:	f6 db       	rcall	.-2068   	; 0xa04 <USART_TransmitText>
+						USART_TransmitHex(usb_key_count);
+    1218:	86 2d       	mov	r24, r6
+    121a:	df db       	rcall	.-2114   	; 0x9da <USART_TransmitHex>
+						int k;
+						for (k = 0; k < usb_key_count; k++)
+    121c:	66 20       	and	r6, r6
+    121e:	61 f1       	breq	.+88     	; 0x1278 <usb_mode+0x21c>
+    1220:	86 2c       	mov	r8, r6
+    1222:	91 2c       	mov	r9, r1
+    1224:	9f ef       	ldi	r25, 0xFF	; 255
+    1226:	89 1a       	sub	r8, r25
+    1228:	99 0a       	sbc	r9, r25
+    122a:	98 e0       	ldi	r25, 0x08	; 8
+    122c:	a9 2e       	mov	r10, r25
+    122e:	b1 2c       	mov	r11, r1
+    1230:	cc 24       	eor	r12, r12
+    1232:	c3 94       	inc	r12
+    1234:	d1 2c       	mov	r13, r1
+						{
+							USART_TransmitText("\r\nKey: ");
+    1236:	88 ea       	ldi	r24, 0xA8	; 168
+    1238:	90 e0       	ldi	r25, 0x00	; 0
+    123a:	e4 db       	rcall	.-2104   	; 0xa04 <USART_TransmitText>
+							USART_TransmitHex(k+1);
+    123c:	8c 2d       	mov	r24, r12
+    123e:	cd db       	rcall	.-2150   	; 0x9da <USART_TransmitHex>
+							USART_TransmitText(" ");
+    1240:	86 ea       	ldi	r24, 0xA6	; 166
+    1242:	90 e0       	ldi	r25, 0x00	; 0
+    1244:	df db       	rcall	.-2114   	; 0xa04 <USART_TransmitText>
+							unsigned char key[8];
+							eeprom_read_block(key, (void*)((k+1)*8), 8);
+    1246:	48 e0       	ldi	r20, 0x08	; 8
+    1248:	50 e0       	ldi	r21, 0x00	; 0
+    124a:	b5 01       	movw	r22, r10
+    124c:	ce 01       	movw	r24, r28
+    124e:	01 96       	adiw	r24, 0x01	; 1
+    1250:	58 d1       	rcall	.+688    	; 0x1502 <eeprom_read_block>
+    1252:	8e 01       	movw	r16, r28
+    1254:	0f 5f       	subi	r16, 0xFF	; 255
+    1256:	1f 4f       	sbci	r17, 0xFF	; 255
+							int b;
+							for (b = 0; b < 8; b++)
+							{
+								USART_TransmitHex(key[b]);
+    1258:	f8 01       	movw	r30, r16
+    125a:	81 91       	ld	r24, Z+
+    125c:	8f 01       	movw	r16, r30
+    125e:	bd db       	rcall	.-2182   	; 0x9da <USART_TransmitHex>
+							USART_TransmitHex(k+1);
+							USART_TransmitText(" ");
+							unsigned char key[8];
+							eeprom_read_block(key, (void*)((k+1)*8), 8);
+							int b;
+							for (b = 0; b < 8; b++)
+    1260:	0e 15       	cp	r16, r14
+    1262:	1f 05       	cpc	r17, r15
+    1264:	c9 f7       	brne	.-14     	; 0x1258 <usb_mode+0x1fc>
+    1266:	ff ef       	ldi	r31, 0xFF	; 255
+    1268:	cf 1a       	sub	r12, r31
+    126a:	df 0a       	sbc	r13, r31
+    126c:	28 e0       	ldi	r18, 0x08	; 8
+    126e:	a2 0e       	add	r10, r18
+    1270:	b1 1c       	adc	r11, r1
+					else if (strcmp((char*)usart_command, COMMAND_READ) == 0)
+					{
+						USART_TransmitText("Count: ");
+						USART_TransmitHex(usb_key_count);
+						int k;
+						for (k = 0; k < usb_key_count; k++)
+    1272:	8c 14       	cp	r8, r12
+    1274:	9d 04       	cpc	r9, r13
+    1276:	f9 f6       	brne	.-66     	; 0x1236 <usb_mode+0x1da>
+							for (b = 0; b < 8; b++)
+							{
+								USART_TransmitHex(key[b]);
+							}
+						}
+						USART_TransmitText("\r\n> ");
+    1278:	85 eb       	ldi	r24, 0xB5	; 181
+    127a:	90 e0       	ldi	r25, 0x00	; 0
+    127c:	c3 db       	rcall	.-2170   	; 0xa04 <USART_TransmitText>
+    127e:	95 cf       	rjmp	.-214    	; 0x11aa <usb_mode+0x14e>
+						usb_key_count++;
+						eeprom_write_block((char*)usart_params, (void*)(usb_key_count*8), 8);		
+						eeprom_write_byte((void*)0, usb_key_count);
+						USART_TransmitText("Done.\r\n> ");
+					}
+					else USART_TransmitText("Unknown command\r\n> ");
+    1280:	8a eb       	ldi	r24, 0xBA	; 186
+    1282:	90 e0       	ldi	r25, 0x00	; 0
+    1284:	bf db       	rcall	.-2178   	; 0xa04 <USART_TransmitText>
+    1286:	91 cf       	rjmp	.-222    	; 0x11aa <usb_mode+0x14e>
+						USART_TransmitText("\r\n> ");
+					}					
+					else if (strcmp((char*)usart_command, COMMAND_ERASE) == 0)
+					{
+						usb_key_count = 0;
+						eeprom_write_byte((void*)0, usb_key_count);
+    1288:	60 e0       	ldi	r22, 0x00	; 0
+    128a:	80 e0       	ldi	r24, 0x00	; 0
+    128c:	90 e0       	ldi	r25, 0x00	; 0
+    128e:	5a d1       	rcall	.+692    	; 0x1544 <eeprom_write_byte>
+						USART_TransmitText("Done.\r\n> ");
+    1290:	80 eb       	ldi	r24, 0xB0	; 176
+    1292:	90 e0       	ldi	r25, 0x00	; 0
+    1294:	b7 db       	rcall	.-2194   	; 0xa04 <USART_TransmitText>
+						}
+						USART_TransmitText("\r\n> ");
+					}					
+					else if (strcmp((char*)usart_command, COMMAND_ERASE) == 0)
+					{
+						usb_key_count = 0;
+    1296:	61 2c       	mov	r6, r1
+    1298:	88 cf       	rjmp	.-240    	; 0x11aa <usb_mode+0x14e>
+					{
+						USART_TransmitText("iButton Multikey by Cluster\r\n> ");
+					}
+					else if (strcmp((char*)usart_command, COMMAND_REBOOT) == 0)
+					{
+						USART_TransmitText("OK.\r\n");
+    129a:	8a e9       	ldi	r24, 0x9A	; 154
+    129c:	90 e0       	ldi	r25, 0x00	; 0
+    129e:	b2 db       	rcall	.-2204   	; 0xa04 <USART_TransmitText>
+						cli();
+    12a0:	f8 94       	cli
+						set_bit(WDTCR, WDE);
+    12a2:	81 b5       	in	r24, 0x21	; 33
+    12a4:	88 60       	ori	r24, 0x08	; 8
+    12a6:	81 bd       	out	0x21, r24	; 33
+    12a8:	ff cf       	rjmp	.-2      	; 0x12a8 <usb_mode+0x24c>
+
+000012aa <metacom_send>:
+    12aa:	0f 93       	push	r16
+    12ac:	1f 93       	push	r17
+    12ae:	cf 93       	push	r28
+    12b0:	df 93       	push	r29
+    12b2:	8d 9a       	sbi	0x11, 5	; 17
+    12b4:	1d bc       	out	0x2d, r1	; 45
+    12b6:	1c bc       	out	0x2c, r1	; 44
+    12b8:	2c b5       	in	r18, 0x2c	; 44
+    12ba:	3d b5       	in	r19, 0x2d	; 45
+    12bc:	26 39       	cpi	r18, 0x96	; 150
+    12be:	31 05       	cpc	r19, r1
+    12c0:	d8 f3       	brcs	.-10     	; 0x12b8 <metacom_send+0xe>
+    12c2:	8d 98       	cbi	0x11, 5	; 17
+    12c4:	1d bc       	out	0x2d, r1	; 45
+    12c6:	1c bc       	out	0x2c, r1	; 44
+    12c8:	2c b5       	in	r18, 0x2c	; 44
+    12ca:	3d b5       	in	r19, 0x2d	; 45
+    12cc:	22 33       	cpi	r18, 0x32	; 50
+    12ce:	31 05       	cpc	r19, r1
+    12d0:	d8 f3       	brcs	.-10     	; 0x12c8 <metacom_send+0x1e>
+    12d2:	8d 9a       	sbi	0x11, 5	; 17
+    12d4:	1d bc       	out	0x2d, r1	; 45
+    12d6:	1c bc       	out	0x2c, r1	; 44
+    12d8:	2c b5       	in	r18, 0x2c	; 44
+    12da:	3d b5       	in	r19, 0x2d	; 45
+    12dc:	24 36       	cpi	r18, 0x64	; 100
+    12de:	31 05       	cpc	r19, r1
+    12e0:	d8 f3       	brcs	.-10     	; 0x12d8 <metacom_send+0x2e>
+    12e2:	8d 98       	cbi	0x11, 5	; 17
+    12e4:	1d bc       	out	0x2d, r1	; 45
+    12e6:	1c bc       	out	0x2c, r1	; 44
+    12e8:	2c b5       	in	r18, 0x2c	; 44
+    12ea:	3d b5       	in	r19, 0x2d	; 45
+    12ec:	24 36       	cpi	r18, 0x64	; 100
+    12ee:	31 05       	cpc	r19, r1
+    12f0:	d8 f3       	brcs	.-10     	; 0x12e8 <metacom_send+0x3e>
+    12f2:	8d 9a       	sbi	0x11, 5	; 17
+    12f4:	1d bc       	out	0x2d, r1	; 45
+    12f6:	1c bc       	out	0x2c, r1	; 44
+    12f8:	2c b5       	in	r18, 0x2c	; 44
+    12fa:	3d b5       	in	r19, 0x2d	; 45
+    12fc:	22 33       	cpi	r18, 0x32	; 50
+    12fe:	31 05       	cpc	r19, r1
+    1300:	d8 f3       	brcs	.-10     	; 0x12f8 <metacom_send+0x4e>
+    1302:	8d 98       	cbi	0x11, 5	; 17
+    1304:	1d bc       	out	0x2d, r1	; 45
+    1306:	1c bc       	out	0x2c, r1	; 44
+    1308:	2c b5       	in	r18, 0x2c	; 44
+    130a:	3d b5       	in	r19, 0x2d	; 45
+    130c:	22 33       	cpi	r18, 0x32	; 50
+    130e:	31 05       	cpc	r19, r1
+    1310:	d8 f3       	brcs	.-10     	; 0x1308 <metacom_send+0x5e>
+    1312:	8d 9a       	sbi	0x11, 5	; 17
+    1314:	1d bc       	out	0x2d, r1	; 45
+    1316:	1c bc       	out	0x2c, r1	; 44
+    1318:	2c b5       	in	r18, 0x2c	; 44
+    131a:	3d b5       	in	r19, 0x2d	; 45
+    131c:	24 36       	cpi	r18, 0x64	; 100
+    131e:	31 05       	cpc	r19, r1
+    1320:	d8 f3       	brcs	.-10     	; 0x1318 <metacom_send+0x6e>
+    1322:	8d 98       	cbi	0x11, 5	; 17
+    1324:	8c 01       	movw	r16, r24
+    1326:	ec 01       	movw	r28, r24
+    1328:	24 96       	adiw	r28, 0x04	; 4
+    132a:	f3 d6       	rcall	.+3558   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
+    132c:	f8 01       	movw	r30, r16
+    132e:	41 91       	ld	r20, Z+
+    1330:	8f 01       	movw	r16, r30
+    1332:	50 e0       	ldi	r21, 0x00	; 0
+    1334:	60 e0       	ldi	r22, 0x00	; 0
+    1336:	70 e0       	ldi	r23, 0x00	; 0
+    1338:	20 e0       	ldi	r18, 0x00	; 0
+    133a:	30 e0       	ldi	r19, 0x00	; 0
+    133c:	db 01       	movw	r26, r22
+    133e:	ca 01       	movw	r24, r20
+    1340:	02 2e       	mov	r0, r18
+    1342:	04 c0       	rjmp	.+8      	; 0x134c <metacom_send+0xa2>
+    1344:	b6 95       	lsr	r27
+    1346:	a7 95       	ror	r26
+    1348:	97 95       	ror	r25
+    134a:	87 95       	ror	r24
+    134c:	0a 94       	dec	r0
+    134e:	d2 f7       	brpl	.-12     	; 0x1344 <metacom_send+0x9a>
+    1350:	8d 98       	cbi	0x11, 5	; 17
+    1352:	1d bc       	out	0x2d, r1	; 45
+    1354:	1c bc       	out	0x2c, r1	; 44
+    1356:	80 ff       	sbrs	r24, 0
+    1358:	19 c0       	rjmp	.+50     	; 0x138c <metacom_send+0xe2>
+    135a:	8c b5       	in	r24, 0x2c	; 44
+    135c:	9d b5       	in	r25, 0x2d	; 45
+    135e:	84 36       	cpi	r24, 0x64	; 100
+    1360:	91 05       	cpc	r25, r1
+    1362:	d8 f3       	brcs	.-10     	; 0x135a <metacom_send+0xb0>
+    1364:	8d 9a       	sbi	0x11, 5	; 17
+    1366:	1d bc       	out	0x2d, r1	; 45
+    1368:	1c bc       	out	0x2c, r1	; 44
+    136a:	8c b5       	in	r24, 0x2c	; 44
+    136c:	9d b5       	in	r25, 0x2d	; 45
+    136e:	c2 97       	sbiw	r24, 0x32	; 50
+    1370:	e0 f3       	brcs	.-8      	; 0x136a <metacom_send+0xc0>
+    1372:	2f 5f       	subi	r18, 0xFF	; 255
+    1374:	3f 4f       	sbci	r19, 0xFF	; 255
+    1376:	28 30       	cpi	r18, 0x08	; 8
+    1378:	31 05       	cpc	r19, r1
+    137a:	01 f7       	brne	.-64     	; 0x133c <metacom_send+0x92>
+    137c:	c0 17       	cp	r28, r16
+    137e:	d1 07       	cpc	r29, r17
+    1380:	a1 f6       	brne	.-88     	; 0x132a <metacom_send+0x80>
+    1382:	df 91       	pop	r29
+    1384:	cf 91       	pop	r28
+    1386:	1f 91       	pop	r17
+    1388:	0f 91       	pop	r16
+    138a:	08 95       	ret
+    138c:	8c b5       	in	r24, 0x2c	; 44
+    138e:	9d b5       	in	r25, 0x2d	; 45
+    1390:	c2 97       	sbiw	r24, 0x32	; 50
+    1392:	e0 f3       	brcs	.-8      	; 0x138c <metacom_send+0xe2>
+    1394:	8d 9a       	sbi	0x11, 5	; 17
+    1396:	1d bc       	out	0x2d, r1	; 45
+    1398:	1c bc       	out	0x2c, r1	; 44
+    139a:	8c b5       	in	r24, 0x2c	; 44
+    139c:	9d b5       	in	r25, 0x2d	; 45
+    139e:	84 36       	cpi	r24, 0x64	; 100
+    13a0:	91 05       	cpc	r25, r1
+    13a2:	d8 f3       	brcs	.-10     	; 0x139a <metacom_send+0xf0>
+    13a4:	2f 5f       	subi	r18, 0xFF	; 255
+    13a6:	3f 4f       	sbci	r19, 0xFF	; 255
+    13a8:	28 30       	cpi	r18, 0x08	; 8
+    13aa:	31 05       	cpc	r19, r1
+    13ac:	39 f6       	brne	.-114    	; 0x133c <metacom_send+0x92>
+    13ae:	e6 cf       	rjmp	.-52     	; 0x137c <metacom_send+0xd2>
+
+000013b0 <main>:
+}
+
+int main (void)
+{
+	UCSRB = 0; // Выключаем UART, из-за него ток утекает, куда не надо
+    13b0:	1a b8       	out	0x0a, r1	; 10
+	set_bit(LED4_DDR, LED4_PIN); // bottom led
+	set_bit(LED5_DDR, LED5_PIN); // bottom-left led	
+	set_bit(LED6_DDR, LED6_PIN); // top-left led	
+	set_bit(LED7_DDR, LED7_PIN); // center led	
+	*/
+	set_bit(DDRB, PIN1);
+    13b2:	b9 9a       	sbi	0x17, 1	; 23
+	set_bit(DDRB, PIN2);
+    13b4:	ba 9a       	sbi	0x17, 2	; 23
+	set_bit(DDRB, PIN3);
+    13b6:	bb 9a       	sbi	0x17, 3	; 23
+	set_bit(DDRB, PIN4);
+    13b8:	bc 9a       	sbi	0x17, 4	; 23
+
+	unset_bit(BUTTON_DDR, BUTTON_PIN);	set_bit(BUTTON_OUT, BUTTON_PIN); // Подтяжка кнопки
+    13ba:	8b 98       	cbi	0x11, 3	; 17
+    13bc:	93 9a       	sbi	0x12, 3	; 18
+	unset_bit(USB_DETECT_DDR, USB_DETECT_PIN);	set_bit(USB_DETECT_OUT, USB_DETECT_PIN); // Подтяжка определения USB	
+    13be:	8a 98       	cbi	0x11, 2	; 17
+    13c0:	92 9a       	sbi	0x12, 2	; 18
+	unset_bit(CYFRAL_PULLUP_DDR, CYFRAL_PULLUP_PIN); unset_bit(CYFRAL_PULLUP_OUT, CYFRAL_PULLUP_PIN); // Подтяжка 750 Ом выключена
+    13c2:	bf 98       	cbi	0x17, 7	; 23
+    13c4:	c7 98       	cbi	0x18, 7	; 24
+	set_bit(CYFRAL_REFERENCE_DDR, CYFRAL_REFERENCE_PIN); unset_bit(CYFRAL_REFERENCE_OUT, CYFRAL_REFERENCE_PIN); // Делитель напряжения выключен
+    13c6:	b8 9a       	sbi	0x17, 0	; 23
+    13c8:	c0 98       	cbi	0x18, 0	; 24
+	set_bit(LINE_ENABLE_DDR, LINE_ENABLE_PIN); unset_bit(LINE_ENABLE_OUT, LINE_ENABLE_PIN); // линия выключена
+    13ca:	be 9a       	sbi	0x17, 6	; 23
+    13cc:	c6 98       	cbi	0x18, 6	; 24
+	onewire_init();
+    13ce:	3d db       	rcall	.-2438   	; 0xa4a <onewire_init>
+
+	// Лишние ноги прижимаем к земле
+	set_bit(DDRC, 4); unset_bit(PORTC, 4);
+    13d0:	a4 9a       	sbi	0x14, 4	; 20
+    13d2:	ac 98       	cbi	0x15, 4	; 21
+	set_bit(DDRC, 5); unset_bit(PORTC, 5);
+    13d4:	a5 9a       	sbi	0x14, 5	; 20
+    13d6:	ad 98       	cbi	0x15, 5	; 21
+	set_bit(DDRD, 4); unset_bit(PORTD, 4);	
+    13d8:	8c 9a       	sbi	0x11, 4	; 17
+    13da:	94 98       	cbi	0x12, 4	; 18
+		
+	sei();
+    13dc:	78 94       	sei
+		{
+			// При включении показываем бегущий по кругу светодиод
+			for(b = 0; b < 3; b++)
+			{
+				//set_leds(1<<b);
+				leds_mask = 1<<b;
+    13de:	ff 24       	eor	r15, r15
+    13e0:	f3 94       	inc	r15
+				{
+					wdt_reset();
+					update_leds();
+					_delay_ms(1);					
+				}
+				vezdehod_mode = 1; // Включаем режим вездеход-ключей!
+    13e2:	bb 24       	eor	r11, r11
+    13e4:	b3 94       	inc	r11
+		} while (BUTTON_PRESSED);
+
+		if (!vezdehod_mode)
+			key_count = eeprom_read_byte((void*)0);
+		else
+			key_count = sizeof(VEZDEHOD_KEYS) / 2;
+    13e6:	98 e0       	ldi	r25, 0x08	; 8
+    13e8:	e9 2e       	mov	r14, r25
+	}
+	*/
+	
+	while (1)
+	{
+		set_bit(WDTCR, WDCE), set_bit(WDTCR, WDE); // Собака
+    13ea:	81 b5       	in	r24, 0x21	; 33
+    13ec:	80 61       	ori	r24, 0x10	; 16
+    13ee:	81 bd       	out	0x21, r24	; 33
+    13f0:	81 b5       	in	r24, 0x21	; 33
+    13f2:	88 60       	ori	r24, 0x08	; 8
+    13f4:	81 bd       	out	0x21, r24	; 33
+		set_bit(WDTCR, WDCE), set_bit3(WDTCR, WDP2, WDP1, WDP0); // Неспешащая собака
+    13f6:	81 b5       	in	r24, 0x21	; 33
+    13f8:	80 61       	ori	r24, 0x10	; 16
+    13fa:	81 bd       	out	0x21, r24	; 33
+    13fc:	81 b5       	in	r24, 0x21	; 33
+    13fe:	87 60       	ori	r24, 0x07	; 7
+    1400:	81 bd       	out	0x21, r24	; 33
+
+		int t = 0;
+		vezdehod_mode = 0;
+    1402:	10 92 ef 00 	sts	0x00EF, r1	; 0x8000ef <vezdehod_mode>
+	while (1)
+	{
+		set_bit(WDTCR, WDCE), set_bit(WDTCR, WDE); // Собака
+		set_bit(WDTCR, WDCE), set_bit3(WDTCR, WDP2, WDP1, WDP0); // Неспешащая собака
+
+		int t = 0;
+    1406:	c1 2c       	mov	r12, r1
+    1408:	d1 2c       	mov	r13, r1
+		vezdehod_mode = 0;
+		do
+		{
+			// При включении показываем бегущий по кругу светодиод
+			for(b = 0; b < 3; b++)
+    140a:	00 e0       	ldi	r16, 0x00	; 0
+    140c:	10 e0       	ldi	r17, 0x00	; 0
+			{
+				//set_leds(1<<b);
+				leds_mask = 1<<b;
+    140e:	8f 2d       	mov	r24, r15
+    1410:	00 2e       	mov	r0, r16
+    1412:	01 c0       	rjmp	.+2      	; 0x1416 <main+0x66>
+    1414:	88 0f       	add	r24, r24
+    1416:	0a 94       	dec	r0
+    1418:	ea f7       	brpl	.-6      	; 0x1414 <main+0x64>
+    141a:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
+    141e:	ce e1       	ldi	r28, 0x1E	; 30
+    1420:	d0 e0       	ldi	r29, 0x00	; 0
+				for (i = 0;i < 30; i++) // Ждём 30мс, обнуляя собаку и обновляя светодиоды
+				{
+					wdt_reset();
+    1422:	a8 95       	wdr
+					update_leds();
+    1424:	76 d6       	rcall	.+3308   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
+    1426:	8f ec       	ldi	r24, 0xCF	; 207
+    1428:	97 e0       	ldi	r25, 0x07	; 7
+    142a:	01 97       	sbiw	r24, 0x01	; 1
+    142c:	f1 f7       	brne	.-4      	; 0x142a <main+0x7a>
+    142e:	00 c0       	rjmp	.+0      	; 0x1430 <main+0x80>
+    1430:	00 00       	nop
+    1432:	21 97       	sbiw	r28, 0x01	; 1
+			// При включении показываем бегущий по кругу светодиод
+			for(b = 0; b < 3; b++)
+			{
+				//set_leds(1<<b);
+				leds_mask = 1<<b;
+				for (i = 0;i < 30; i++) // Ждём 30мс, обнуляя собаку и обновляя светодиоды
+    1434:	b1 f7       	brne	.-20     	; 0x1422 <main+0x72>
+		int t = 0;
+		vezdehod_mode = 0;
+		do
+		{
+			// При включении показываем бегущий по кругу светодиод
+			for(b = 0; b < 3; b++)
+    1436:	0f 5f       	subi	r16, 0xFF	; 255
+    1438:	1f 4f       	sbci	r17, 0xFF	; 255
+    143a:	03 30       	cpi	r16, 0x03	; 3
+    143c:	11 05       	cpc	r17, r1
+    143e:	39 f7       	brne	.-50     	; 0x140e <main+0x5e>
+					wdt_reset();
+					update_leds();
+					_delay_ms(1);					
+				}
+			}
+			t++;
+    1440:	9f ef       	ldi	r25, 0xFF	; 255
+    1442:	c9 1a       	sub	r12, r25
+    1444:	d9 0a       	sbc	r13, r25
+			if (t == 5) // Если долго держим кнопку, то пишем лог для отладки или переходим в режим вездехода (в зависимости от директивы DEBUG)
+    1446:	85 e0       	ldi	r24, 0x05	; 5
+    1448:	c8 16       	cp	r12, r24
+    144a:	d1 04       	cpc	r13, r1
+    144c:	31 f1       	breq	.+76     	; 0x149a <main+0xea>
+				set_leds(0);
+				while(1);
+*/
+				
+			}
+		} while (BUTTON_PRESSED);
+    144e:	83 9b       	sbis	0x10, 3	; 16
+    1450:	dc cf       	rjmp	.-72     	; 0x140a <main+0x5a>
+
+		if (!vezdehod_mode)
+    1452:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
+    1456:	81 11       	cpse	r24, r1
+    1458:	48 c0       	rjmp	.+144    	; 0x14ea <main+0x13a>
+			key_count = eeprom_read_byte((void*)0);
+    145a:	80 e0       	ldi	r24, 0x00	; 0
+    145c:	90 e0       	ldi	r25, 0x00	; 0
+    145e:	61 d0       	rcall	.+194    	; 0x1522 <eeprom_read_byte>
+    1460:	80 93 f2 00 	sts	0x00F2, r24	; 0x8000f2 <key_count>
+		else
+			key_count = sizeof(VEZDEHOD_KEYS) / 2;
+		
+		if (key_count > 63) key_count = 0;
+    1464:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+    1468:	80 34       	cpi	r24, 0x40	; 64
+    146a:	30 f0       	brcs	.+12     	; 0x1478 <main+0xc8>
+    146c:	10 92 f2 00 	sts	0x00F2, r1	; 0x8000f2 <key_count>
+    1470:	03 c0       	rjmp	.+6      	; 0x1478 <main+0xc8>
+				usb_mode();
+				break;
+			}
+			LINE_ENABLE;
+			if (send_mode() == 0) break;
+			if (read_mode() == 0) break;
+    1472:	e6 d6       	rcall	.+3532   	; 0x2240 <__TEXT_REGION_LENGTH__+0x240>
+    1474:	89 2b       	or	r24, r25
+    1476:	51 f0       	breq	.+20     	; 0x148c <main+0xdc>
+		
+		if (key_count > 63) key_count = 0;
+		
+		while (1)
+		{
+			if (USB_POWERED)
+    1478:	82 9b       	sbis	0x10, 2	; 16
+    147a:	35 c0       	rjmp	.+106    	; 0x14e6 <main+0x136>
+			{
+				usb_mode();
+				break;
+			}
+			LINE_ENABLE;
+    147c:	c6 9a       	sbi	0x18, 6	; 24
+
+// Режим посылки ключа
+int send_mode()
+{	
+	// Если ключей нет, сразу переходим в режим чтения ключей
+	if (!key_count) return 1;
+    147e:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+    1482:	88 23       	and	r24, r24
+    1484:	b1 f3       	breq	.-20     	; 0x1472 <main+0xc2>
+    1486:	a6 d9       	rcall	.-3252   	; 0x7d4 <send_mode.part.2>
+			{
+				usb_mode();
+				break;
+			}
+			LINE_ENABLE;
+			if (send_mode() == 0) break;
+    1488:	89 2b       	or	r24, r25
+    148a:	99 f7       	brne	.-26     	; 0x1472 <main+0xc2>
+			if (read_mode() == 0) break;
+		}
+		
+		if (vezdehod_mode) current_key = 0;
+    148c:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
+    1490:	81 11       	cpse	r24, r1
+    1492:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
+		sleep();
+    1496:	6d da       	rcall	.-2854   	; 0x972 <sleep>
+	}
+    1498:	a8 cf       	rjmp	.-176    	; 0x13ea <main+0x3a>
+
+	}
+	if (digit >> 4) mask |= (1<<7);
+	*/
+	mask = digit;
+	leds_mask = mask;
+    149a:	10 92 f0 00 	sts	0x00F0, r1	; 0x8000f0 <leds_mask>
+	set_leds(mask);
+    149e:	80 e0       	ldi	r24, 0x00	; 0
+    14a0:	16 d6       	rcall	.+3116   	; 0x20ce <__TEXT_REGION_LENGTH__+0xce>
+			t++;
+			if (t == 5) // Если долго держим кнопку, то пишем лог для отладки или переходим в режим вездехода (в зависимости от директивы DEBUG)
+			{
+				show_digit(0); // Показываем 0
+#ifdef DEBUG
+				eeprom_write_byte((void*)1, debug_log_size);				
+    14a2:	60 91 ec 00 	lds	r22, 0x00EC	; 0x8000ec <__data_end>
+    14a6:	81 e0       	ldi	r24, 0x01	; 1
+    14a8:	90 e0       	ldi	r25, 0x00	; 0
+    14aa:	4c d0       	rcall	.+152    	; 0x1544 <eeprom_write_byte>
+				eeprom_write_block((char*)debug_log, (void*)256, debug_log_size*2);
+    14ac:	40 91 ec 00 	lds	r20, 0x00EC	; 0x8000ec <__data_end>
+    14b0:	50 e0       	ldi	r21, 0x00	; 0
+    14b2:	44 0f       	add	r20, r20
+    14b4:	55 1f       	adc	r21, r21
+    14b6:	60 e0       	ldi	r22, 0x00	; 0
+    14b8:	71 e0       	ldi	r23, 0x01	; 1
+    14ba:	88 ef       	ldi	r24, 0xF8	; 248
+    14bc:	90 e0       	ldi	r25, 0x00	; 0
+    14be:	39 d0       	rcall	.+114    	; 0x1532 <eeprom_write_block>
+#endif
+				
+				debug_log_size = 0; // Обнуляем debug-log
+    14c0:	10 92 ec 00 	sts	0x00EC, r1	; 0x8000ec <__data_end>
+    14c4:	c4 ef       	ldi	r28, 0xF4	; 244
+    14c6:	d1 e0       	ldi	r29, 0x01	; 1
+				for (i = 0;i < 500; i++) // Показываем 0 в течении некоторого полусекунды
+				{
+					wdt_reset();
+    14c8:	a8 95       	wdr
+					update_leds();
+    14ca:	23 d6       	rcall	.+3142   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
+    14cc:	8f ec       	ldi	r24, 0xCF	; 207
+    14ce:	97 e0       	ldi	r25, 0x07	; 7
+    14d0:	01 97       	sbiw	r24, 0x01	; 1
+    14d2:	f1 f7       	brne	.-4      	; 0x14d0 <main+0x120>
+    14d4:	00 c0       	rjmp	.+0      	; 0x14d6 <main+0x126>
+    14d6:	00 00       	nop
+    14d8:	21 97       	sbiw	r28, 0x01	; 1
+				eeprom_write_byte((void*)1, debug_log_size);				
+				eeprom_write_block((char*)debug_log, (void*)256, debug_log_size*2);
+#endif
+				
+				debug_log_size = 0; // Обнуляем debug-log
+				for (i = 0;i < 500; i++) // Показываем 0 в течении некоторого полусекунды
+    14da:	b1 f7       	brne	.-20     	; 0x14c8 <main+0x118>
+				{
+					wdt_reset();
+					update_leds();
+					_delay_ms(1);					
+				}
+				vezdehod_mode = 1; // Включаем режим вездеход-ключей!
+    14dc:	b0 92 ef 00 	sts	0x00EF, r11	; 0x8000ef <vezdehod_mode>
+				current_key = 0;
+    14e0:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
+    14e4:	b4 cf       	rjmp	.-152    	; 0x144e <main+0x9e>
+		
+		while (1)
+		{
+			if (USB_POWERED)
+			{
+				usb_mode();
+    14e6:	ba dd       	rcall	.-1164   	; 0x105c <usb_mode>
+				break;
+    14e8:	d1 cf       	rjmp	.-94     	; 0x148c <main+0xdc>
+		} while (BUTTON_PRESSED);
+
+		if (!vezdehod_mode)
+			key_count = eeprom_read_byte((void*)0);
+		else
+			key_count = sizeof(VEZDEHOD_KEYS) / 2;
+    14ea:	e0 92 f2 00 	sts	0x00F2, r14	; 0x8000f2 <key_count>
+    14ee:	ba cf       	rjmp	.-140    	; 0x1464 <main+0xb4>
+
+000014f0 <strcmp>:
+    14f0:	fb 01       	movw	r30, r22
+    14f2:	dc 01       	movw	r26, r24
+    14f4:	8d 91       	ld	r24, X+
+    14f6:	01 90       	ld	r0, Z+
+    14f8:	80 19       	sub	r24, r0
+    14fa:	01 10       	cpse	r0, r1
+    14fc:	d9 f3       	breq	.-10     	; 0x14f4 <strcmp+0x4>
+    14fe:	99 0b       	sbc	r25, r25
+    1500:	08 95       	ret
+
+00001502 <eeprom_read_block>:
+    1502:	dc 01       	movw	r26, r24
+    1504:	cb 01       	movw	r24, r22
+
+00001506 <eeprom_read_blraw>:
+    1506:	fc 01       	movw	r30, r24
+    1508:	e1 99       	sbic	0x1c, 1	; 28
+    150a:	fe cf       	rjmp	.-4      	; 0x1508 <eeprom_read_blraw+0x2>
+    150c:	06 c0       	rjmp	.+12     	; 0x151a <eeprom_read_blraw+0x14>
+    150e:	ff bb       	out	0x1f, r31	; 31
+    1510:	ee bb       	out	0x1e, r30	; 30
+    1512:	e0 9a       	sbi	0x1c, 0	; 28
+    1514:	31 96       	adiw	r30, 0x01	; 1
+    1516:	0d b2       	in	r0, 0x1d	; 29
+    1518:	0d 92       	st	X+, r0
+    151a:	41 50       	subi	r20, 0x01	; 1
+    151c:	50 40       	sbci	r21, 0x00	; 0
+    151e:	b8 f7       	brcc	.-18     	; 0x150e <eeprom_read_blraw+0x8>
+    1520:	08 95       	ret
+
+00001522 <eeprom_read_byte>:
+    1522:	e1 99       	sbic	0x1c, 1	; 28
+    1524:	fe cf       	rjmp	.-4      	; 0x1522 <eeprom_read_byte>
+    1526:	9f bb       	out	0x1f, r25	; 31
+    1528:	8e bb       	out	0x1e, r24	; 30
+    152a:	e0 9a       	sbi	0x1c, 0	; 28
+    152c:	99 27       	eor	r25, r25
+    152e:	8d b3       	in	r24, 0x1d	; 29
+    1530:	08 95       	ret
+
+00001532 <eeprom_write_block>:
+    1532:	dc 01       	movw	r26, r24
+    1534:	cb 01       	movw	r24, r22
+    1536:	02 c0       	rjmp	.+4      	; 0x153c <eeprom_write_block+0xa>
+    1538:	2d 91       	ld	r18, X+
+    153a:	05 d0       	rcall	.+10     	; 0x1546 <eeprom_write_r18>
+    153c:	41 50       	subi	r20, 0x01	; 1
+    153e:	50 40       	sbci	r21, 0x00	; 0
+    1540:	d8 f7       	brcc	.-10     	; 0x1538 <eeprom_write_block+0x6>
+    1542:	08 95       	ret
+
+00001544 <eeprom_write_byte>:
+    1544:	26 2f       	mov	r18, r22
+
+00001546 <eeprom_write_r18>:
+    1546:	e1 99       	sbic	0x1c, 1	; 28
+    1548:	fe cf       	rjmp	.-4      	; 0x1546 <eeprom_write_r18>
+    154a:	9f bb       	out	0x1f, r25	; 31
+    154c:	8e bb       	out	0x1e, r24	; 30
+    154e:	2d bb       	out	0x1d, r18	; 29
+    1550:	0f b6       	in	r0, 0x3f	; 63
+    1552:	f8 94       	cli
+    1554:	e2 9a       	sbi	0x1c, 2	; 28
+    1556:	e1 9a       	sbi	0x1c, 1	; 28
+    1558:	0f be       	out	0x3f, r0	; 63
+    155a:	01 96       	adiw	r24, 0x01	; 1
+    155c:	08 95       	ret
+
+0000155e <_exit>:
+    155e:	f8 94       	cli
+
+00001560 <__stop_program>:
+    1560:	ff cf       	rjmp	.-2      	; 0x1560 <__stop_program>

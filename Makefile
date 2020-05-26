@@ -1,6 +1,6 @@
 MCU_PROGRAMMER = m8
-PROGRAMMER_TYPE = avr109 
-PROGRAMMER_PORT = com3
+PROGRAMMER_TYPE = usbasp 
+PROGRAMMER_PORT = usb
 
 PRG            = ibutton
 OBJ            = main.o usart.o onewire.o cyfral.o usb.o metacom.o
