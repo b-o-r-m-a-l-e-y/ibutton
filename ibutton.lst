@@ -3,27 +3,29 @@ ibutton.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00001562  00000000  00000000  00000094  2**1
+  0 .text         00001562  00000000  00000000  000000b4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000008c  00800060  00001562  000015f6  2**0
+  1 .data         0000008c  00800060  00001562  00001616  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000133  008000ec  008000ec  00001682  2**0
+  2 .bss          00000133  008000ec  008000ec  000016a2  2**0
                   ALLOC
-  3 .stab         00003f3c  00000000  00000000  00001684  2**2
+  3 .eeprom       00000016  00810000  00810000  000016a2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .stab         00003f48  00000000  00000000  000016b8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000016ad  00000000  00000000  000055c0  2**0
+  5 .stabstr      000016d2  00000000  00000000  00005600  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .comment      00000011  00000000  00000000  00006c6d  2**0
+  6 .comment      00000011  00000000  00000000  00006cd2  2**0
                   CONTENTS, READONLY
-  6 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00006c80  2**2
+  7 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00006ce4  2**2
                   CONTENTS, READONLY
-  7 .debug_info   0000048c  00000000  00000000  00006cbc  2**0
+  8 .debug_info   0000048c  00000000  00000000  00006d20  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 0000044e  00000000  00000000  00007148  2**0
+  9 .debug_abbrev 0000044e  00000000  00000000  000071ac  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   0000001a  00000000  00000000  00007596  2**0
+ 10 .debug_line   0000001a  00000000  00000000  000075fa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000017a  00000000  00000000  000075b0  2**0
+ 11 .debug_str    0000017a  00000000  00000000  00007614  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -107,8 +109,8 @@ Disassembly of section .text:
       86:	af 31       	cpi	r26, 0x1F	; 31
       88:	b2 07       	cpc	r27, r18
       8a:	e1 f7       	brne	.-8      	; 0x84 <.do_clear_bss_loop>
-      8c:	91 d9       	rcall	.-3294   	; 0xfffff3b0 <__eeprom_end+0xff7ef3b0>
-      8e:	67 ca       	rjmp	.-2866   	; 0xfffff55e <__eeprom_end+0xff7ef55e>
+      8c:	91 d9       	rcall	.-3294   	; 0xfffff3b0 <__eeprom_end+0xff7ef39a>
+      8e:	67 ca       	rjmp	.-2866   	; 0xfffff55e <__eeprom_end+0xff7ef548>
 
 00000090 <__bad_interrupt>:
       90:	b7 cf       	rjmp	.-146    	; 0x0 <__vectors>
@@ -379,7 +381,7 @@ int key_exists(unsigned char* new_key)
      1ec:	50 e0       	ldi	r21, 0x00	; 0
      1ee:	ce 01       	movw	r24, r28
      1f0:	01 96       	adiw	r24, 0x01	; 1
-     1f2:	87 d9       	rcall	.-3314   	; 0xfffff502 <__eeprom_end+0xff7ef502>
+     1f2:	87 d9       	rcall	.-3314   	; 0xfffff502 <__eeprom_end+0xff7ef4ec>
      1f4:	ac 2d       	mov	r26, r12
      1f6:	bb 2d       	mov	r27, r11
      1f8:	fe 01       	movw	r30, r28
@@ -834,12 +836,12 @@ int read_mode()
      3de:	50 e0       	ldi	r21, 0x00	; 0
      3e0:	ce 01       	movw	r24, r28
      3e2:	01 96       	adiw	r24, 0x01	; 1
-     3e4:	a6 d8       	rcall	.-3764   	; 0xfffff532 <__eeprom_end+0xff7ef532>
+     3e4:	a6 d8       	rcall	.-3764   	; 0xfffff532 <__eeprom_end+0xff7ef51c>
 				eeprom_write_byte((void*)0, key_count);
      3e6:	60 91 f2 00 	lds	r22, 0x00F2	; 0x8000f2 <key_count>
      3ea:	80 e0       	ldi	r24, 0x00	; 0
      3ec:	90 e0       	ldi	r25, 0x00	; 0
-     3ee:	aa d8       	rcall	.-3756   	; 0xfffff544 <__eeprom_end+0xff7ef544>
+     3ee:	aa d8       	rcall	.-3756   	; 0xfffff544 <__eeprom_end+0xff7ef52e>
 				num = key_count;
      3f0:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
      3f4:	7d cf       	rjmp	.-262    	; 0x2f0 <read_mode+0xb0>
@@ -3601,7 +3603,7 @@ void usb_mode(void)
     10b4:	85 dc       	rcall	.-1782   	; 0x9c0 <USART_init>
 	while (USB_POWERED)
 	{	
-		for(b = 0; b < 6; b++)
+		for(b = 0; b < 3; b++)
 		{
 			wdt_reset();
 			set_leds(1<<b);
@@ -3621,7 +3623,7 @@ void usb_mode(void)
     10c4:	00 e0       	ldi	r16, 0x00	; 0
     10c6:	10 e0       	ldi	r17, 0x00	; 0
 	{	
-		for(b = 0; b < 6; b++)
+		for(b = 0; b < 3; b++)
 		{
 			wdt_reset();
     10c8:	a8 95       	wdr
@@ -3654,8 +3656,8 @@ void usb_mode(void)
 	USART_init();
 	while (USB_POWERED)
 	{	
-		for(b = 0; b < 6; b++)
-    10f6:	06 30       	cpi	r16, 0x06	; 6
+		for(b = 0; b < 3; b++)
+    10f6:	03 30       	cpi	r16, 0x03	; 3
     10f8:	11 05       	cpc	r17, r1
     10fa:	31 f7       	brne	.-52     	; 0x10c8 <usb_mode+0x6c>
     10fc:	e1 cf       	rjmp	.-62     	; 0x10c0 <usb_mode+0x64>
@@ -3672,7 +3674,7 @@ void usb_mode(void)
     110a:	0c f0       	brlt	.+2      	; 0x110e <usb_mode+0xb2>
     110c:	55 c0       	rjmp	.+170    	; 0x11b8 <usb_mode+0x15c>
 				{
-					set_bit(UCSRB, TXEN); // Включаем TX
+					set_bit(UCSRB, TXEN); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TX
     110e:	53 9a       	sbi	0x0a, 3	; 10
     1110:	8f e1       	ldi	r24, 0x1F	; 31
     1112:	9e e4       	ldi	r25, 0x4E	; 78
@@ -3780,7 +3782,7 @@ void usb_mode(void)
 					}
 					else USART_TransmitText("Unknown command\r\n> ");
 					_delay_ms(10);
-					unset_bit(UCSRB, TXEN); // Выключаем TX
+					unset_bit(UCSRB, TXEN); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TX
     11b6:	53 98       	cbi	0x0a, 3	; 10
 				}
 				usart_command_length = 0;
@@ -3798,7 +3800,7 @@ void usb_mode(void)
     11ce:	e7 50       	subi	r30, 0x07	; 7
     11d0:	fe 4f       	sbci	r31, 0xFE	; 254
     11d2:	10 82       	st	Z, r1
-					unset_bit(UCSRB, TXEN); // Выключаем TX
+					unset_bit(UCSRB, TXEN); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TX
 				}
 				usart_command_length = 0;
 				usart_mode_params = 0;
@@ -3843,7 +3845,7 @@ void usb_mode(void)
     1206:	6f 90       	pop	r6
     1208:	08 95       	ret
 				{
-					set_bit(UCSRB, TXEN); // Включаем TX
+					set_bit(UCSRB, TXEN); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TX
 					_delay_ms(10);
 					if (strcmp((char*)usart_command, COMMAND_NAME) == 0)
 					{

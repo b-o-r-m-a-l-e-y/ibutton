@@ -35,7 +35,9 @@
 *.app
 *.i*86
 *.x86_64
-#*.hex
+*.hex
+*.bin
+*.srec
 
 # Debug files
 *.dSYM/

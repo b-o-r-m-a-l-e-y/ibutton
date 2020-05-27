@@ -74,7 +74,7 @@ void usb_mode(void)
 	USART_init();
 	while (USB_POWERED)
 	{	
-		for(b = 0; b < 6; b++)
+		for(b = 0; b < 3; b++)
 		{
 			wdt_reset();
 			set_leds(1<<b);
@@ -83,7 +83,7 @@ void usb_mode(void)
 			{
 				if (usart_command_length > 0)
 				{
-					set_bit(UCSRB, TXEN); // Включаем TX
+					set_bit(UCSRB, TXEN); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TX
 					_delay_ms(10);
 					if (strcmp((char*)usart_command, COMMAND_NAME) == 0)
 					{
@@ -132,7 +132,7 @@ void usb_mode(void)
 					}
 					else USART_TransmitText("Unknown command\r\n> ");
 					_delay_ms(10);
-					unset_bit(UCSRB, TXEN); // Выключаем TX
+					unset_bit(UCSRB, TXEN); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TX
 				}
 				usart_command_length = 0;
 				usart_mode_params = 0;
