@@ -3,29 +3,29 @@ ibutton.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00001562  00000000  00000000  000000b4  2**1
+  0 .text         00001560  00000000  00000000  000000b4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000008c  00800060  00001562  00001616  2**0
+  1 .data         0000008c  00800060  00001560  00001614  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000133  008000ec  008000ec  000016a2  2**0
+  2 .bss          00000133  008000ec  008000ec  000016a0  2**0
                   ALLOC
-  3 .eeprom       00000016  00810000  00810000  000016a2  2**0
+  3 .eeprom       00000007  00810000  00810000  000016a0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  4 .stab         00003f48  00000000  00000000  000016b8  2**2
+  4 .stab         00003f54  00000000  00000000  000016a8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  5 .stabstr      000016d2  00000000  00000000  00005600  2**0
+  5 .stabstr      000016c4  00000000  00000000  000055fc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .comment      00000011  00000000  00000000  00006cd2  2**0
+  6 .comment      00000011  00000000  00000000  00006cc0  2**0
                   CONTENTS, READONLY
-  7 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00006ce4  2**2
+  7 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00006cd4  2**2
                   CONTENTS, READONLY
-  8 .debug_info   0000048c  00000000  00000000  00006d20  2**0
+  8 .debug_info   0000048c  00000000  00000000  00006d10  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_abbrev 0000044e  00000000  00000000  000071ac  2**0
+  9 .debug_abbrev 0000044e  00000000  00000000  0000719c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_line   0000001a  00000000  00000000  000075fa  2**0
+ 10 .debug_line   0000001a  00000000  00000000  000075ea  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000017a  00000000  00000000  00007614  2**0
+ 11 .debug_str    0000017a  00000000  00000000  00007604  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -70,10 +70,10 @@ Disassembly of section .text:
       41:	01 ff ff ff ff ff ff 2f                             ......./
 
 00000049 <VEZDEHOD_KEY2>:
-      49:	01 be 40 11 5a 36 00 e1                             ..@.Z6..
+      49:	01 ce 75 c3 00 00 00 bf                             ..u.....
 
 00000051 <VEZDEHOD_KEY1>:
-      51:	01 00 00 00 00 00 00 3d 00                          .......=.
+      51:	01 62 25 d0 0c 00 00 00 00                          .b%......
 
 0000005a <__ctors_end>:
       5a:	11 24       	eor	r1, r1
@@ -87,7 +87,7 @@ Disassembly of section .text:
       66:	10 e0       	ldi	r17, 0x00	; 0
       68:	a0 e6       	ldi	r26, 0x60	; 96
       6a:	b0 e0       	ldi	r27, 0x00	; 0
-      6c:	e2 e6       	ldi	r30, 0x62	; 98
+      6c:	e0 e6       	ldi	r30, 0x60	; 96
       6e:	f5 e1       	ldi	r31, 0x15	; 21
       70:	02 c0       	rjmp	.+4      	; 0x76 <__do_copy_data+0x10>
       72:	05 90       	lpm	r0, Z+
@@ -109,8 +109,8 @@ Disassembly of section .text:
       86:	af 31       	cpi	r26, 0x1F	; 31
       88:	b2 07       	cpc	r27, r18
       8a:	e1 f7       	brne	.-8      	; 0x84 <.do_clear_bss_loop>
-      8c:	91 d9       	rcall	.-3294   	; 0xfffff3b0 <__eeprom_end+0xff7ef39a>
-      8e:	67 ca       	rjmp	.-2866   	; 0xfffff55e <__eeprom_end+0xff7ef548>
+      8c:	91 d9       	rcall	.-3294   	; 0xfffff3b0 <__eeprom_end+0xff7ef3a9>
+      8e:	66 ca       	rjmp	.-2868   	; 0xfffff55c <__eeprom_end+0xff7ef555>
 
 00000090 <__bad_interrupt>:
       90:	b7 cf       	rjmp	.-146    	; 0x0 <__vectors>
@@ -381,7 +381,7 @@ int key_exists(unsigned char* new_key)
      1ec:	50 e0       	ldi	r21, 0x00	; 0
      1ee:	ce 01       	movw	r24, r28
      1f0:	01 96       	adiw	r24, 0x01	; 1
-     1f2:	87 d9       	rcall	.-3314   	; 0xfffff502 <__eeprom_end+0xff7ef4ec>
+     1f2:	86 d9       	rcall	.-3316   	; 0xfffff500 <__eeprom_end+0xff7ef4f9>
      1f4:	ac 2d       	mov	r26, r12
      1f6:	bb 2d       	mov	r27, r11
      1f8:	fe 01       	movw	r30, r28
@@ -836,12 +836,12 @@ int read_mode()
      3de:	50 e0       	ldi	r21, 0x00	; 0
      3e0:	ce 01       	movw	r24, r28
      3e2:	01 96       	adiw	r24, 0x01	; 1
-     3e4:	a6 d8       	rcall	.-3764   	; 0xfffff532 <__eeprom_end+0xff7ef51c>
+     3e4:	a5 d8       	rcall	.-3766   	; 0xfffff530 <__eeprom_end+0xff7ef529>
 				eeprom_write_byte((void*)0, key_count);
      3e6:	60 91 f2 00 	lds	r22, 0x00F2	; 0x8000f2 <key_count>
      3ea:	80 e0       	ldi	r24, 0x00	; 0
      3ec:	90 e0       	ldi	r25, 0x00	; 0
-     3ee:	aa d8       	rcall	.-3756   	; 0xfffff544 <__eeprom_end+0xff7ef52e>
+     3ee:	a9 d8       	rcall	.-3758   	; 0xfffff542 <__eeprom_end+0xff7ef53b>
 				num = key_count;
      3f0:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
      3f4:	7d cf       	rjmp	.-262    	; 0x2f0 <read_mode+0xb0>
@@ -1978,7 +1978,7 @@ void speedup_leds(void)
      952:	50 e0       	ldi	r21, 0x00	; 0
      954:	ce 01       	movw	r24, r28
      956:	01 96       	adiw	r24, 0x01	; 1
-     958:	d4 d5       	rcall	.+2984   	; 0x1502 <eeprom_read_block>
+     958:	d3 d5       	rcall	.+2982   	; 0x1500 <eeprom_read_block>
      95a:	7c cf       	rjmp	.-264    	; 0x854 <send_mode.part.2+0x80>
 			
 			if (BUTTON_PRESSED)
@@ -3597,7 +3597,7 @@ void usb_mode(void)
 	unsigned char usb_key_count = eeprom_read_byte((void*)0);
     10ac:	80 e0       	ldi	r24, 0x00	; 0
     10ae:	90 e0       	ldi	r25, 0x00	; 0
-    10b0:	38 d2       	rcall	.+1136   	; 0x1522 <eeprom_read_byte>
+    10b0:	37 d2       	rcall	.+1134   	; 0x1520 <eeprom_read_byte>
     10b2:	68 2e       	mov	r6, r24
 	USART_init();
     10b4:	85 dc       	rcall	.-1782   	; 0x9c0 <USART_init>
@@ -3688,7 +3688,7 @@ void usb_mode(void)
     1120:	70 91 79 00 	lds	r23, 0x0079	; 0x800079 <COMMAND_NAME+0x1>
     1124:	81 e0       	ldi	r24, 0x01	; 1
     1126:	92 e0       	ldi	r25, 0x02	; 2
-    1128:	e3 d1       	rcall	.+966    	; 0x14f0 <strcmp>
+    1128:	e2 d1       	rcall	.+964    	; 0x14ee <strcmp>
     112a:	89 2b       	or	r24, r25
     112c:	09 f4       	brne	.+2      	; 0x1130 <usb_mode+0xd4>
     112e:	6d c0       	rjmp	.+218    	; 0x120a <usb_mode+0x1ae>
@@ -3700,7 +3700,7 @@ void usb_mode(void)
     1134:	70 91 77 00 	lds	r23, 0x0077	; 0x800077 <COMMAND_REBOOT+0x1>
     1138:	81 e0       	ldi	r24, 0x01	; 1
     113a:	92 e0       	ldi	r25, 0x02	; 2
-    113c:	d9 d1       	rcall	.+946    	; 0x14f0 <strcmp>
+    113c:	d8 d1       	rcall	.+944    	; 0x14ee <strcmp>
     113e:	89 2b       	or	r24, r25
     1140:	09 f4       	brne	.+2      	; 0x1144 <usb_mode+0xe8>
     1142:	ab c0       	rjmp	.+342    	; 0x129a <usb_mode+0x23e>
@@ -3714,7 +3714,7 @@ void usb_mode(void)
     1148:	70 91 75 00 	lds	r23, 0x0075	; 0x800075 <COMMAND_READ+0x1>
     114c:	81 e0       	ldi	r24, 0x01	; 1
     114e:	92 e0       	ldi	r25, 0x02	; 2
-    1150:	cf d1       	rcall	.+926    	; 0x14f0 <strcmp>
+    1150:	ce d1       	rcall	.+924    	; 0x14ee <strcmp>
     1152:	89 2b       	or	r24, r25
     1154:	09 f4       	brne	.+2      	; 0x1158 <usb_mode+0xfc>
     1156:	5d c0       	rjmp	.+186    	; 0x1212 <usb_mode+0x1b6>
@@ -3728,7 +3728,7 @@ void usb_mode(void)
     115c:	70 91 73 00 	lds	r23, 0x0073	; 0x800073 <COMMAND_ERASE+0x1>
     1160:	81 e0       	ldi	r24, 0x01	; 1
     1162:	92 e0       	ldi	r25, 0x02	; 2
-    1164:	c5 d1       	rcall	.+906    	; 0x14f0 <strcmp>
+    1164:	c4 d1       	rcall	.+904    	; 0x14ee <strcmp>
     1166:	89 2b       	or	r24, r25
     1168:	09 f4       	brne	.+2      	; 0x116c <usb_mode+0x110>
     116a:	8e c0       	rjmp	.+284    	; 0x1288 <usb_mode+0x22c>
@@ -3742,7 +3742,7 @@ void usb_mode(void)
     1170:	70 91 71 00 	lds	r23, 0x0071	; 0x800071 <COMMAND_WRITE+0x1>
     1174:	81 e0       	ldi	r24, 0x01	; 1
     1176:	92 e0       	ldi	r25, 0x02	; 2
-    1178:	bb d1       	rcall	.+886    	; 0x14f0 <strcmp>
+    1178:	ba d1       	rcall	.+884    	; 0x14ee <strcmp>
     117a:	89 2b       	or	r24, r25
     117c:	09 f0       	breq	.+2      	; 0x1180 <usb_mode+0x124>
     117e:	80 c0       	rjmp	.+256    	; 0x1280 <usb_mode+0x224>
@@ -3763,12 +3763,12 @@ void usb_mode(void)
     1194:	50 e0       	ldi	r21, 0x00	; 0
     1196:	89 ef       	ldi	r24, 0xF9	; 249
     1198:	91 e0       	ldi	r25, 0x01	; 1
-    119a:	cb d1       	rcall	.+918    	; 0x1532 <eeprom_write_block>
+    119a:	ca d1       	rcall	.+916    	; 0x1530 <eeprom_write_block>
 						eeprom_write_byte((void*)0, usb_key_count);
     119c:	66 2d       	mov	r22, r6
     119e:	80 e0       	ldi	r24, 0x00	; 0
     11a0:	90 e0       	ldi	r25, 0x00	; 0
-    11a2:	d0 d1       	rcall	.+928    	; 0x1544 <eeprom_write_byte>
+    11a2:	cf d1       	rcall	.+926    	; 0x1542 <eeprom_write_byte>
 						USART_TransmitText("Done.\r\n> ");
     11a4:	80 eb       	ldi	r24, 0xB0	; 176
     11a6:	90 e0       	ldi	r25, 0x00	; 0
@@ -3900,7 +3900,7 @@ void usb_mode(void)
     124a:	b5 01       	movw	r22, r10
     124c:	ce 01       	movw	r24, r28
     124e:	01 96       	adiw	r24, 0x01	; 1
-    1250:	58 d1       	rcall	.+688    	; 0x1502 <eeprom_read_block>
+    1250:	57 d1       	rcall	.+686    	; 0x1500 <eeprom_read_block>
     1252:	8e 01       	movw	r16, r28
     1254:	0f 5f       	subi	r16, 0xFF	; 255
     1256:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -3965,7 +3965,7 @@ void usb_mode(void)
     1288:	60 e0       	ldi	r22, 0x00	; 0
     128a:	80 e0       	ldi	r24, 0x00	; 0
     128c:	90 e0       	ldi	r25, 0x00	; 0
-    128e:	5a d1       	rcall	.+692    	; 0x1544 <eeprom_write_byte>
+    128e:	59 d1       	rcall	.+690    	; 0x1542 <eeprom_write_byte>
 						USART_TransmitText("Done.\r\n> ");
     1290:	80 eb       	ldi	r24, 0xB0	; 176
     1292:	90 e0       	ldi	r25, 0x00	; 0
@@ -4182,28 +4182,22 @@ int main (void)
     13dc:	78 94       	sei
 		{
 			// При включении показываем бегущий по кругу светодиод
-			for(b = 0; b < 3; b++)
+			for(b = 0; b < 2; b++)
 			{
 				//set_leds(1<<b);
 				leds_mask = 1<<b;
     13de:	ff 24       	eor	r15, r15
     13e0:	f3 94       	inc	r15
-				{
-					wdt_reset();
-					update_leds();
-					_delay_ms(1);					
-				}
-				vezdehod_mode = 1; // Включаем режим вездеход-ключей!
-    13e2:	bb 24       	eor	r11, r11
-    13e4:	b3 94       	inc	r11
+    13e2:	92 e0       	ldi	r25, 0x02	; 2
+    13e4:	e9 2e       	mov	r14, r25
 		} while (BUTTON_PRESSED);
 
 		if (!vezdehod_mode)
 			key_count = eeprom_read_byte((void*)0);
 		else
 			key_count = sizeof(VEZDEHOD_KEYS) / 2;
-    13e6:	98 e0       	ldi	r25, 0x08	; 8
-    13e8:	e9 2e       	mov	r14, r25
+    13e6:	28 e0       	ldi	r18, 0x08	; 8
+    13e8:	d2 2e       	mov	r13, r18
 	}
 	*/
 	
@@ -4233,306 +4227,312 @@ int main (void)
 		set_bit(WDTCR, WDCE), set_bit3(WDTCR, WDP2, WDP1, WDP0); // Неспешащая собака
 
 		int t = 0;
-    1406:	c1 2c       	mov	r12, r1
-    1408:	d1 2c       	mov	r13, r1
-		vezdehod_mode = 0;
-		do
+    1406:	00 e0       	ldi	r16, 0x00	; 0
+    1408:	10 e0       	ldi	r17, 0x00	; 0
 		{
 			// При включении показываем бегущий по кругу светодиод
-			for(b = 0; b < 3; b++)
-    140a:	00 e0       	ldi	r16, 0x00	; 0
-    140c:	10 e0       	ldi	r17, 0x00	; 0
+			for(b = 0; b < 2; b++)
 			{
 				//set_leds(1<<b);
 				leds_mask = 1<<b;
-    140e:	8f 2d       	mov	r24, r15
-    1410:	00 2e       	mov	r0, r16
-    1412:	01 c0       	rjmp	.+2      	; 0x1416 <main+0x66>
-    1414:	88 0f       	add	r24, r24
-    1416:	0a 94       	dec	r0
-    1418:	ea f7       	brpl	.-6      	; 0x1414 <main+0x64>
-    141a:	80 93 f0 00 	sts	0x00F0, r24	; 0x8000f0 <leds_mask>
-    141e:	ce e1       	ldi	r28, 0x1E	; 30
-    1420:	d0 e0       	ldi	r29, 0x00	; 0
+    140a:	f0 92 f0 00 	sts	0x00F0, r15	; 0x8000f0 <leds_mask>
+    140e:	ce e1       	ldi	r28, 0x1E	; 30
+    1410:	d0 e0       	ldi	r29, 0x00	; 0
 				for (i = 0;i < 30; i++) // Ждём 30мс, обнуляя собаку и обновляя светодиоды
 				{
 					wdt_reset();
-    1422:	a8 95       	wdr
+    1412:	a8 95       	wdr
 					update_leds();
-    1424:	76 d6       	rcall	.+3308   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
-    1426:	8f ec       	ldi	r24, 0xCF	; 207
-    1428:	97 e0       	ldi	r25, 0x07	; 7
-    142a:	01 97       	sbiw	r24, 0x01	; 1
-    142c:	f1 f7       	brne	.-4      	; 0x142a <main+0x7a>
-    142e:	00 c0       	rjmp	.+0      	; 0x1430 <main+0x80>
-    1430:	00 00       	nop
-    1432:	21 97       	sbiw	r28, 0x01	; 1
+    1414:	7e d6       	rcall	.+3324   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
+    1416:	8f ec       	ldi	r24, 0xCF	; 207
+    1418:	97 e0       	ldi	r25, 0x07	; 7
+    141a:	01 97       	sbiw	r24, 0x01	; 1
+    141c:	f1 f7       	brne	.-4      	; 0x141a <main+0x6a>
+    141e:	00 c0       	rjmp	.+0      	; 0x1420 <main+0x70>
+    1420:	00 00       	nop
+    1422:	21 97       	sbiw	r28, 0x01	; 1
 			// При включении показываем бегущий по кругу светодиод
-			for(b = 0; b < 3; b++)
+			for(b = 0; b < 2; b++)
 			{
 				//set_leds(1<<b);
 				leds_mask = 1<<b;
 				for (i = 0;i < 30; i++) // Ждём 30мс, обнуляя собаку и обновляя светодиоды
-    1434:	b1 f7       	brne	.-20     	; 0x1422 <main+0x72>
-		int t = 0;
-		vezdehod_mode = 0;
-		do
+    1424:	b1 f7       	brne	.-20     	; 0x1412 <main+0x62>
 		{
 			// При включении показываем бегущий по кругу светодиод
-			for(b = 0; b < 3; b++)
-    1436:	0f 5f       	subi	r16, 0xFF	; 255
-    1438:	1f 4f       	sbci	r17, 0xFF	; 255
-    143a:	03 30       	cpi	r16, 0x03	; 3
-    143c:	11 05       	cpc	r17, r1
-    143e:	39 f7       	brne	.-50     	; 0x140e <main+0x5e>
+			for(b = 0; b < 2; b++)
+			{
+				//set_leds(1<<b);
+				leds_mask = 1<<b;
+    1426:	e0 92 f0 00 	sts	0x00F0, r14	; 0x8000f0 <leds_mask>
+    142a:	ce e1       	ldi	r28, 0x1E	; 30
+    142c:	d0 e0       	ldi	r29, 0x00	; 0
+				for (i = 0;i < 30; i++) // Ждём 30мс, обнуляя собаку и обновляя светодиоды
+				{
+					wdt_reset();
+    142e:	a8 95       	wdr
+					update_leds();
+    1430:	70 d6       	rcall	.+3296   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
+    1432:	8f ec       	ldi	r24, 0xCF	; 207
+    1434:	97 e0       	ldi	r25, 0x07	; 7
+    1436:	01 97       	sbiw	r24, 0x01	; 1
+    1438:	f1 f7       	brne	.-4      	; 0x1436 <main+0x86>
+    143a:	00 c0       	rjmp	.+0      	; 0x143c <main+0x8c>
+    143c:	00 00       	nop
+    143e:	21 97       	sbiw	r28, 0x01	; 1
+			// При включении показываем бегущий по кругу светодиод
+			for(b = 0; b < 2; b++)
+			{
+				//set_leds(1<<b);
+				leds_mask = 1<<b;
+				for (i = 0;i < 30; i++) // Ждём 30мс, обнуляя собаку и обновляя светодиоды
+    1440:	b1 f7       	brne	.-20     	; 0x142e <main+0x7e>
 					wdt_reset();
 					update_leds();
 					_delay_ms(1);					
 				}
 			}
 			t++;
-    1440:	9f ef       	ldi	r25, 0xFF	; 255
-    1442:	c9 1a       	sub	r12, r25
-    1444:	d9 0a       	sbc	r13, r25
+    1442:	0f 5f       	subi	r16, 0xFF	; 255
+    1444:	1f 4f       	sbci	r17, 0xFF	; 255
 			if (t == 5) // Если долго держим кнопку, то пишем лог для отладки или переходим в режим вездехода (в зависимости от директивы DEBUG)
-    1446:	85 e0       	ldi	r24, 0x05	; 5
-    1448:	c8 16       	cp	r12, r24
-    144a:	d1 04       	cpc	r13, r1
-    144c:	31 f1       	breq	.+76     	; 0x149a <main+0xea>
+    1446:	05 30       	cpi	r16, 0x05	; 5
+    1448:	11 05       	cpc	r17, r1
+    144a:	31 f1       	breq	.+76     	; 0x1498 <main+0xe8>
 				set_leds(0);
 				while(1);
 */
 				
 			}
 		} while (BUTTON_PRESSED);
-    144e:	83 9b       	sbis	0x10, 3	; 16
-    1450:	dc cf       	rjmp	.-72     	; 0x140a <main+0x5a>
+    144c:	83 9b       	sbis	0x10, 3	; 16
+    144e:	dd cf       	rjmp	.-70     	; 0x140a <main+0x5a>
 
 		if (!vezdehod_mode)
-    1452:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
-    1456:	81 11       	cpse	r24, r1
-    1458:	48 c0       	rjmp	.+144    	; 0x14ea <main+0x13a>
+    1450:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
+    1454:	81 11       	cpse	r24, r1
+    1456:	46 c0       	rjmp	.+140    	; 0x14e4 <main+0x134>
 			key_count = eeprom_read_byte((void*)0);
-    145a:	80 e0       	ldi	r24, 0x00	; 0
-    145c:	90 e0       	ldi	r25, 0x00	; 0
-    145e:	61 d0       	rcall	.+194    	; 0x1522 <eeprom_read_byte>
-    1460:	80 93 f2 00 	sts	0x00F2, r24	; 0x8000f2 <key_count>
+    1458:	80 e0       	ldi	r24, 0x00	; 0
+    145a:	90 e0       	ldi	r25, 0x00	; 0
+    145c:	61 d0       	rcall	.+194    	; 0x1520 <eeprom_read_byte>
+    145e:	80 93 f2 00 	sts	0x00F2, r24	; 0x8000f2 <key_count>
 		else
 			key_count = sizeof(VEZDEHOD_KEYS) / 2;
 		
 		if (key_count > 63) key_count = 0;
-    1464:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
-    1468:	80 34       	cpi	r24, 0x40	; 64
-    146a:	30 f0       	brcs	.+12     	; 0x1478 <main+0xc8>
-    146c:	10 92 f2 00 	sts	0x00F2, r1	; 0x8000f2 <key_count>
-    1470:	03 c0       	rjmp	.+6      	; 0x1478 <main+0xc8>
+    1462:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+    1466:	80 34       	cpi	r24, 0x40	; 64
+    1468:	30 f0       	brcs	.+12     	; 0x1476 <main+0xc6>
+    146a:	10 92 f2 00 	sts	0x00F2, r1	; 0x8000f2 <key_count>
+    146e:	03 c0       	rjmp	.+6      	; 0x1476 <main+0xc6>
 				usb_mode();
 				break;
 			}
 			LINE_ENABLE;
 			if (send_mode() == 0) break;
 			if (read_mode() == 0) break;
-    1472:	e6 d6       	rcall	.+3532   	; 0x2240 <__TEXT_REGION_LENGTH__+0x240>
-    1474:	89 2b       	or	r24, r25
-    1476:	51 f0       	breq	.+20     	; 0x148c <main+0xdc>
+    1470:	e7 d6       	rcall	.+3534   	; 0x2240 <__TEXT_REGION_LENGTH__+0x240>
+    1472:	89 2b       	or	r24, r25
+    1474:	51 f0       	breq	.+20     	; 0x148a <main+0xda>
 		
 		if (key_count > 63) key_count = 0;
 		
 		while (1)
 		{
 			if (USB_POWERED)
-    1478:	82 9b       	sbis	0x10, 2	; 16
-    147a:	35 c0       	rjmp	.+106    	; 0x14e6 <main+0x136>
+    1476:	82 9b       	sbis	0x10, 2	; 16
+    1478:	38 c0       	rjmp	.+112    	; 0x14ea <main+0x13a>
 			{
 				usb_mode();
 				break;
 			}
 			LINE_ENABLE;
-    147c:	c6 9a       	sbi	0x18, 6	; 24
+    147a:	c6 9a       	sbi	0x18, 6	; 24
 
 // Режим посылки ключа
 int send_mode()
 {	
 	// Если ключей нет, сразу переходим в режим чтения ключей
 	if (!key_count) return 1;
-    147e:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
-    1482:	88 23       	and	r24, r24
-    1484:	b1 f3       	breq	.-20     	; 0x1472 <main+0xc2>
-    1486:	a6 d9       	rcall	.-3252   	; 0x7d4 <send_mode.part.2>
+    147c:	80 91 f2 00 	lds	r24, 0x00F2	; 0x8000f2 <key_count>
+    1480:	88 23       	and	r24, r24
+    1482:	b1 f3       	breq	.-20     	; 0x1470 <main+0xc0>
+    1484:	a7 d9       	rcall	.-3250   	; 0x7d4 <send_mode.part.2>
 			{
 				usb_mode();
 				break;
 			}
 			LINE_ENABLE;
 			if (send_mode() == 0) break;
-    1488:	89 2b       	or	r24, r25
-    148a:	99 f7       	brne	.-26     	; 0x1472 <main+0xc2>
+    1486:	89 2b       	or	r24, r25
+    1488:	99 f7       	brne	.-26     	; 0x1470 <main+0xc0>
 			if (read_mode() == 0) break;
 		}
 		
 		if (vezdehod_mode) current_key = 0;
-    148c:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
-    1490:	81 11       	cpse	r24, r1
-    1492:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
+    148a:	80 91 ef 00 	lds	r24, 0x00EF	; 0x8000ef <vezdehod_mode>
+    148e:	81 11       	cpse	r24, r1
+    1490:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
 		sleep();
-    1496:	6d da       	rcall	.-2854   	; 0x972 <sleep>
+    1494:	6e da       	rcall	.-2852   	; 0x972 <sleep>
 	}
-    1498:	a8 cf       	rjmp	.-176    	; 0x13ea <main+0x3a>
+    1496:	a9 cf       	rjmp	.-174    	; 0x13ea <main+0x3a>
 
 	}
 	if (digit >> 4) mask |= (1<<7);
 	*/
 	mask = digit;
 	leds_mask = mask;
-    149a:	10 92 f0 00 	sts	0x00F0, r1	; 0x8000f0 <leds_mask>
+    1498:	10 92 f0 00 	sts	0x00F0, r1	; 0x8000f0 <leds_mask>
 	set_leds(mask);
-    149e:	80 e0       	ldi	r24, 0x00	; 0
-    14a0:	16 d6       	rcall	.+3116   	; 0x20ce <__TEXT_REGION_LENGTH__+0xce>
+    149c:	80 e0       	ldi	r24, 0x00	; 0
+    149e:	17 d6       	rcall	.+3118   	; 0x20ce <__TEXT_REGION_LENGTH__+0xce>
 			t++;
 			if (t == 5) // Если долго держим кнопку, то пишем лог для отладки или переходим в режим вездехода (в зависимости от директивы DEBUG)
 			{
 				show_digit(0); // Показываем 0
 #ifdef DEBUG
 				eeprom_write_byte((void*)1, debug_log_size);				
-    14a2:	60 91 ec 00 	lds	r22, 0x00EC	; 0x8000ec <__data_end>
-    14a6:	81 e0       	ldi	r24, 0x01	; 1
-    14a8:	90 e0       	ldi	r25, 0x00	; 0
-    14aa:	4c d0       	rcall	.+152    	; 0x1544 <eeprom_write_byte>
+    14a0:	60 91 ec 00 	lds	r22, 0x00EC	; 0x8000ec <__data_end>
+    14a4:	81 e0       	ldi	r24, 0x01	; 1
+    14a6:	90 e0       	ldi	r25, 0x00	; 0
+    14a8:	4c d0       	rcall	.+152    	; 0x1542 <eeprom_write_byte>
 				eeprom_write_block((char*)debug_log, (void*)256, debug_log_size*2);
-    14ac:	40 91 ec 00 	lds	r20, 0x00EC	; 0x8000ec <__data_end>
-    14b0:	50 e0       	ldi	r21, 0x00	; 0
-    14b2:	44 0f       	add	r20, r20
-    14b4:	55 1f       	adc	r21, r21
-    14b6:	60 e0       	ldi	r22, 0x00	; 0
-    14b8:	71 e0       	ldi	r23, 0x01	; 1
-    14ba:	88 ef       	ldi	r24, 0xF8	; 248
-    14bc:	90 e0       	ldi	r25, 0x00	; 0
-    14be:	39 d0       	rcall	.+114    	; 0x1532 <eeprom_write_block>
+    14aa:	40 91 ec 00 	lds	r20, 0x00EC	; 0x8000ec <__data_end>
+    14ae:	50 e0       	ldi	r21, 0x00	; 0
+    14b0:	44 0f       	add	r20, r20
+    14b2:	55 1f       	adc	r21, r21
+    14b4:	60 e0       	ldi	r22, 0x00	; 0
+    14b6:	71 e0       	ldi	r23, 0x01	; 1
+    14b8:	88 ef       	ldi	r24, 0xF8	; 248
+    14ba:	90 e0       	ldi	r25, 0x00	; 0
+    14bc:	39 d0       	rcall	.+114    	; 0x1530 <eeprom_write_block>
 #endif
 				
 				debug_log_size = 0; // Обнуляем debug-log
-    14c0:	10 92 ec 00 	sts	0x00EC, r1	; 0x8000ec <__data_end>
-    14c4:	c4 ef       	ldi	r28, 0xF4	; 244
-    14c6:	d1 e0       	ldi	r29, 0x01	; 1
+    14be:	10 92 ec 00 	sts	0x00EC, r1	; 0x8000ec <__data_end>
+    14c2:	c4 ef       	ldi	r28, 0xF4	; 244
+    14c4:	d1 e0       	ldi	r29, 0x01	; 1
 				for (i = 0;i < 500; i++) // Показываем 0 в течении некоторого полусекунды
 				{
 					wdt_reset();
-    14c8:	a8 95       	wdr
+    14c6:	a8 95       	wdr
 					update_leds();
-    14ca:	23 d6       	rcall	.+3142   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
-    14cc:	8f ec       	ldi	r24, 0xCF	; 207
-    14ce:	97 e0       	ldi	r25, 0x07	; 7
-    14d0:	01 97       	sbiw	r24, 0x01	; 1
-    14d2:	f1 f7       	brne	.-4      	; 0x14d0 <main+0x120>
-    14d4:	00 c0       	rjmp	.+0      	; 0x14d6 <main+0x126>
-    14d6:	00 00       	nop
-    14d8:	21 97       	sbiw	r28, 0x01	; 1
+    14c8:	24 d6       	rcall	.+3144   	; 0x2112 <__TEXT_REGION_LENGTH__+0x112>
+    14ca:	8f ec       	ldi	r24, 0xCF	; 207
+    14cc:	97 e0       	ldi	r25, 0x07	; 7
+    14ce:	01 97       	sbiw	r24, 0x01	; 1
+    14d0:	f1 f7       	brne	.-4      	; 0x14ce <main+0x11e>
+    14d2:	00 c0       	rjmp	.+0      	; 0x14d4 <main+0x124>
+    14d4:	00 00       	nop
+    14d6:	21 97       	sbiw	r28, 0x01	; 1
 				eeprom_write_byte((void*)1, debug_log_size);				
 				eeprom_write_block((char*)debug_log, (void*)256, debug_log_size*2);
 #endif
 				
 				debug_log_size = 0; // Обнуляем debug-log
 				for (i = 0;i < 500; i++) // Показываем 0 в течении некоторого полусекунды
-    14da:	b1 f7       	brne	.-20     	; 0x14c8 <main+0x118>
+    14d8:	b1 f7       	brne	.-20     	; 0x14c6 <main+0x116>
 				{
 					wdt_reset();
 					update_leds();
 					_delay_ms(1);					
 				}
 				vezdehod_mode = 1; // Включаем режим вездеход-ключей!
-    14dc:	b0 92 ef 00 	sts	0x00EF, r11	; 0x8000ef <vezdehod_mode>
+    14da:	f0 92 ef 00 	sts	0x00EF, r15	; 0x8000ef <vezdehod_mode>
 				current_key = 0;
-    14e0:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
-    14e4:	b4 cf       	rjmp	.-152    	; 0x144e <main+0x9e>
-		
-		while (1)
-		{
-			if (USB_POWERED)
-			{
-				usb_mode();
-    14e6:	ba dd       	rcall	.-1164   	; 0x105c <usb_mode>
-				break;
-    14e8:	d1 cf       	rjmp	.-94     	; 0x148c <main+0xdc>
+    14de:	10 92 f1 00 	sts	0x00F1, r1	; 0x8000f1 <current_key>
+    14e2:	b4 cf       	rjmp	.-152    	; 0x144c <main+0x9c>
 		} while (BUTTON_PRESSED);
 
 		if (!vezdehod_mode)
 			key_count = eeprom_read_byte((void*)0);
 		else
 			key_count = sizeof(VEZDEHOD_KEYS) / 2;
-    14ea:	e0 92 f2 00 	sts	0x00F2, r14	; 0x8000f2 <key_count>
-    14ee:	ba cf       	rjmp	.-140    	; 0x1464 <main+0xb4>
+    14e4:	d0 92 f2 00 	sts	0x00F2, r13	; 0x8000f2 <key_count>
+    14e8:	bc cf       	rjmp	.-136    	; 0x1462 <main+0xb2>
+		
+		while (1)
+		{
+			if (USB_POWERED)
+			{
+				usb_mode();
+    14ea:	b8 dd       	rcall	.-1168   	; 0x105c <usb_mode>
+				break;
+    14ec:	ce cf       	rjmp	.-100    	; 0x148a <main+0xda>
 
-000014f0 <strcmp>:
-    14f0:	fb 01       	movw	r30, r22
-    14f2:	dc 01       	movw	r26, r24
-    14f4:	8d 91       	ld	r24, X+
-    14f6:	01 90       	ld	r0, Z+
-    14f8:	80 19       	sub	r24, r0
-    14fa:	01 10       	cpse	r0, r1
-    14fc:	d9 f3       	breq	.-10     	; 0x14f4 <strcmp+0x4>
-    14fe:	99 0b       	sbc	r25, r25
-    1500:	08 95       	ret
+000014ee <strcmp>:
+    14ee:	fb 01       	movw	r30, r22
+    14f0:	dc 01       	movw	r26, r24
+    14f2:	8d 91       	ld	r24, X+
+    14f4:	01 90       	ld	r0, Z+
+    14f6:	80 19       	sub	r24, r0
+    14f8:	01 10       	cpse	r0, r1
+    14fa:	d9 f3       	breq	.-10     	; 0x14f2 <strcmp+0x4>
+    14fc:	99 0b       	sbc	r25, r25
+    14fe:	08 95       	ret
 
-00001502 <eeprom_read_block>:
-    1502:	dc 01       	movw	r26, r24
-    1504:	cb 01       	movw	r24, r22
+00001500 <eeprom_read_block>:
+    1500:	dc 01       	movw	r26, r24
+    1502:	cb 01       	movw	r24, r22
 
-00001506 <eeprom_read_blraw>:
-    1506:	fc 01       	movw	r30, r24
-    1508:	e1 99       	sbic	0x1c, 1	; 28
-    150a:	fe cf       	rjmp	.-4      	; 0x1508 <eeprom_read_blraw+0x2>
-    150c:	06 c0       	rjmp	.+12     	; 0x151a <eeprom_read_blraw+0x14>
-    150e:	ff bb       	out	0x1f, r31	; 31
-    1510:	ee bb       	out	0x1e, r30	; 30
-    1512:	e0 9a       	sbi	0x1c, 0	; 28
-    1514:	31 96       	adiw	r30, 0x01	; 1
-    1516:	0d b2       	in	r0, 0x1d	; 29
-    1518:	0d 92       	st	X+, r0
-    151a:	41 50       	subi	r20, 0x01	; 1
-    151c:	50 40       	sbci	r21, 0x00	; 0
-    151e:	b8 f7       	brcc	.-18     	; 0x150e <eeprom_read_blraw+0x8>
-    1520:	08 95       	ret
+00001504 <eeprom_read_blraw>:
+    1504:	fc 01       	movw	r30, r24
+    1506:	e1 99       	sbic	0x1c, 1	; 28
+    1508:	fe cf       	rjmp	.-4      	; 0x1506 <eeprom_read_blraw+0x2>
+    150a:	06 c0       	rjmp	.+12     	; 0x1518 <eeprom_read_blraw+0x14>
+    150c:	ff bb       	out	0x1f, r31	; 31
+    150e:	ee bb       	out	0x1e, r30	; 30
+    1510:	e0 9a       	sbi	0x1c, 0	; 28
+    1512:	31 96       	adiw	r30, 0x01	; 1
+    1514:	0d b2       	in	r0, 0x1d	; 29
+    1516:	0d 92       	st	X+, r0
+    1518:	41 50       	subi	r20, 0x01	; 1
+    151a:	50 40       	sbci	r21, 0x00	; 0
+    151c:	b8 f7       	brcc	.-18     	; 0x150c <eeprom_read_blraw+0x8>
+    151e:	08 95       	ret
 
-00001522 <eeprom_read_byte>:
-    1522:	e1 99       	sbic	0x1c, 1	; 28
-    1524:	fe cf       	rjmp	.-4      	; 0x1522 <eeprom_read_byte>
-    1526:	9f bb       	out	0x1f, r25	; 31
-    1528:	8e bb       	out	0x1e, r24	; 30
-    152a:	e0 9a       	sbi	0x1c, 0	; 28
-    152c:	99 27       	eor	r25, r25
-    152e:	8d b3       	in	r24, 0x1d	; 29
-    1530:	08 95       	ret
+00001520 <eeprom_read_byte>:
+    1520:	e1 99       	sbic	0x1c, 1	; 28
+    1522:	fe cf       	rjmp	.-4      	; 0x1520 <eeprom_read_byte>
+    1524:	9f bb       	out	0x1f, r25	; 31
+    1526:	8e bb       	out	0x1e, r24	; 30
+    1528:	e0 9a       	sbi	0x1c, 0	; 28
+    152a:	99 27       	eor	r25, r25
+    152c:	8d b3       	in	r24, 0x1d	; 29
+    152e:	08 95       	ret
 
-00001532 <eeprom_write_block>:
-    1532:	dc 01       	movw	r26, r24
-    1534:	cb 01       	movw	r24, r22
-    1536:	02 c0       	rjmp	.+4      	; 0x153c <eeprom_write_block+0xa>
-    1538:	2d 91       	ld	r18, X+
-    153a:	05 d0       	rcall	.+10     	; 0x1546 <eeprom_write_r18>
-    153c:	41 50       	subi	r20, 0x01	; 1
-    153e:	50 40       	sbci	r21, 0x00	; 0
-    1540:	d8 f7       	brcc	.-10     	; 0x1538 <eeprom_write_block+0x6>
-    1542:	08 95       	ret
+00001530 <eeprom_write_block>:
+    1530:	dc 01       	movw	r26, r24
+    1532:	cb 01       	movw	r24, r22
+    1534:	02 c0       	rjmp	.+4      	; 0x153a <eeprom_write_block+0xa>
+    1536:	2d 91       	ld	r18, X+
+    1538:	05 d0       	rcall	.+10     	; 0x1544 <eeprom_write_r18>
+    153a:	41 50       	subi	r20, 0x01	; 1
+    153c:	50 40       	sbci	r21, 0x00	; 0
+    153e:	d8 f7       	brcc	.-10     	; 0x1536 <eeprom_write_block+0x6>
+    1540:	08 95       	ret
 
-00001544 <eeprom_write_byte>:
-    1544:	26 2f       	mov	r18, r22
+00001542 <eeprom_write_byte>:
+    1542:	26 2f       	mov	r18, r22
 
-00001546 <eeprom_write_r18>:
-    1546:	e1 99       	sbic	0x1c, 1	; 28
-    1548:	fe cf       	rjmp	.-4      	; 0x1546 <eeprom_write_r18>
-    154a:	9f bb       	out	0x1f, r25	; 31
-    154c:	8e bb       	out	0x1e, r24	; 30
-    154e:	2d bb       	out	0x1d, r18	; 29
-    1550:	0f b6       	in	r0, 0x3f	; 63
-    1552:	f8 94       	cli
-    1554:	e2 9a       	sbi	0x1c, 2	; 28
-    1556:	e1 9a       	sbi	0x1c, 1	; 28
-    1558:	0f be       	out	0x3f, r0	; 63
-    155a:	01 96       	adiw	r24, 0x01	; 1
-    155c:	08 95       	ret
+00001544 <eeprom_write_r18>:
+    1544:	e1 99       	sbic	0x1c, 1	; 28
+    1546:	fe cf       	rjmp	.-4      	; 0x1544 <eeprom_write_r18>
+    1548:	9f bb       	out	0x1f, r25	; 31
+    154a:	8e bb       	out	0x1e, r24	; 30
+    154c:	2d bb       	out	0x1d, r18	; 29
+    154e:	0f b6       	in	r0, 0x3f	; 63
+    1550:	f8 94       	cli
+    1552:	e2 9a       	sbi	0x1c, 2	; 28
+    1554:	e1 9a       	sbi	0x1c, 1	; 28
+    1556:	0f be       	out	0x3f, r0	; 63
+    1558:	01 96       	adiw	r24, 0x01	; 1
+    155a:	08 95       	ret
 
-0000155e <_exit>:
-    155e:	f8 94       	cli
+0000155c <_exit>:
+    155c:	f8 94       	cli
 
-00001560 <__stop_program>:
-    1560:	ff cf       	rjmp	.-2      	; 0x1560 <__stop_program>
+0000155e <__stop_program>:
+    155e:	ff cf       	rjmp	.-2      	; 0x155e <__stop_program>
